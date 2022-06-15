@@ -1,0 +1,28 @@
+.Navbar{
+    justify-content:center !important;
+     
+    width: 100%;
+    padding:2px 15px 2px 15px;
+    background: rgb(27, 26, 26);
+   
+}
+
+.appContent{
+    font-size: 17px;
+    color:white;
+}
+.appContent:hover{
+    color:orange;
+    font-size: 17px; 
+    font-weight: bold;   
+}
+.appTitle{
+    color:orange;
+    font-size: 19px;
+    font-weight: bold;
+}
+.appTitle:hover{
+    color:grey;
+    font-size: 19px;
+    font-weight: normal;
+}
