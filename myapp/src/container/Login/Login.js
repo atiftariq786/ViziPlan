@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 //import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+//import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 //import API from "../../../utils/API";
 //import LoginError from "../../Modals/LoginError/loginError";
 
@@ -15,6 +15,8 @@ const Login = () => {
   const [userName, setUserame] = useState("alex777");
   const [password, setPassword] = useState("Asialink777");
   const [isValidLoginForm, setIsValidLoginForm] = useState(true);
+
+  console.log(isValidLoginForm);
 
   const usernameHandler = (event) => {
     setUserame(event.target.value);

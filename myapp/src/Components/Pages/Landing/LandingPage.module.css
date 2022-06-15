@@ -4,8 +4,7 @@
     position:absolute;
     top: 0px;
     left: 0px;
-    color:white !important;
-    
+    color:white !important; 
 }
 .mainDiv{
     width:100%;
@@ -15,9 +14,8 @@
     display: flex;
 }
 .landingImage{
-    width:65%;
+    width:65%;  
     height: 100vh;
-    
 }
 .introDiv{
     width:35%;
@@ -28,12 +26,9 @@
     margin-top: 2%;
     width:100%;
     height: 5vh;
-    background: transparent;
-  
-  
-      
+    background: transparent;     
 }
-.login{
+.loginBtn{
     background: rgb(204, 17, 17) !important;
     color:white !important;
     width: 75px;
@@ -59,7 +54,7 @@
     border-radius: 4px;
     margin-top: 5%;
 }
-.quotes{
+.quotesBtn{
     margin-top: 35%;
     
 }
