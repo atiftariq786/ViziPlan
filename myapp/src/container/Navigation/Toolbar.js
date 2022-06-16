@@ -7,11 +7,13 @@ import Styles from "./Toolbar.module.css";
 const Toolbar = () => {
   return (
     <Navbar className={Styles.Navbar} expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand className={Styles.appTitle}>ViziPlan</Navbar.Brand>
+      <NavLink to="/">
+        <Navbar.Brand className={Styles.appTitle}>ViziPlan</Navbar.Brand>
+      </NavLink>
 
       <Navbar.Collapse>
         <Nav className="me-auto">
-          <NavLink to="/vision-board/">
+          <NavLink to="/visionboard/">
             <Navbar.Brand className={Styles.appContent}>
               Vision Board
             </Navbar.Brand>
