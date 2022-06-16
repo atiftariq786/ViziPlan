@@ -7,7 +7,7 @@ import Styles from "../Landing/LandingPage.module.css";
 import Button from "../../Button/Button";
 
 const LandingPage = () => {
-  //=====
+  //=========================
   return (
     <div className={Styles.mainDiv}>
       <div className={Styles.landingImage}>
