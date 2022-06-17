@@ -15,16 +15,16 @@ import "./App.css";
 function App() {
   return (
     <Layout>
-      <Route path="/" component={LandingPage} />
+      <Route path="/home" component={LandingPage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
-      {/* <Route path="/direct" component={Dashboard} /> */}
+
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/visionboard" component={VisionBoard} />
       <Route path="/goals" component={Goals} />
-      <Route path="/about/" component={About} />
-      <Route path="/appdemo/" component={AppDemo} />
-      <Route path="/future-dev/" component={FutureDev} />
+      <Route path="/about" component={About} />
+      <Route path="/appdemo" component={AppDemo} />
+      <Route path="/future-dev" component={FutureDev} />
     </Layout>
   );
 }

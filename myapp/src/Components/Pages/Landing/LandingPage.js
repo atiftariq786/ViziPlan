@@ -9,7 +9,7 @@ import Button from "../../Button/Button";
 const LandingPage = () => {
   //=========================
   return (
-    <div className={Styles.mainDiv}>
+    <div className={Styles.landingMainDiv}>
       <div className={Styles.landingImage}>
         <img
           style={{ width: "100%", height: "100vh" }}

@@ -109,7 +109,7 @@ const Login = () => {
               </Link>
             }
           </p>
-          <Link to="/" className={Styles.backButton}>
+          <Link to="/home" className={Styles.backButton}>
             back
           </Link>
         </form>

@@ -1,23 +1,67 @@
-.mainDiv{
+.visionBoardMainDiv{
     width:100%;
     height: 100%;
     position: fixed;
     text-align: center;
-    display: flex;
+    display: flex;   
+    background: grey;
 }
-.demoImage{
-    width:65%;
+.gridImages{
+    width:50%;
+    background: rgb(184, 86, 86);
+    display:block;  
     height: 100vh;
+    text-align: left;
+ 
 }
+.gridSelectedImages{
+    width:50%;
+    height: 100vh;
+    background: rgb(64, 61, 61) !important;
+  
+}
+
+.visionImages{
+    width: 275px;
+    height: 275px;
+    padding: 0px 4px 4px 0px;
+    margin: 5px 0px 0px 5px;
+    border-radius: 10px;
+    background: black;
+}
+.addImage{
+   
+    width: 250px;
+    height: 250px;
+    padding: 0px 4px 4px 0px;
+    margin: 5px 0px 0px 5px;
+   
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.42);
+    border-style:dashed;
+    border-width: 10px;
+    border-color:  rgba(94, 93, 93, 0.648);
+   
+}
+.plusSign{
+    color:rgb(87, 87, 87);
+    font-size:120px;
+    text-align: center;
+    padding: 0% 0% 70% 0%;
+
+
+}
+
 .title{
-    margin-top: 35%;
-    margin-left: 40%;
+    margin-top: 15%;
+    margin-left: 60%;
     position:absolute;
     top: 0px;
     left: 0px;
     font-weight: 400;
-    
+    text-align: left;    
     color:white !important; 
+    font-size: 40px;
 }
 .backButton{
     width:80px;

@@ -7,7 +7,7 @@ import Styles from "./About.module.css";
 
 const about = (props) => {
   return (
-    <div className={Styles.container}>
+    <div className={Styles.aboutMainDiv}>
       <div className={Styles.descriptionDiv}>
         <h2 style={{ textAlign: "center" }}>About</h2>
         <h5>The App</h5>
@@ -40,7 +40,7 @@ const about = (props) => {
           developer position, if you know of any please ping me! Please click
           around and provide me feedback at atiftariq786[@]gmail[.]com
         </p>
-        <NavLink to="/" className={Styles.backButton}>
+        <NavLink to="/home" className={Styles.backButton}>
           back
         </NavLink>
         <div className={Styles.gitLinkedin}>

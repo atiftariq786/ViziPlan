@@ -119,7 +119,7 @@ const Signup = () => {
             }
           </p>
 
-          <NavLink to="/" className={Styles.backButton}>
+          <NavLink to="/home" className={Styles.backButton}>
             back
           </NavLink>
         </form>

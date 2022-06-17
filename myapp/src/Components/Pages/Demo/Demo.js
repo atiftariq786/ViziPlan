@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const AppDemo = () => {
   return (
-    <div className={Styles.mainDiv}>
+    <div className={Styles.demoMainDiv}>
       <img
         style={{ width: "100%", height: "100vh" }}
         src={require("../../../assets/images/skydive.jpg")}
@@ -12,7 +12,7 @@ const AppDemo = () => {
       ></img>
       <h1 className={Styles.title}>
         ViziPlaning demo coming soon.........! <br />
-        <NavLink to="/" className={Styles.backButton}>
+        <NavLink to="/home" className={Styles.backButton}>
           back
         </NavLink>
       </h1>
