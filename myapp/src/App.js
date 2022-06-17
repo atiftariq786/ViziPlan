@@ -10,11 +10,13 @@ import LandingPage from "./components/Pages/Landing/LandingPage";
 import Dashboard from "./container/FeaturePages/Dashboard/Dashboard";
 import Goals from "./container/FeaturePages/Goals/Goals";
 import VisionBoard from "./container/FeaturePages/VisionBoard/VisionBoard";
+import ImagesList from "./container/FeaturePages/VisionBoard/ImagesList/ImagesList";
 import "./App.css";
 
 function App() {
   return (
     <Layout>
+      <ImagesList />
       <Route path="/home" component={LandingPage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />

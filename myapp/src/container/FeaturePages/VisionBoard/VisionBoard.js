@@ -8,19 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const VisionBoard = () => {
   return (
-    <div visionBoardMainDiv>
-      {/*==============================Section-1=======================================*/}
-      <div className={Styles.gridImages}>
-        <img
-          className={Styles.visionImages}
-          src={require("../../../assets/images/goals.jpg")}
-          alt="ViziPlaning"
-        ></img>
-        <div className={Styles.addImage}>
-          {/* <p className={Styles.plusSign}>+</p> */}
-        </div>
-      </div>
-
+    <div>
       {/*=================================Section-2====================================*/}
       <div className={Styles.gridSelectedImages}>
         <h1 className={Styles.title}>

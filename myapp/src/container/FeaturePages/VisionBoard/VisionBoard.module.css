@@ -9,7 +9,8 @@
 .gridImages{
     width:50%;
     background: rgb(184, 86, 86);
-    display:block;  
+    display:flex;  
+    flex-flow: row wrap;
     height: 100vh;
     text-align: left;
  

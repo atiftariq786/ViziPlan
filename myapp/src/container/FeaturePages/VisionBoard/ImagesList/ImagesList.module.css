@@ -1,0 +1,65 @@
+.container{
+    width:100%;
+    height: 100%;
+    background: grey;
+}
+.gridImages{
+    width:100%;
+    background: white;
+    display:flex;  
+    flex-flow: row wrap;
+    text-align: left;
+}
+
+.visionImages{
+    width: 278px;
+    height: 278px; 
+    margin: 5px 0px 0px 5px;
+    border-radius: 5px;
+    background: black;
+}
+.visionImages:hover{
+     
+   cursor: pointer;
+   transform: scale(1.02);
+    
+}
+.addImage{
+    width: 255px;
+    height: 255px;   
+    margin: 5px 0px 0px 5px;
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.42);
+    border-style:dashed;
+    border-width: 10px;
+    border-color:  rgba(94, 93, 93, 0.304);
+   
+}
+.plusSign{
+    width:255px;
+    height: 255px;
+    margin: 40px 0px 0px 0px;
+    color:rgb(87, 87, 87);
+    font-size:100px;
+    text-align: center;
+}
+.addImageBtn{
+    width:278px;
+    height: 278px;
+    margin: 5px 0px 0px 5px;
+    color:grey;
+    font-size:100px;   
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.42);
+    border-style:dashed;
+    border-width: 10px;
+    border-color:  rgba(94, 93, 93, 0.304);
+}
+.addImageBtn:hover{
+    
+    font-size:150px;
+    color: rgb(231, 230, 230);
+    border-color:rgb(231, 230, 230);
+    cursor: pointer;
+}
+
