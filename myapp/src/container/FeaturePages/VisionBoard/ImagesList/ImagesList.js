@@ -4,10 +4,10 @@ import Styles from "../ImagesList/ImagesList.module.css";
 //import TempModel from "../../../../components/Model/AddImage/temp";
 
 const ImagesList = () => {
-  const [AddImageState, setAddImageState] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const addImageHandler = () => {
-    setAddImageState(true);
+  const addImageModalHandler = () => {
+    setShowModal(!showModal);
   };
 
   let webImages = [
@@ -25,31 +25,49 @@ const ImagesList = () => {
     },
     {
       Title: "Traveling",
-      src: "https://wallpapercave.com/wp/wp1903459.jpg",
+      src: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2021%2F06%2F24%2Fitaly-venice-EUSUMMERTRAVEL0621.jpg",
       alt: "WebIamge",
       id: 23,
     },
     {
       Title: "Traveling",
-      src: "https://wallpapercave.com/wp/wp1903459.jpg",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDYWdDWq_UCSVYpNBCUDKXnqf0dSZt2dJATg&usqp=CAU",
       alt: "WebIamge",
       id: 24,
     },
     {
       Title: "Traveling",
-      src: "https://wallpapercave.com/wp/wp1903459.jpg",
+      src: "https://cdn.lifehack.org/wp-content/uploads/2014/09/traveling-changes-your-life-1024x768.jpeg",
       alt: "WebIamge",
       id: 25,
     },
     {
       Title: "Traveling",
-      src: "https://wallpapercave.com/wp/wp1903459.jpg",
+      src: "https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?cs=srgb&dl=pexels-asad-photo-maldives-3155666.jpg&fm=jpg",
       alt: "WebIamge",
       id: 26,
     },
     {
       Title: "Traveling",
-      src: "https://wallpapercave.com/wp/wp1903459.jpg",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHlPV78oDliBqT3lBJ3OyP5ENC9ixCZYa6cA&usqp=CAU",
+      alt: "WebIamge",
+      id: 27,
+    },
+    {
+      Title: "Traveling",
+      src: "https://beyondwords.life/wp-content/uploads/2016/12/shutterstock_531460864.jpg",
+      alt: "WebIamge",
+      id: 27,
+    },
+    {
+      Title: "Traveling",
+      src: "https://i.pinimg.com/564x/4c/3a/15/4c3a15e2e1dab17f909b18a53bdb9eb4.jpg",
+      alt: "WebIamge",
+      id: 27,
+    },
+    {
+      Title: "Traveling",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Z0_z1cR_EtXolHpgtFSFmeA5ZRQENhuXvg&usqp=CAU",
       alt: "WebIamge",
       id: 27,
     },
@@ -66,26 +84,19 @@ const ImagesList = () => {
     );
   });
 
-  let showModel = "";
-  let dark = [Styles.gridImages];
-
-  if (AddImageState) {
-    showModel = <AddImageModel addImageModelShow={AddImageState} />;
-    dark.push(Styles.backDrop);
-  } else {
-    dark.push(Styles.gridImages);
-  }
-
   return (
     <div className={Styles.container}>
-      <div className={dark}>
+      <AddImageModel
+        showAddImageModal={showModal}
+        showModalHandler={addImageModalHandler}
+      />
+      <div className={Styles.gridImages}>
         {generatedImage}
 
         {/* <p className={Styles.plusSign}>+</p> */}
-        <button className={Styles.addImageBtn} onClick={addImageHandler}>
+        <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
           +
         </button>
-        {showModel}
       </div>
     </div>
   );

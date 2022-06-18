@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./hoc/Layout/Layout";
 import Login from "./container/Login/Login";
 import Signup from "./container/Signup/Signup";
@@ -16,7 +17,6 @@ import "./App.css";
 function App() {
   return (
     <Layout>
-      <ImagesList />
       <Route path="/home" component={LandingPage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
