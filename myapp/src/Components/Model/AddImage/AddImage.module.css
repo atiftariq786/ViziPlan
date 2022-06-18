@@ -1,0 +1,38 @@
+.InputElement{
+    background: #f3f3f5;
+    font: inherit;
+    padding: 6px 10px;
+    width:100%;
+    box-sizing: border-box; 
+}
+.InputElement:focus{
+    background-color:#FFFFFF;
+}
+
+.modalButton{
+    margin:0px 10px 5px 10px;
+}
+.invalidInput{
+    border: 1px solid #C41337;
+    
+}
+.validInput{
+    border: 1px solid #00873F;
+}
+.spinnerDiv{
+    margin-top: 5px;
+    align-items: left;
+    position: absolute;
+
+}
+.StoryButton{
+    width: 112.95px;
+    height: 38px;
+    margin-top: 5px;
+    align-items: left;
+    position: absolute;
+    font-size: 16px;
+}
+.backDrop{
+    background: rgba(94, 93, 93, 0.292);
+}

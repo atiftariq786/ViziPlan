@@ -10,6 +10,10 @@
     flex-flow: row wrap;
     text-align: left;
 }
+.backDrop{
+    background: rgba(94, 93, 93, 0.111);
+    z-index: -1;
+}
 
 .visionImages{
     width: 278px;
@@ -56,7 +60,6 @@
     border-color:  rgba(94, 93, 93, 0.304);
 }
 .addImageBtn:hover{
-    
     font-size:150px;
     color: rgb(231, 230, 230);
     border-color:rgb(231, 230, 230);
