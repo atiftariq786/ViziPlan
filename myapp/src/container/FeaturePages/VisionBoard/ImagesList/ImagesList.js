@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import AddImageModel from "../../../../components/Model/AddImage/AddImage";
+import AddImageModal from "../../../../components/Modal/AddImage/AddImageModal";
 import Styles from "../ImagesList/ImagesList.module.css";
 //import TempModel from "../../../../components/Model/AddImage/temp";
 
 const ImagesList = () => {
   const [showModal, setShowModal] = useState(false);
+  const [imageUrl, setImageUrl] = useState(
+    "https://wallpaperaccess.com/full/1096653.jpg"
+  );
+
+  const inputUrlEventHandler = (event) => {
+    event.preventDefault();
+    setImageUrl(event.target.value);
+  };
 
   const addImageModalHandler = () => {
     setShowModal(!showModal);
@@ -49,7 +57,7 @@ const ImagesList = () => {
     },
     {
       Title: "Traveling",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHlPV78oDliBqT3lBJ3OyP5ENC9ixCZYa6cA&usqp=CAU",
+      src: "https://cdn.wallpapersafari.com/82/6/Jb792j.jpg",
       alt: "WebIamge",
       id: 27,
     },
@@ -57,21 +65,32 @@ const ImagesList = () => {
       Title: "Traveling",
       src: "https://beyondwords.life/wp-content/uploads/2016/12/shutterstock_531460864.jpg",
       alt: "WebIamge",
-      id: 27,
+      id: 28,
     },
     {
       Title: "Traveling",
-      src: "https://i.pinimg.com/564x/4c/3a/15/4c3a15e2e1dab17f909b18a53bdb9eb4.jpg",
+      src: "https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/libraryImages/JP021_008WRd8g6mbusl8ck51lh99k0pd7img__mid.jpg",
       alt: "WebIamge",
-      id: 27,
+      id: 29,
     },
     {
       Title: "Traveling",
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Z0_z1cR_EtXolHpgtFSFmeA5ZRQENhuXvg&usqp=CAU",
+      src: "https://c1.wallpaperflare.com/preview/233/750/444/nature-landscape-mountain-mountains.jpg",
       alt: "WebIamge",
-      id: 27,
+      id: 30,
     },
   ];
+  const imageSubmitHandler = () => {
+    const data = {
+      Title: "New Image Added",
+      src: { imageUrl },
+      alt: "WebImage",
+      id: Math.random().toString(),
+    };
+    webImages.push(data);
+
+    console.log(data, "Submit handler information");
+  };
 
   let generatedImage = webImages.map((data) => {
     return (
@@ -83,17 +102,19 @@ const ImagesList = () => {
       ></img>
     );
   });
-
+  //id: Math.random().toString()
   return (
     <div className={Styles.container}>
-      <AddImageModel
+      <AddImageModal
         showAddImageModal={showModal}
         showModalHandler={addImageModalHandler}
+        inputUrlHandler={inputUrlEventHandler}
+        imageLink={imageUrl}
+        AddImageSubmitHandler={imageSubmitHandler}
       />
       <div className={Styles.gridImages}>
         {generatedImage}
 
-        {/* <p className={Styles.plusSign}>+</p> */}
         <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
           +
         </button>
@@ -102,10 +123,3 @@ const ImagesList = () => {
   );
 };
 export default ImagesList;
-
-// {
-//   /* <div className={Styles.addImage}>
-//  <p className={Styles.plusSign}>+</p>
-// <Button className={Styles.addImageBtn}>+</Button>
-// </div> */
-// }

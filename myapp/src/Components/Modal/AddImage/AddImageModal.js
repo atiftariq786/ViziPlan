@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Button from "react-bootstrap/Button";
 import Styles from "./AddImage.module.css";
 
-const AddImageModel = (props) => {
-  console.log(props.showAddImageModal, "Child Model File Result");
+const AddImageModal = (props) => {
+  //console.log(props.showAddImageModal, "Child Model File Result");
   return (
     <Modal
       size="lg"
@@ -27,7 +26,8 @@ const AddImageModel = (props) => {
           <Form.Control
             type="text"
             placeholder="https://example.png"
-            defaultValue={""}
+            onChange={props.inputUrlHandler}
+            value={props.imageLink}
           />
         </Form.Group>
       </Form>
@@ -35,7 +35,7 @@ const AddImageModel = (props) => {
         className={Styles.modalButton}
         variant="success"
         type="button"
-        // onClick ={()=>{return props.saveUpdateGoal({title, link, description})}}
+        onClick={props.AddImageSubmitHandler}
         size="sm"
       >
         Add Image
@@ -52,4 +52,4 @@ const AddImageModel = (props) => {
     </Modal>
   );
 };
-export default AddImageModel;
+export default AddImageModal;
