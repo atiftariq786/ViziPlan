@@ -1,23 +1,8 @@
 import React, { useState } from "react";
 import AddImageModal from "../../../../components/Modal/AddImage/AddImageModal";
 import Styles from "../ImagesList/ImagesList.module.css";
-//import TempModel from "../../../../components/Model/AddImage/temp";
 
 const ImagesList = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [imageUrl, setImageUrl] = useState(
-    "https://wallpaperaccess.com/full/1096653.jpg"
-  );
-
-  const inputUrlEventHandler = (event) => {
-    event.preventDefault();
-    setImageUrl(event.target.value);
-  };
-
-  const addImageModalHandler = () => {
-    setShowModal(!showModal);
-  };
-
   let webImages = [
     {
       Title: "Hiking",
@@ -80,19 +65,34 @@ const ImagesList = () => {
       id: 30,
     },
   ];
+  const [arrData, setarrData] = useState(webImages);
+  const [showModal, setShowModal] = useState(false);
+  const [imageUrl, setImageUrl] = useState(
+    "https://wallpaperaccess.com/full/1096653.jpg"
+  );
+
+  const inputUrlEventHandler = (event) => {
+    event.preventDefault();
+    setImageUrl(event.target.value);
+  };
+
+  const addImageModalHandler = () => {
+    setShowModal(!showModal);
+  };
+
   const imageSubmitHandler = () => {
     const data = {
       Title: "New Image Added",
-      src: { imageUrl },
+      src: imageUrl,
       alt: "WebImage",
       id: Math.random().toString(),
     };
-    webImages.push(data);
-
-    console.log(data, "Submit handler information");
+    arrData.push(data);
+    setarrData(arrData);
+    setShowModal(false);
   };
 
-  let generatedImage = webImages.map((data) => {
+  let generatedImage = arrData.map((data) => {
     return (
       <img
         className={Styles.visionImages}
@@ -102,7 +102,7 @@ const ImagesList = () => {
       ></img>
     );
   });
-  //id: Math.random().toString()
+
   return (
     <div className={Styles.container}>
       <AddImageModal
