@@ -8,61 +8,61 @@ const ImagesList = () => {
       Title: "Hiking",
       src: "https://wallpapercave.com/wp/eTpPCMk.jpg",
       alt: "WebIamge",
-      id: 21,
+      id: Math.random().toString(),
     },
     {
       Title: "Sports",
       src: "https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
       alt: "WebIamge",
-      id: 22,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2021%2F06%2F24%2Fitaly-venice-EUSUMMERTRAVEL0621.jpg",
       alt: "WebIamge",
-      id: 23,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDYWdDWq_UCSVYpNBCUDKXnqf0dSZt2dJATg&usqp=CAU",
       alt: "WebIamge",
-      id: 24,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://cdn.lifehack.org/wp-content/uploads/2014/09/traveling-changes-your-life-1024x768.jpeg",
       alt: "WebIamge",
-      id: 25,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?cs=srgb&dl=pexels-asad-photo-maldives-3155666.jpg&fm=jpg",
       alt: "WebIamge",
-      id: 26,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://cdn.wallpapersafari.com/82/6/Jb792j.jpg",
       alt: "WebIamge",
-      id: 27,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://beyondwords.life/wp-content/uploads/2016/12/shutterstock_531460864.jpg",
       alt: "WebIamge",
-      id: 28,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/libraryImages/JP021_008WRd8g6mbusl8ck51lh99k0pd7img__mid.jpg",
       alt: "WebIamge",
-      id: 29,
+      id: Math.random().toString(),
     },
     {
       Title: "Traveling",
       src: "https://c1.wallpaperflare.com/preview/233/750/444/nature-landscape-mountain-mountains.jpg",
       alt: "WebIamge",
-      id: 30,
+      id: Math.random().toString(),
     },
   ];
   const [arrData, setarrData] = useState(webImages);
@@ -87,9 +87,15 @@ const ImagesList = () => {
       alt: "WebImage",
       id: Math.random().toString(),
     };
+    console.log(data, "Check the IDs");
     arrData.push(data);
     setarrData(arrData);
     setShowModal(false);
+  };
+  const genDuplicateImageHandler = (data) => {
+    console.log("Duplicate image clicked");
+    console.log(data.id, "Selected Image id");
+    console.log(arrData);
   };
 
   let generatedImage = arrData.map((data) => {
@@ -99,6 +105,7 @@ const ImagesList = () => {
         src={data.src}
         alt={data.alt}
         key={data.id}
+        onClick={() => genDuplicateImageHandler(data)}
       ></img>
     );
   });

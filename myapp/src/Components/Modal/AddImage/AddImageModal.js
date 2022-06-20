@@ -16,11 +16,6 @@ const AddImageModal = (props) => {
         <Modal.Title id="contained-modal-title-vcenter">Add Image</Modal.Title>
       </Modal.Header>
       <Form className={Styles.InputElement}>
-        <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" defaultValue={""} onChange={""} />
-        </Form.Group>
-
         <Form.Group controlId="exampleForm.ControlInput2">
           <Form.Label>Image Link</Form.Label>
           <Form.Control

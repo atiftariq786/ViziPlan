@@ -4,25 +4,29 @@ import React from "react";
 // import Row from "react-bootstrap/Row";
 import Styles from "../VisionBoard/VisionBoard.module.css";
 import ImagesList from "./ImagesList/ImagesList";
+import SelectedImageList from "./SelectedImageList";
 //import ".style.css";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 
 const VisionBoard = () => {
   return (
     <div className={Styles.visionBoardMainDiv}>
-      {/*=================================Section-2====================================*/}
-      <div className={Styles.gridSelectedImages}>
+      {/*=================================Section-1====================================*/}
+      <div className={Styles.imagesList}>
         <ImagesList />
       </div>
-      <div>
-        <h1 className={Styles.title}>
+      {/*=================================Section-2====================================*/}
+      <div className={Styles.selectedImagesList}>
+        <SelectedImageList />
+        {/* <h1 className={Styles.title}>
           Select Images <br /> that match the life <br /> you want to
           live..........! <br />
           <NavLink to="/home" className={Styles.backButton}>
             back
           </NavLink>
-        </h1>
+        </h1> */}
       </div>
+      {/*=====================================================================*/}
     </div>
   );
 };

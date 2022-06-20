@@ -1,16 +1,19 @@
 .visionBoardMainDiv{
     width:100%;
     height: 100%;
-   
     text-align: center;
     display: flex;   
     background: grey;
 }
 
-.gridSelectedImages{
+.imagesList{
     width:50%;    
-    background: rgb(64, 61, 61) !important;
-  
+    
+}
+.selectedImagesList{
+    width:50%; 
+    Background:black;   
+    
 }
 .title{
     margin-top: 15%;
