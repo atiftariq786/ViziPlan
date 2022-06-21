@@ -35,9 +35,13 @@ const SelectedImageList = () => {
           id={data.id}
           src={data.src}
           alt={data.alt}
-          onClick={() => deleteIamgeHandler(data)}
         ></img>
-        <button className={Styles.deleteBtn}>X</button>
+        <button
+          className={Styles.deleteBtn}
+          onClick={() => deleteIamgeHandler(data)}
+        >
+          X
+        </button>
       </div>
     );
   });
