@@ -3,7 +3,22 @@
     height: 100%;
     background:rgb(52, 52, 52);
     color: white;
+    
 }
+.imageContainer{
+    width:100%;
+    display:flex;  
+    flex-flow: row wrap;
+}
+.imageWrapper{
+    width: 284px; 
+    height:284px;
+    margin: 5px 0px 0px 5px;
+    border-radius: 5px;
+    position: relative;
+    
+}
+
 .visionImages{
     width: 284px; 
     height:284px;
@@ -17,6 +32,7 @@
     transform: scale(1.02);
     transition: .5s ease;     
     opacity: 0.5;
+    
  }
  .textDiv{
      width: 100%;
@@ -38,14 +54,32 @@
     margin: 0px;
     
 }
- /* .deleteBtn{
+ .deleteBtn{
     
-    width: 280px; 
-    height:280px;
-    opacity: 1;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: pink;
+    margin: 65px 0 0 5px; 
+    width: 98%;
+    height: 98%;
+    color: #fff;
+    font-size: 250px;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
    
     
-} */
+}
+.deleteBtn:hover{
+    color: #fff;
+    font-size: 250px;
+    font-weight: 900;
+    opacity: .3;
+}
 /* .deleteBtn:hover{
     
     background: black !important;
