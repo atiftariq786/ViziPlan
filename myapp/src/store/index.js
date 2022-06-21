@@ -1,9 +1,8 @@
-// //import { configureStore } from "@reduxjs/toolkit";
-// import uiSlice from "./ui-slice";
-// import tempSlice from "./temp-slice";
+import { configureStore } from "@reduxjs/toolkit";
+import uiSlice from "./selectedImage-slice";
 
-// const store = configureStore({
-//   reducer: { ui: uiSlice.reducer, temp: tempSlice.reducer },
-// });
+const store = configureStore({
+  reducer: { ui: uiSlice.reducer },
+});
 
-// export default store;
+export default store;

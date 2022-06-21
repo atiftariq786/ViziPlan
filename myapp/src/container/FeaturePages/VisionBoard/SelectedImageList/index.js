@@ -1,17 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Styles from "./style.module.css";
 
 const SelectedImageList = () => {
-  const selectedImageArray = [
-    {
-      Title: "Hiking",
-      src: "https://wallpapercave.com/wp/eTpPCMk.jpg",
-      alt: "WebIamge",
-      id: Math.random().toString(),
-    },
-  ];
+  let getSelectedImageData = useSelector((state) => state.ui.reduxArray);
 
-  let newGeneratedImage = selectedImageArray.map((data) => {
+  console.log(getSelectedImageData, "Final Result");
+
+  let newGeneratedImage = getSelectedImageData.map((data) => {
     return (
       <img
         className={Styles.visionImages}
@@ -21,6 +17,7 @@ const SelectedImageList = () => {
       ></img>
     );
   });
+
   return (
     <div className={Styles.container}>
       {newGeneratedImage}
