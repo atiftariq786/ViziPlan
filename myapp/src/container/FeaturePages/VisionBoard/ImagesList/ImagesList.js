@@ -86,8 +86,8 @@ const ImagesList = () => {
   };
   //============================================================================
   const genDuplicateImageHandler = (data) => {
-    console.log("Duplicate image clicked");
-    console.log(data.id, "Selected Image id");
+    // console.log("Duplicate image clicked");
+    // console.log(data.id, "Selected Image id");
     dispatch(selectedImageActions.selectedImageData(data));
   };
 
@@ -95,9 +95,10 @@ const ImagesList = () => {
     return (
       <img
         className={Styles.visionImages}
+        key={data.id}
+        id={data.id}
         src={data.src}
         alt={data.alt}
-        id={data.id}
         onClick={() => genDuplicateImageHandler(data)}
       ></img>
     );

@@ -1,12 +1,86 @@
 .container{
     width:100%;
     height: 100%;
-    background: rgb(104, 104, 146);
+    background:rgb(52, 52, 52);
 }
 .visionImages{
-    width: 278px; 
-    height:278px;
+    width: 284px; 
+    height:284px;
     margin: 5px 0px 0px 5px;
     border-radius: 5px;
-    background: black;
+       
 }
+.visionImages:hover{
+     
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: .5s ease;     
+    opacity: 0.5;
+   
+    
+ }
+ /* .deleteBtn{
+    
+    width: 280px; 
+    height:280px;
+    opacity: 1;
+   
+    
+} */
+/* .deleteBtn:hover{
+    
+    background: black !important;
+   color: blue !important;
+   }
+     */
+
+
+ 
+.continueBtn{
+    background: rgb(204, 17, 17) ;
+    color:white !important;
+    width: 120px;
+    height:38px;    
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 5%;
+   
+}
+.continueBtn:hover{
+    background: white ;
+    color:black !important;
+}
+/* =============================================================================== */
+/* .mediaDivOne{
+    position: relative;
+    width:50%;
+}
+.mediaOneHover{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    
+}
+
+.mediaDivOne:hover .image{
+    opacity: 0.4;
+}
+.mediaDivOne:hover .mediaOneHover{
+    opacity: 1;
+}
+.titleText{
+    width:400px;
+    height: 260px;
+    color: orange;
+    font-size: 16px;
+    text-align: center;
+    margin:auto; 
+    padding: 10px 5px 5px 5px;
+    background:rgba(0, 0, 0, 0.507);
+    overflow: scroll;
+} */
