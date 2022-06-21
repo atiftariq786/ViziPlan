@@ -10,23 +10,27 @@
     flex-flow: row wrap;
     text-align: left;
 }
-.backDrop{
-    background: rgba(94, 93, 93, 0.111);
-    z-index: -1;
-}
-
 .visionImages{
     width: 278px; 
     height:278px;
     margin: 5px 0px 0px 5px;
     border-radius: 5px;
-    background: black;
-}
-.visionImages:hover{
-     
-   cursor: pointer;
-   transform: scale(1.02);
+    border: none;  
     
+    
+}
+.visionImages:hover{  
+   cursor: pointer;
+   transform: scale(1.02);   
+   
+}
+.selectedVisionImages{
+    width: 278px; 
+    height:278px;
+    margin: 5px 0px 0px 5px;
+    border-radius: 5px;
+    border: solid orange;
+   border-width: 2px;  
 }
 .addImage{
     width: 255px;
@@ -38,14 +42,6 @@
     border-width: 10px;
     border-color:  rgba(94, 93, 93, 0.304);
    
-}
-.plusSign{
-    width:255px;
-    height: 255px;
-    margin: 40px 0px 0px 0px;
-    color:rgb(87, 87, 87);
-    font-size:100px;
-    text-align: center;
 }
 .addImageBtn{
     width:278px;

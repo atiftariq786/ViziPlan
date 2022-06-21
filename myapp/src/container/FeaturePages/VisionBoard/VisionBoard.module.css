@@ -15,17 +15,7 @@
     Background:black;   
     
 }
-.title{
-    margin-top: 15%;
-    margin-left: 60%;
-    position:absolute;
-    top: 0px;
-    left: 0px;
-    font-weight: 400;
-    text-align: left;    
-    color:white !important; 
-    font-size: 40px;
-}
+
 .backButton{
     width:80px;
     font-size: 27px;

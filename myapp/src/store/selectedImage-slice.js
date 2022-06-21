@@ -9,18 +9,19 @@ const uiSlice = createSlice({
     selectedImageData(state, action) {
       const clickedImageData = action.payload;
 
-      const addImage = state.reduxArray.filter(
-        (image) => image.id !== clickedImageData.id
+      const addImage = state.reduxArray.find(
+        (image) => image.id === clickedImageData.id
       );
-      state.reduxArray = addImage;
-      state.reduxArray.push({
-        src: clickedImageData.src,
-        alt: clickedImageData.alt,
-        id: clickedImageData.id,
-      });
+      //state.reduxArray = addImage;
+      if (addImage === undefined) {
+        state.reduxArray.push({
+          src: clickedImageData.src,
+          alt: clickedImageData.alt,
+          id: clickedImageData.id,
+        });
+      }
 
       console.log(addImage, "Redux add image");
-
       console.log(clickedImageData, "Redux click image");
     },
     removeImage(state, action) {

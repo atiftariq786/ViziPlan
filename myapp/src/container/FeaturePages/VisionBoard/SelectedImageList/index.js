@@ -28,14 +28,17 @@ const SelectedImageList = () => {
   }
   let newGeneratedImage = getSelectedImageData.map((data) => {
     return (
-      <img
-        className={Styles.visionImages}
-        key={data.id}
-        id={data.id}
-        src={data.src}
-        alt={data.alt}
-        onClick={() => deleteIamgeHandler(data)}
-      ></img>
+      <div>
+        <img
+          className={Styles.visionImages}
+          key={data.id}
+          id={data.id}
+          src={data.src}
+          alt={data.alt}
+          onClick={() => deleteIamgeHandler(data)}
+        ></img>
+        <button>Del</button>
+      </div>
     );
   });
   return (
@@ -44,7 +47,7 @@ const SelectedImageList = () => {
       {showText}
       <div>
         <NavLink to="">
-          <Button className={Styles.continueBtn}>Contune >></Button>
+          <Button className={Styles.continueBtn}>Contune{">>"}</Button>
         </NavLink>
       </div>
     </div>
