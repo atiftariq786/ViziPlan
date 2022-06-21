@@ -2,6 +2,7 @@
     width:100%;
     height: 100%;
     background:rgb(52, 52, 52);
+    color: white;
 }
 .visionImages{
     width: 284px; 
@@ -16,9 +17,27 @@
     transform: scale(1.02);
     transition: .5s ease;     
     opacity: 0.5;
-   
-    
  }
+ .textDiv{
+     width: 100%;
+     padding-top: 30%;
+ }
+ .textOne{  
+    font-weight: 400;
+    text-align: center;    
+    color:white !important; 
+    font-size: 20px;
+    margin: 0px;
+    
+}
+ .textTwo{  
+    font-weight: 400;
+    text-align: center;    
+    color:white !important; 
+    font-size: 30px;
+    margin: 0px;
+    
+}
  /* .deleteBtn{
     
     width: 280px; 

@@ -8,19 +8,24 @@ import Styles from "./style.module.css";
 const SelectedImageList = () => {
   const dispatch = useDispatch();
   let getSelectedImageData = useSelector((state) => state.ui.reduxArray);
-  //const [updateImageList,setUpdateImageList] = useState(getSelectedImageData);
-
-  //console.log(getSelectedImageData, "Final Result");
 
   const deleteIamgeHandler = (data) => {
     console.log(data, " Clicked Image ID");
     dispatch(selectedImageActions.removeImage(data));
-    // setUpdateImageList((preImages) => {
-    //   const updateImages = preImages.filter((images) => images.id !== id);
-    //   return updateImages;
-    // });
   };
-
+  let showText = (
+    <div className={Styles.textDiv}>
+      <p className={Styles.textOne}>
+        Select Images <br /> that match the life
+      </p>
+      <p className={Styles.textTwo}>
+        <br /> you want to live..........! <br />
+      </p>
+    </div>
+  );
+  if (getSelectedImageData.length > 0) {
+    showText = "";
+  }
   let newGeneratedImage = getSelectedImageData.map((data) => {
     return (
       <img
@@ -36,6 +41,7 @@ const SelectedImageList = () => {
   return (
     <div className={Styles.container}>
       {newGeneratedImage}
+      {showText}
       <div>
         <NavLink to="">
           <Button className={Styles.continueBtn}>Contune >></Button>
