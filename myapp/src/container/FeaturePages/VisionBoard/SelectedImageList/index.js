@@ -29,10 +29,21 @@ const SelectedImageList = () => {
     dispatch(selectedImageActions.continueSelImagesBtn(isClickedBtnDeactive));
   };
   //==================================Conditional Logic=====================================================
-  let showText = (
+  let displayImagesText = (
     <div className={Styles.textDiv}>
       <p className={Styles.textOne}>
-        Select Images <br /> that match the life
+        Select images <br /> that match the life
+      </p>
+      <p className={Styles.textTwo}>
+        <br /> you want to live..........! <br />
+      </p>
+    </div>
+  );
+  let displayQoutesText = (
+    <div className={Styles.textDiv}>
+      <p className={Styles.textOne}>
+        Select
+        <br /> the best quotes <br /> that match the life
       </p>
       <p className={Styles.textTwo}>
         <br /> you want to live..........! <br />
@@ -40,7 +51,8 @@ const SelectedImageList = () => {
     </div>
   );
   if (getSelectedImageData.length > 0) {
-    showText = "";
+    displayImagesText = "";
+    displayQoutesText = "";
   }
   let displayBtn = "";
   if (!switchButton) {
@@ -51,6 +63,7 @@ const SelectedImageList = () => {
     );
   }
   if (switchButton) {
+    displayImagesText = displayQoutesText;
     displayBtn = (
       <Button className={Styles.continueBtn} onClick={finishBtnHandler}>
         Finish
@@ -82,7 +95,7 @@ const SelectedImageList = () => {
       <h1 className={Styles.title}>The Vision</h1>
       <div className={Styles.imageContainer}>
         {newGeneratedImage}
-        {showText}
+        {displayImagesText}
       </div>
 
       <div>{displayBtn}</div>

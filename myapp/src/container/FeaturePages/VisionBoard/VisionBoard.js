@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Styles from "../VisionBoard/VisionBoard.module.css";
 import ImagesList from "./ImagesList/ImagesList";
 import SelectedImageList from "./SelectedImageList";
@@ -115,9 +115,11 @@ const VisionBoard = () => {
       id: Math.random().toString(),
     },
   ];
-  let outputArray = imagesArray;
+  const [tempArray, setTempArray] = useState(imagesArray);
+  let outputArray = tempArray;
   if (continueRedBtn) {
     outputArray = quotesImagesArray;
+    //setTempArray(quotesImagesArray);
   }
   return (
     <div className={Styles.visionBoardMainDiv}>
