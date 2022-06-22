@@ -5,27 +5,11 @@
     display: flex;   
     background: grey;
 }
-
 .imagesList{
-    width:50%;    
-    
+    width:50%;     
 }
 .selectedImagesList{
     width:50%; 
-    Background:black;   
     
 }
 
-.backButton{
-    width:80px;
-    font-size: 27px;
-    margin: auto;
-    padding: 2px;
-    justify-content: center;
-    text-decoration: none;
-    color:#007bff;
-}
-.backButton:hover{
-    color:blue;
-    text-decoration:underline;
-}

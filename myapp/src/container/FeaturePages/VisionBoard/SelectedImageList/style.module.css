@@ -2,8 +2,11 @@
     width:100%;
     height: 100%;
     background:rgb(52, 52, 52);
-    color: white;
-    
+}
+.title{
+    color:rgb(160, 160, 160)!important;
+   padding-top: 50px;
+   font-family:cursive;
 }
 .imageContainer{
     width:100%;
@@ -22,10 +25,9 @@
     width: 284px; 
     height:284px;
     margin: 5px 0px 0px 5px;
-    border-radius: 5px;
-       
+    border-radius: 5px;  
 }
-.visionImages:hover .deleteBtn:hover{  
+.visionImages:hover {  
     cursor: pointer;
     transform: scale(1.02);
     transition: .5s ease;     
@@ -42,7 +44,6 @@
     color:white !important; 
     font-size: 20px;
     margin: 0px;
-    
 }
  .textTwo{  
     font-weight: 400;
@@ -50,7 +51,6 @@
     color:white !important; 
     font-size: 30px;
     margin: 0px;
-    
 }
  .deleteBtn{  
     position: absolute;
@@ -69,15 +69,7 @@
     font-size: 165px;
     font-weight: 980;
     opacity: 0.5;
-   
 }
-/* .deleteBtn:hover{
-    
-    background: black !important;
-   color: blue !important;
-   }
-     */
-
 .continueBtn{
     background: rgb(204, 17, 17) ;
     color:white !important;
@@ -86,7 +78,6 @@
     border-radius: 4px;
     font-size: 15px;
     margin-top: 5%;
-   
 }
 .continueBtn:hover{
     background: white ;

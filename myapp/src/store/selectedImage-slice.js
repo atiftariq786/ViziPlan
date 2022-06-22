@@ -1,37 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const uiSlice = createSlice({
-  name: "ui",
+const selectedImageSlice = createSlice({
+  name: "selectedImages",
   initialState: {
-    reduxArray: [],
+    selectedImageArray: [],
+    isContinueBtnClicked: false,
   },
   reducers: {
     selectedImageData(state, action) {
-      const clickedImageData = action.payload;
+      const selectedImageData = action.payload;
 
-      const addImage = state.reduxArray.find(
-        (image) => image.id === clickedImageData.id
+      const addImage = state.selectedImageArray.find(
+        (image) => image.id === selectedImageData.id
       );
-      //state.reduxArray = addImage;
       if (addImage === undefined) {
-        state.reduxArray.push({
-          src: clickedImageData.src,
-          alt: clickedImageData.alt,
-          id: clickedImageData.id,
+        state.selectedImageArray.push({
+          src: selectedImageData.src,
+          alt: selectedImageData.alt,
+          id: selectedImageData.id,
         });
       }
-
-      console.log(addImage, "Redux add image");
-      console.log(clickedImageData, "Redux click image");
     },
     removeImage(state, action) {
-      const data = action.payload;
-      const existingImage = state.reduxArray.filter(
-        (prevImage) => prevImage.id !== data.id
+      const currentImagedata = action.payload;
+      const existingImage = state.selectedImageArray.filter(
+        (prevImage) => prevImage.id !== currentImagedata.id
       );
-      state.reduxArray = existingImage;
+      state.selectedImageArray = existingImage;
+    },
+    continueSelImagesBtn(state, actions) {
+      state.isContinueBtnClicked = actions.payload;
+      console.log(state.isContinueBtnClicked, "Redux continue btn status");
     },
   },
 });
-export const selectedImageActions = uiSlice.actions;
-export default uiSlice;
+export const selectedImageActions = selectedImageSlice.actions;
+export default selectedImageSlice;

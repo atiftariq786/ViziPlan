@@ -18,8 +18,6 @@ import "./App.css";
 function App() {
   return (
     <Layout>
-      {/* <ImagesList /> */}
-      {/* <SelectedImageList /> */}
       <Route path="/home" component={LandingPage} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
@@ -33,5 +31,4 @@ function App() {
     </Layout>
   );
 }
-
 export default App;

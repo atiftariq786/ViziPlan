@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import uiSlice from "./selectedImage-slice";
+import selectedImageSlice from "./selectedImage-slice";
 
 const store = configureStore({
-  reducer: { ui: uiSlice.reducer },
+  reducer: { selectedImages: selectedImageSlice.reducer },
 });
 
 export default store;

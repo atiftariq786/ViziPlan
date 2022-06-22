@@ -17,12 +17,12 @@ const Toolbar = () => {
             Vision Board
           </Navbar.Brand>
         </NavLink>
-        {/* <NavLink to="/goals">
+        <NavLink to="/goals">
           <Navbar.Brand className={Styles.appContent}>Goals</Navbar.Brand>
         </NavLink>
         <NavLink to="/dashboard">
           <Navbar.Brand className={Styles.appContent}>Dashboard</Navbar.Brand>
-        </NavLink> */}
+        </NavLink>
       </Navbar.Collapse>
     </Navbar>
   );
