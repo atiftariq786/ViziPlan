@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Styles from "../VisionBoard/VisionBoard.module.css";
 import ImagesList from "./ImagesList/ImagesList";
 import SelectedImageList from "./SelectedImageList";
 import { useSelector } from "react-redux";
+import useForceUpdate from "use-force-update";
 //import { selectedImageActions } from "../../../../store/selectedImage-slice";
 
 const VisionBoard = () => {
+  const forceUpdate = useForceUpdate();
   const continueRedBtn = useSelector(
     (state) => state.selectedImages.isContinueBtnClicked
   );
 
   console.log(continueRedBtn, "Visionboard continue btn status");
+
   let imagesArray = [
     {
       src: "https://wallpapercave.com/wp/eTpPCMk.jpg",
@@ -115,12 +118,13 @@ const VisionBoard = () => {
       id: Math.random().toString(),
     },
   ];
-  const [tempArray, setTempArray] = useState(imagesArray);
-  let outputArray = tempArray;
+
+  let outputArray = imagesArray;
+
   if (continueRedBtn) {
     outputArray = quotesImagesArray;
-    //setTempArray(quotesImagesArray);
   }
+
   return (
     <div className={Styles.visionBoardMainDiv}>
       <div className={Styles.imagesList}>

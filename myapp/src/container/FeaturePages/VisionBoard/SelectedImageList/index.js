@@ -5,7 +5,7 @@ import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import Button from "../../../../components/Button/Button";
 import Styles from "./style.module.css";
 
-const SelectedImageList = () => {
+const SelectedImageList = (props) => {
   const dispatch = useDispatch();
 
   const switchButton = useSelector(
@@ -20,9 +20,9 @@ const SelectedImageList = () => {
     console.log(data, " Clicked Image ID");
     dispatch(selectedImageActions.removeImage(data));
   };
-  const selectedImagesHandler = () => {
-    let isClickedBtn = true;
-    dispatch(selectedImageActions.continueSelImagesBtn(isClickedBtn));
+  const selectedImagesHandler = (data) => {
+    //let isClickedBtn = true;
+    dispatch(selectedImageActions.continueSelImagesBtn(data));
   };
   const finishBtnHandler = () => {
     let isClickedBtnDeactive = false;
@@ -57,7 +57,10 @@ const SelectedImageList = () => {
   let displayBtn = "";
   if (!switchButton) {
     displayBtn = (
-      <Button className={Styles.continueBtn} onClick={selectedImagesHandler}>
+      <Button
+        className={Styles.continueBtn}
+        onClick={() => selectedImagesHandler(true)}
+      >
         Continue{">>"}
       </Button>
     );

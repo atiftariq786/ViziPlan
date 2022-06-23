@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddImageModal from "../../../../components/Modal/AddImage/AddImageModal";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
@@ -7,11 +7,34 @@ import Styles from "../ImagesList/ImagesList.module.css";
 const ImagesList = (props) => {
   const dispatch = useDispatch();
 
+  //===========================================================================
+  // const isContinueBtnClicked = useSelector(
+  //   (state) => state.selectedImages.isContinueBtnClicked
+  // );
+  // console.log(continueRedBtn, "Visionboard continue btn status");
+  // let dumyArray = props.imagesArray;
+
+  //const [tempArray, setTempArray] = useState(dumyArray);
+  //const [quotesArray, setquotesArray] = useState(props.quotesImagesArray);
+
+  // let outputArray = dumyArray;
+  // if (continueRedBtn) {
+  //   outputArray = props.quotesImagesArray;
+  //   //dumyArray = props.quotesImagesArray;
+  // }
+
+  //===========================================================================
+
   let selectedImagesArray = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
 
   const [arrData, setarrData] = useState(props.webImages);
+
+  useEffect(() => {
+    setarrData(props.webImages);
+  }, [props.webImages]);
+
   const [showModal, setShowModal] = useState(false);
   const [imageUrl, setImageUrl] = useState(
     "https://wallpaperaccess.com/full/1096653.jpg"
@@ -51,18 +74,20 @@ const ImagesList = (props) => {
       customStyle = [Styles.selectedVisionImages];
     }
     return (
-      <img
-        className={customStyle}
-        key={data.id}
-        id={data.id}
-        src={data.src}
-        alt={data.alt}
-        onClick={() => genDuplicateImageHandler(data)}
-      ></img>
+      <div key={data.id}>
+        <img
+          className={customStyle}
+          key={data.id}
+          id={data.id}
+          src={data.src}
+          alt={data.alt}
+          onClick={() => genDuplicateImageHandler(data)}
+        ></img>
+      </div>
     );
   });
   //====================================================================================
-
+  console.log("rerending imagesList", arrData);
   return (
     <div className={Styles.container}>
       <AddImageModal
