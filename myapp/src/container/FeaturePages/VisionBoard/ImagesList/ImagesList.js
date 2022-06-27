@@ -7,24 +7,6 @@ import Styles from "../ImagesList/ImagesList.module.css";
 const ImagesList = (props) => {
   const dispatch = useDispatch();
 
-  //===========================================================================
-  // const isContinueBtnClicked = useSelector(
-  //   (state) => state.selectedImages.isContinueBtnClicked
-  // );
-  // console.log(continueRedBtn, "Visionboard continue btn status");
-  // let dumyArray = props.imagesArray;
-
-  //const [tempArray, setTempArray] = useState(dumyArray);
-  //const [quotesArray, setquotesArray] = useState(props.quotesImagesArray);
-
-  // let outputArray = dumyArray;
-  // if (continueRedBtn) {
-  //   outputArray = props.quotesImagesArray;
-  //   //dumyArray = props.quotesImagesArray;
-  // }
-
-  //===========================================================================
-
   let selectedImagesArray = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
