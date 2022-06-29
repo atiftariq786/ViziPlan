@@ -15,9 +15,10 @@ const selectedImageSlice = createSlice({
       );
       if (addImage === undefined) {
         state.selectedImageArray.push({
-          src: selectedImageData.src,
+          url: selectedImageData.url,
           alt: selectedImageData.alt,
           id: selectedImageData.id,
+          key: selectedImageData.id,
         });
       }
     },
@@ -30,7 +31,6 @@ const selectedImageSlice = createSlice({
     },
     continueSelImagesBtn(state, actions) {
       state.isContinueBtnClicked = actions.payload;
-      console.log(state.isContinueBtnClicked, "Redux continue btn status");
     },
   },
 });

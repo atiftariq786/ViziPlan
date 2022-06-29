@@ -21,7 +21,6 @@ const SelectedImageList = (props) => {
     dispatch(selectedImageActions.removeImage(data));
   };
   const selectedImagesHandler = (data) => {
-    //let isClickedBtn = true;
     dispatch(selectedImageActions.continueSelImagesBtn(data));
   };
   const finishBtnHandler = () => {
@@ -73,15 +72,16 @@ const SelectedImageList = (props) => {
       </Button>
     );
   }
-
+  //console.log(getSelectedImageData.id, "Selected image before map");
   let newGeneratedImage = getSelectedImageData.map((data) => {
+    console.log(data.id, "inside map");
     return (
       <div className={Styles.imageWrapper}>
         <img
           className={Styles.visionImages}
           key={data.id}
           id={data.id}
-          src={data.src}
+          src={data.url}
           alt={data.alt}
         ></img>
         <button

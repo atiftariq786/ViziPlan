@@ -33,11 +33,11 @@ const ImagesList = (props) => {
 
   const imageSubmitHandler = () => {
     const data = {
-      src: imageUrl,
+      url: imageUrl,
       alt: "WebImage",
       id: Math.random().toString(),
     };
-    arrData.push(data);
+    arrData.unshift(data);
     setarrData(arrData);
     setShowModal(false);
   };
@@ -47,7 +47,6 @@ const ImagesList = (props) => {
   };
   //============================================================================
   let customStyle = [Styles.visionImages];
-
   let generatedImage = arrData.map((data) => {
     let foundImage = selectedImagesArray.find((image) => image.id === data.id);
     customStyle = [Styles.visionImages];
@@ -61,7 +60,7 @@ const ImagesList = (props) => {
           className={customStyle}
           key={data.id}
           id={data.id}
-          src={data.src}
+          src={data.url}
           alt={data.alt}
           onClick={() => genDuplicateImageHandler(data)}
         ></img>
@@ -69,9 +68,15 @@ const ImagesList = (props) => {
     );
   });
   //====================================================================================
-  console.log("rerending imagesList", arrData);
+
   return (
     <div className={Styles.container}>
+      <div className={Styles.gridImages}>
+        <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
+          +
+        </button>
+        {generatedImage}
+      </div>
       <AddImageModal
         showAddImageModal={showModal}
         showModalHandler={addImageModalHandler}
@@ -79,13 +84,6 @@ const ImagesList = (props) => {
         imageLink={imageUrl}
         AddImageSubmitHandler={imageSubmitHandler}
       />
-      <div className={Styles.gridImages}>
-        {generatedImage}
-
-        <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
-          +
-        </button>
-      </div>
     </div>
   );
 };
