@@ -17,9 +17,6 @@ const VisionBoard = () => {
   }
   useEffect(() => {
     API.getVisionBoardImages(imagesType).then((response) => {
-      //console.log("Get visionBoard images");
-      //console.log(response, "Get reponse successfully");
-      //console.log(response.data, "Get array data successfully");
       setImages(response.data);
     });
   }, [imagesType]);
