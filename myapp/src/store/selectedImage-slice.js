@@ -4,33 +4,36 @@ const selectedImageSlice = createSlice({
   name: "selectedImages",
   initialState: {
     selectedImageArray: [],
+    tempArray: [],
     isContinueBtnClicked: false,
   },
   reducers: {
     selectedImageData(state, action) {
       const selectedImageData = action.payload;
+      console.log(selectedImageData, " redux array");
 
-      const addImage = state.selectedImageArray.find(
-        (image) => image.id === selectedImageData.id
-      );
-      if (addImage === undefined) {
-        state.selectedImageArray.push({
-          url: selectedImageData.url,
-          alt: selectedImageData.alt,
-          id: selectedImageData.id,
-          key: selectedImageData.id,
-        });
-      }
+      state.selectedImageArray.push({
+        createdAt: selectedImageData.createdAt,
+        createdBy: selectedImageData.createdBy,
+        id: selectedImageData.id,
+        type: selectedImageData.type,
+        updateAt: selectedImageData.updateAt,
+        url: selectedImageData.url,
+      });
     },
     removeImage(state, action) {
-      const currentImagedata = action.payload;
+      const currentImageId = action.payload;
       const existingImage = state.selectedImageArray.filter(
-        (prevImage) => prevImage.id !== currentImagedata.id
+        (prevImage) => prevImage.id !== currentImageId
       );
       state.selectedImageArray = existingImage;
     },
     continueSelImagesBtn(state, actions) {
       state.isContinueBtnClicked = actions.payload;
+    },
+    savedImages(state, actions) {
+      const savedSelectedImages = actions.payload;
+      state.selectedImageArray = savedSelectedImages;
     },
   },
 });

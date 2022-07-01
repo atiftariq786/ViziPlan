@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
-//import { NavLink } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
+import API from "../../../../services/utils/API";
 import Styles from "./style.module.css";
 
 const SelectedImageList = (props) => {
@@ -15,10 +15,18 @@ const SelectedImageList = (props) => {
   const getSelectedImageData = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
+  // const newGetSelectedImageData = useSelector(
+  //   (state) => state.selectedImages.tempArray
+  // );
+
   //==================================Handler Functions====================================================
   const deleteIamgeHandler = (data) => {
-    console.log(data, " Clicked Image ID");
-    dispatch(selectedImageActions.removeImage(data));
+    console.log(data.id, " Clicked Image ID");
+
+    API.deleteSelectedImages(data.id).then((response) => {
+      console.log(response, "Image deleted successfully....!");
+      dispatch(selectedImageActions.removeImage(data.id));
+    });
   };
   const selectedImagesHandler = (data) => {
     dispatch(selectedImageActions.continueSelImagesBtn(data));
@@ -72,9 +80,13 @@ const SelectedImageList = (props) => {
       </Button>
     );
   }
-  //console.log(getSelectedImageData.id, "Selected image before map");
+
+  console.log(getSelectedImageData, "data coming from old redux");
+  //console.log(newGetSelectedImageData, "data coming from new redux array");
+
   let newGeneratedImage = getSelectedImageData.map((data) => {
-    console.log(data.id, "inside map");
+    //console.log(data.id, "inside map selected image id");
+    // console.log(data, "inside map selected image data");
     return (
       <div className={Styles.imageWrapper}>
         <img

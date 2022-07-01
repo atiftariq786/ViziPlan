@@ -17,9 +17,9 @@ const VisionBoard = () => {
   }
   useEffect(() => {
     API.getVisionBoardImages(imagesType).then((response) => {
-      console.log("Get visionBoard images");
-      console.log(response, "Get reponse successfully");
-      console.log(response.data, "Get array data successfully");
+      //console.log("Get visionBoard images");
+      //console.log(response, "Get reponse successfully");
+      //console.log(response.data, "Get array data successfully");
       setImages(response.data);
     });
   }, [imagesType]);
@@ -27,7 +27,7 @@ const VisionBoard = () => {
   return (
     <div className={Styles.visionBoardMainDiv}>
       <div className={Styles.imagesList}>
-        <ImagesList webImages={imagesArray} />
+        <ImagesList webImages={imagesArray} imagesType={imagesType} />
       </div>
 
       <div className={Styles.selectedImagesList}>

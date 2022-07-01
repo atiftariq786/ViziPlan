@@ -3,10 +3,10 @@ import AddImageModal from "../../../../components/Modal/AddImage/AddImageModal";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import Styles from "../ImagesList/ImagesList.module.css";
+import API from "../../../../services/utils/API";
 
 const ImagesList = (props) => {
   const dispatch = useDispatch();
-
   let selectedImagesArray = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
@@ -15,6 +15,11 @@ const ImagesList = (props) => {
 
   useEffect(() => {
     setarrData(props.webImages);
+
+    API.getSelectedImages().then((response) => {
+      console.log(response.data, "Get Saved Selected Images from backend");
+      dispatch(selectedImageActions.savedImages(response.data));
+    });
   }, [props.webImages]);
 
   const [showModal, setShowModal] = useState(false);
@@ -33,17 +38,35 @@ const ImagesList = (props) => {
 
   const imageSubmitHandler = () => {
     const data = {
+      id: null,
       url: imageUrl,
-      alt: "WebImage",
-      id: Math.random().toString(),
+      type: props.imagesType,
+      createdBy: 0,
     };
-    arrData.unshift(data);
-    setarrData(arrData);
-    setShowModal(false);
+    API.addNewImage(data).then((response) => {
+      arrData.unshift(data);
+      setarrData(arrData);
+      setShowModal(false);
+    });
   };
 
   const genDuplicateImageHandler = (data) => {
-    dispatch(selectedImageActions.selectedImageData(data));
+    console.log(data, "genDuplicateImageHandler");
+    let newData = {
+      id: null,
+      imageId: data.id,
+      userId: 0,
+      url: data.url,
+    };
+    const isValidImage = selectedImagesArray.find(
+      (image) => image.id === data.id
+    );
+    console.log(isValidImage, "isValid");
+    if (isValidImage === undefined) {
+      API.saveSelectedImages(newData).then((response) => {
+        dispatch(selectedImageActions.selectedImageData(data));
+      });
+    }
   };
   //============================================================================
   let customStyle = [Styles.visionImages];
