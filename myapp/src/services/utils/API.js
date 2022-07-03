@@ -19,6 +19,15 @@ const API = {
     // console.log("API.js get images");
     return axios.delete(`http://localhost:3001/api/visionBoard/${id}`);
   },
+  userLogin: (data) => {
+    return axios.post(`http://localhost:3001/auth/signin`, data);
+  },
+  userSignUp: (data) => {
+    return axios.post(`http://localhost:3001/auth/signup`, data);
+  },
+  userLogout: () => {
+    return axios.get(`http://localhost:3001/api/auth/logout`);
+  },
 };
 
 export default API;
