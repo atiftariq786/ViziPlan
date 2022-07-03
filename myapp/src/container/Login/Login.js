@@ -42,7 +42,7 @@ const Login = (props) => {
           if (response.data.success) {
             dispatch(
               authActions.userLogin({
-                isSignedin: "true",
+                isSignedin: true,
                 loggedInUsername: username,
               })
             );

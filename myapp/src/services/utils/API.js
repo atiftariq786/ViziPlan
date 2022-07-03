@@ -25,7 +25,7 @@ const API = {
   },
   userLogout: () => {
     console.log("utils API hit");
-    return axios.get(`http://localhost:3001/api/auth/logout`);
+    return axios.get(`http://localhost:3001/auth/logout`);
   },
 };
 

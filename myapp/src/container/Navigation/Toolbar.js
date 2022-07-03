@@ -21,21 +21,21 @@ const Toolbar = (props) => {
   const logoutHandler = () => {
     console.log("User logout btn clicked");
     //---------------------------------------------------------
-    history.push("/home");
+    //history.push("/home");
     //props.history.push("/home");
-    dispatch(authActions.userLogout("false"));
+    //dispatch(authActions.userLogout("false"));
 
     //------------------------------------------------------------
     API.userLogout().then((response) => {
       console.log("aPI User logout");
       console.log(response);
-      dispatch(authActions.userLogout("false"));
-      //props.history.push("/home");
+      dispatch(authActions.userLogout(false));
+      history.push("/");
     });
   };
 
   let logOutShow = "";
-  if (loggedInStatus === "true") {
+  if (loggedInStatus) {
     logOutShow = (
       <Navbar.Brand className={Styles.logout} onClick={logoutHandler}>
         Logout
@@ -44,7 +44,7 @@ const Toolbar = (props) => {
   }
   return (
     <Navbar className={Styles.Navbar} expand="lg" bg="dark" variant="dark">
-      <NavLink to="/home" className={Styles.appTitle}>
+      <NavLink to="/" className={Styles.appTitle}>
         <Navbar.Brand className={Styles.appTitle}>ViziPlan</Navbar.Brand>
       </NavLink>
       <NavLink to="/visionboard" className={Styles.appContent}>

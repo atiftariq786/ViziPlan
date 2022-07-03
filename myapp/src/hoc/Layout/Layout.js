@@ -8,7 +8,7 @@ const Layout = (props) => {
   const loggedIn = useSelector((state) => state.authentication.isLoggedin);
 
   let showToolbar = "";
-  if (loggedIn === "true") {
+  if (loggedIn) {
     showToolbar = <Toolbar />;
   }
   return (
