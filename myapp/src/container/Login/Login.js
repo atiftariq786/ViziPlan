@@ -6,41 +6,56 @@ import { Link } from "react-router-dom";
 // import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 //import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-//import API from "../../../utils/API";
+import API from "../../services/utils/API";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth-slice";
 //import LoginError from "../../Modals/LoginError/loginError";
 
 import Styles from "./Login.module.css";
 
-const Login = () => {
-  const [userName, setUserame] = useState("alex777");
-  const [password, setPassword] = useState("Asialink777");
+const Login = (props) => {
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState("qq@gmail.com");
+  const [password, setPassword] = useState("password");
   const [isValidLoginForm, setIsValidLoginForm] = useState(true);
 
   console.log(isValidLoginForm);
 
   const usernameHandler = (event) => {
-    setUserame(event.target.value);
+    setUsername(event.target.value);
   };
   const passwordHandler = (event) => {
     setPassword(event.target.value);
   };
 
   const loginHandler = () => {
-    if (userName === "alex777") {
-      setIsValidLoginForm(true);
-    }
-    if (password === "Asialink777") {
-      this.setState({
-        isValidLoginForm: true,
-      });
+    if (username && password) {
+      const data = {
+        email: username,
+        password,
+      };
+
+      API.userLogin(data)
+        .then((response) => {
+          let username = response.data.email;
+          console.log(response, " get login username");
+          if (response.data.success) {
+            dispatch(
+              authActions.userLogin({
+                isSignedin: "true",
+                loggedInUsername: username,
+              })
+            );
+            props.history.push("/visionboard");
+          }
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    } else {
+      console.log("Please fill this form....!");
     }
   };
-
-  // if (username && password) {
-
-  //  // this.props.history.push("/create-story/");
-  //   //this.props.updateSignedInState("true", this.username);
-  // }
 
   let userErr = "";
   let passwordErr = "";
@@ -83,8 +98,8 @@ const Login = () => {
           <input
             // className={isValidUsername.join(" ")}
             type="text"
-            placeholder="Username"
-            value={userName}
+            placeholder="qq@gmail.com"
+            value={username}
             onChange={usernameHandler}
           ></input>
           {userErrorIcon}
@@ -93,7 +108,7 @@ const Login = () => {
           <input
             // className={isValidPassword.join(" ")}
             type="password"
-            placeholder="Password"
+            placeholder="password"
             value={password}
             onChange={passwordHandler}
           ></input>

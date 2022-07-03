@@ -1,28 +1,39 @@
 .Navbar{
-    justify-content:center !important;
+    justify-content:center; 
      
     width: 100%;
     padding:2px 15px 2px 15px;
-    background: rgb(27, 26, 26);
-   
+    background: rgb(27, 26, 26);  
 }
-
 .appContent{
     font-size: 17px;
     color:white;
+    text-decoration: none !important;
 }
 .appContent:hover{
-    color:orange;
-    font-size: 17px; 
-    font-weight: bold;   
+    color:orange !important;   
 }
 .appTitle{
-    color:orange;
+    color:orange !important;
     font-size: 19px;
     font-weight: bold;
+    text-decoration: none !important;
 }
 .appTitle:hover{
-    color:grey;
-    font-size: 19px;
-    font-weight: normal;
+    color:white !important;  
+    
+}
+.logout{
+    font-size: 17px;
+}
+.logout:hover{
+    color:red !important;    
+    cursor: pointer;
+}
+.username{
+    color:grey !important;
+    text-align: center;
+    font-size: 15px;
+    margin:auto 0px auto 0px;
+    padding: 5px;
 }

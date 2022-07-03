@@ -11,20 +11,33 @@ import LandingPage from "./components/Pages/Landing/LandingPage";
 import Dashboard from "./container/FeaturePages/Dashboard/Dashboard";
 import Goals from "./container/FeaturePages/Goals/Goals";
 import VisionBoard from "./container/FeaturePages/VisionBoard/VisionBoard";
-// import SelectedImageList from "./container/FeaturePages/VisionBoard/SelectedImageList/index.js";
-//import ImagesList from "./container/FeaturePages/VisionBoard/ImagesList/ImagesList";
+import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
+  const loggedInStatus = useSelector(
+    (state) => state.authentication.isLoggedin
+  );
+  let showVisionBoard = "";
+  let showDashboard = "";
+  let showGoals = "";
+  if (loggedInStatus === "true") {
+    showVisionBoard = <Route path="/visionboard" component={VisionBoard} />;
+  }
+  if (loggedInStatus === "true") {
+    showDashboard = <Route path="/dashboard" component={Dashboard} />;
+  }
+  if (loggedInStatus === "true") {
+    showGoals = <Route path="/goals" component={Goals} />;
+  }
   return (
     <Layout>
       <Route path="/home" component={LandingPage} />
       <Route path="/login" component={Login} />
+      {showVisionBoard}
+      {showDashboard}
+      {showGoals}
       <Route path="/signup" component={Signup} />
-
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/visionboard" component={VisionBoard} />
-      <Route path="/goals" component={Goals} />
       <Route path="/about" component={About} />
       <Route path="/appdemo" component={AppDemo} />
       <Route path="/future-dev" component={FutureDev} />

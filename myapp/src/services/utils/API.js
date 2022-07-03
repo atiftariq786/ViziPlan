@@ -1,5 +1,5 @@
 import axios from "axios";
-//axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 const API = {
   getVisionBoardImages: (type) => {
@@ -12,11 +12,9 @@ const API = {
     return axios.post(`http://localhost:3001/api/visionBoard/save`, data);
   },
   getSelectedImages: () => {
-    // console.log("API.js get images");
     return axios.get(`http://localhost:3001/api/visionBoard/me`);
   },
   deleteSelectedImages: (id) => {
-    // console.log("API.js get images");
     return axios.delete(`http://localhost:3001/api/visionBoard/${id}`);
   },
   userLogin: (data) => {
@@ -26,6 +24,7 @@ const API = {
     return axios.post(`http://localhost:3001/auth/signup`, data);
   },
   userLogout: () => {
+    console.log("utils API hit");
     return axios.get(`http://localhost:3001/api/auth/logout`);
   },
 };

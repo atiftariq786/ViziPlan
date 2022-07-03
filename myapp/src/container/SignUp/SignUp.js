@@ -1,35 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 // import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import API from "../../services/utils/API";
 
 import Styles from "./Signup.module.css";
 import Button from "react-bootstrap/Button";
 
-const Signup = () => {
-  //   const [userName, setUserame] = useState("alex777");
-  //   const [password, setPassword] = useState("Asialink777");
-  //   const [email, setEmail] = useState();
-  //   const [isValidLoginForm, setIsValidLoginForm] = useState(true);
+const Signup = (props) => {
+  const [firstname, setFirstName] = useState("alex");
+  const [lastname, setLastName] = useState("james");
+  const [username, setUsername] = useState("test123");
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("password");
+  const [confirmPassword, setConfirmPassword] = useState("password");
+
+  //const [isValidLoginForm, setIsValidLoginForm] = useState(true);
+  const firstNameHandler = (event) => {
+    setFirstName(event.target.value);
+  };
+  const lastNameHandler = (event) => {
+    setLastName(event.target.value);
+  };
 
   const usernameHandler = (event) => {
-    console.log("username onChange active");
+    setUsername(event.target.value);
   };
   const emailHandler = (event) => {
-    this.setState({
-      email: event.target.value,
-    });
+    setEmail(event.target.value);
   };
   const passwordHandler = (event) => {
-    this.setState({
-      password: event.target.value,
-    });
+    setPassword(event.target.value);
   };
   const confirmPasswordHandler = (event) => {
-    this.setState({
-      confirmPassword: event.target.value,
-    });
+    setConfirmPassword(event.target.value);
+  };
+
+  const signUpHandler = () => {
+    if (username && password && email) {
+      if (password === confirmPassword) {
+        const data = {
+          firstname,
+          lastname,
+          username,
+          email,
+          password,
+        };
+
+        API.userSignUp(data).then((response) => {
+          console.log("User SignUp Data Saved");
+          console.log(response, "SignUp response");
+
+          //let username = response.data.message;
+          if (response.data.success) {
+            //props.updateSignedInState("true", username);
+
+            props.history.push("/visionboard");
+          }
+        });
+      } else {
+        console.log("Make sure your password match");
+      }
+    } else {
+      console.log("Please fill all the field");
+    }
   };
 
   //   let userErr = "";
@@ -47,7 +82,7 @@ const Signup = () => {
       className={Styles.signupButton}
       variant="success"
       type="button"
-      //   onClick={this.postSignUpHandler}
+      onClick={signUpHandler}
       size="sm"
     >
       Join
@@ -70,8 +105,22 @@ const Signup = () => {
           <input
             // className={isValidUsername.join(" ")}
             type="text"
-            placeholder="Username"
-            // value={this.state.username}
+            placeholder="firstname"
+            value={firstname}
+            onChange={firstNameHandler}
+          ></input>
+          <input
+            // className={isValidUsername.join(" ")}
+            type="text"
+            placeholder="lastname"
+            value={lastname}
+            onChange={lastNameHandler}
+          ></input>
+          <input
+            // className={isValidUsername.join(" ")}
+            type="text"
+            placeholder="username"
+            value={username}
             onChange={usernameHandler}
           ></input>
           {/* {userErrorIcon}
@@ -80,8 +129,8 @@ const Signup = () => {
           <input
             // className={isValidEmail.join(" ")}
             type="email"
-            placeholder="Email"
-            // value={this.state.email}
+            placeholder="test@gmail.com"
+            value={email}
             onChange={emailHandler}
             onKeyUp={emailHandler}
           ></input>
@@ -91,8 +140,8 @@ const Signup = () => {
           <input
             // className={isValidPassword.join(" ")}
             type="password"
-            placeholder="Password"
-            // value={this.state.password}
+            placeholder="password"
+            value={password}
             onChange={passwordHandler}
           ></input>
           {/* {passwordErrorIcon}
@@ -101,8 +150,8 @@ const Signup = () => {
           <input
             // className={isValidConfirmPassword.join(" ")}
             type="password"
-            placeholder="Confirm Password"
-            // value={this.state.confirmPassword}
+            placeholder="confirm password"
+            value={confirmPassword}
             onChange={confirmPasswordHandler}
           ></input>
           {/* {confirmPasswordErrorIcon}
