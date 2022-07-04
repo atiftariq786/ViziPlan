@@ -10,7 +10,7 @@ const authSlice = createSlice({
     userLogout(state, actions) {
       let userLogoutStatus = actions.payload;
       state.isLoggedin = userLogoutStatus;
-      console.log(userLogoutStatus, "redux Auth userLogout");
+
       if (!userLogoutStatus) {
         state.currentUser = "";
       }
@@ -19,11 +19,9 @@ const authSlice = createSlice({
       let userLoginStatus = actions.payload;
       state.isLoggedin = userLoginStatus.isSignedin;
 
-      console.log(userLoginStatus, "redux Auth userlogin");
       if (userLoginStatus.isSignedin) {
         state.currentUser = userLoginStatus.loggedInUsername;
       }
-      console.log(state.currentUser, "current user update in redux auth");
     },
   },
 });

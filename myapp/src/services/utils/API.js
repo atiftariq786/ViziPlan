@@ -24,7 +24,6 @@ const API = {
     return axios.post(`http://localhost:3001/auth/signup`, data);
   },
   userLogout: () => {
-    console.log("utils API hit");
     return axios.get(`http://localhost:3001/auth/logout`);
   },
 };

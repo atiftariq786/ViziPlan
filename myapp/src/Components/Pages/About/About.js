@@ -40,7 +40,7 @@ const about = (props) => {
           developer position, if you know of any please ping me! Please click
           around and provide me feedback at atiftariq786[@]gmail[.]com
         </p>
-        <NavLink to="/home" className={Styles.backButton}>
+        <NavLink to="/" className={Styles.backButton}>
           back
         </NavLink>
         <div className={Styles.gitLinkedin}>

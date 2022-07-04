@@ -1,70 +1,90 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
-// import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import Button from "react-bootstrap/Button";
-//import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import API from "../../services/utils/API";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/auth-slice";
-//import LoginError from "../../Modals/LoginError/loginError";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
+import LoginError from "../../components/Modal/LoginError/LoginError";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
+//import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Styles from "./Login.module.css";
 
 const Login = (props) => {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("qq@gmail.com");
-  const [password, setPassword] = useState("password");
+  const [userEmail, seteUserEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isValidLoginForm, setIsValidLoginForm] = useState(true);
+  const [loginError, setLoginError] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  console.log(isValidLoginForm);
+  //============================================Handler Functions===============================================
 
-  const usernameHandler = (event) => {
-    setUsername(event.target.value);
+  const userEmailHandler = (event) => {
+    seteUserEmail(event.target.value);
   };
   const passwordHandler = (event) => {
     setPassword(event.target.value);
   };
+  const hideLoginErrorHandler = () => {
+    setModalShow(false);
+  };
 
   const loginHandler = () => {
-    if (username && password) {
-      const data = {
-        email: username,
-        password,
-      };
+    if (userEmail === "") {
+      setIsValidLoginForm(false);
+    }
+    if (password === "") {
+      setIsValidLoginForm(false);
+    }
+    const data = {
+      email: userEmail,
+      password,
+    };
+    if (userEmail && password) {
+      setIsLoading(true);
 
       API.userLogin(data)
         .then((response) => {
-          let username = response.data.email;
+          let userEmailId = response.data.email;
           console.log(response, " get login username");
           if (response.data.success) {
             dispatch(
               authActions.userLogin({
                 isSignedin: true,
-                loggedInUsername: username,
+                loggedInUsername: userEmailId,
               })
             );
             props.history.push("/visionboard");
+            setIsLoading(false);
           }
         })
         .catch((err) => {
-          console.log({ err });
+          console.log({ err }, "Login testing error");
+          if (!err.response.data.success) {
+            setLoginError(true);
+            setModalShow(true);
+            setIsLoading(false);
+          }
         });
+      seteUserEmail("");
+      setPassword("");
     } else {
       console.log("Please fill this form....!");
     }
   };
-
-  let userErr = "";
+  //============================================Conditional Style===============================================
+  let emailErr = "";
   let passwordErr = "";
 
-  let userErrorIcon = "";
+  let emailErrorIcon = "";
   let passwordErrorIcon = "";
 
   let loginErrorMessage = "";
-
   let loginButton = (
     <Button
       className={Styles.loginButton}
@@ -77,9 +97,112 @@ const Login = (props) => {
     </Button>
   );
 
-  // if (loginError) {
-  //   loginErrorMessage = <ButtonToolbar></ButtonToolbar>;
-  // }
+  if (loginError) {
+    loginErrorMessage = (
+      <LoginError show={modalShow} onHide={hideLoginErrorHandler} />
+    );
+  }
+  if (isLoading) {
+    loginButton = <Spinner />;
+  }
+  //Check Email validation
+  let emailPattern = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{2,4}/.test(
+    userEmail
+  );
+  let isValidEmail = [Styles.inputField];
+
+  if (emailPattern) {
+    isValidEmail.push(Styles.validLogin);
+    emailErrorIcon = (
+      <FontAwesomeIcon
+        className={Styles.checkCircle}
+        icon={faCheckCircle}
+        size="1x"
+      />
+    );
+  }
+  if (!emailPattern && userEmail !== "") {
+    emailErr = (
+      <p className={Styles.usernameEror}>Please write corrrect email address</p>
+    );
+    emailErrorIcon = (
+      <FontAwesomeIcon
+        className={Styles.exTrianle}
+        icon={faExclamationTriangle}
+        size="1x"
+      />
+    );
+
+    isValidEmail.push(Styles.invalidLogin);
+  }
+  //Check password validation
+  //Minimum eight characters, at least one letter and one number
+  let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+  let isValidPassword = [Styles.inputField];
+
+  if (passwordPattern) {
+    isValidPassword.push(Styles.validLogin);
+    passwordErrorIcon = (
+      <FontAwesomeIcon
+        className={Styles.checkCircle}
+        icon={faCheckCircle}
+        size="1x"
+      />
+    );
+  }
+  if (!passwordPattern && password !== "") {
+    passwordErr = (
+      <p className={Styles.usernameEror}>
+        Please write password minimum eight characters, at least one letter and
+        one number
+      </p>
+    );
+    passwordErrorIcon = (
+      <FontAwesomeIcon
+        className={Styles.exTrianle}
+        icon={faExclamationTriangle}
+        size="1x"
+      />
+    );
+    isValidPassword.push(Styles.invalidLogin);
+  }
+  const formValidation = () => {
+    if (userEmail === "") {
+      emailErr = (
+        <p className={Styles.usernameEror}>
+          Please write username at least 3 characters
+        </p>
+      );
+      emailErrorIcon = (
+        <FontAwesomeIcon
+          className={Styles.exTrianle}
+          icon={faExclamationTriangle}
+          size="1x"
+        />
+      );
+      isValidEmail.push(Styles.invalidLogin);
+    }
+    if (password === "") {
+      passwordErr = (
+        <p className={Styles.usernameEror}>
+          Please write password minimum eight characters, at least one letter
+          and one number
+        </p>
+      );
+      passwordErrorIcon = (
+        <FontAwesomeIcon
+          className={Styles.exTrianle}
+          icon={faExclamationTriangle}
+          size="1x"
+        />
+      );
+      isValidPassword.push(Styles.invalidLogin);
+    }
+  };
+  //check form validation and password match
+  if (!isValidLoginForm) {
+    formValidation();
+  }
 
   return (
     <div className={Styles.mainDiv}>
@@ -96,17 +219,18 @@ const Login = (props) => {
         {loginErrorMessage}
         <form className={Styles.formDiv}>
           <input
-            // className={isValidUsername.join(" ")}
-            type="text"
-            placeholder="qq@gmail.com"
-            value={username}
-            onChange={usernameHandler}
+            className={isValidEmail.join(" ")}
+            type="email"
+            placeholder="example@gmail.com"
+            value={userEmail}
+            onChange={userEmailHandler}
+            onKeyUp={userEmailHandler}
           ></input>
-          {userErrorIcon}
-          {userErr}
+          {emailErrorIcon}
+          {emailErr}
 
           <input
-            // className={isValidPassword.join(" ")}
+            className={isValidPassword.join(" ")}
             type="password"
             placeholder="password"
             value={password}
@@ -124,7 +248,7 @@ const Login = (props) => {
               </Link>
             }
           </p>
-          <Link to="/home" className={Styles.backButton}>
+          <Link to="/" className={Styles.backButton}>
             back
           </Link>
         </form>

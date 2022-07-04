@@ -12,7 +12,7 @@ const AppDemo = () => {
       ></img>
       <h1 className={Styles.title}>
         ViziPlaning demo coming soon.........! <br />
-        <NavLink to="/home" className={Styles.backButton}>
+        <NavLink to="/" className={Styles.backButton}>
           back
         </NavLink>
       </h1>
