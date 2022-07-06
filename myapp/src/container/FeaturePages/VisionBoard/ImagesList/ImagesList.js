@@ -11,7 +11,9 @@ const ImagesList = (props) => {
     (state) => state.selectedImages.selectedImageArray
   );
 
-  const [arrData, setarrData] = useState(props.webImages);
+  const webImages = props.webImages;
+
+  const [arrData, setarrData] = useState(webImages);
 
   useEffect(() => {
     setarrData(props.webImages);
@@ -20,7 +22,7 @@ const ImagesList = (props) => {
       console.log(response.data, "Get Saved Selected Images from backend");
       dispatch(selectedImageActions.savedImages(response.data));
     });
-  }, [props.webImages]);
+  }, [webImages]);
 
   const [showModal, setShowModal] = useState(false);
   const [imageUrl, setImageUrl] = useState(

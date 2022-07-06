@@ -1,5 +1,11 @@
-/* .content{
-    margin-top : 0px;
-    
-
-} */
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.sideNavBar{
+    width:7%; 
+}
+.childrenDiv{
+    width: 93%;
+}
