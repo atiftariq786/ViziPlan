@@ -1,39 +1,96 @@
-.Navbar{
-    justify-content:center; 
-     
-    width: 100%;
-    padding:2px 15px 2px 15px;
-    background: rgb(27, 26, 26);  
-}
-.appContent{
-    font-size: 17px;
-    color:white;
-    text-decoration: none !important;
-}
-.appContent:hover{
-    color:orange !important;   
-}
-.appTitle{
-    color:orange !important;
-    font-size: 19px;
+.logo{
+    color:#1479ff;
     font-weight: bold;
-    text-decoration: none !important;
+    font-size: 22px;
 }
-.appTitle:hover{
-    color:white !important;  
+.mainDiv{
+    width: 130px;
+    height: 100%;
+    min-height: 650px;
+    background:white;
+    display:block;
+    position: fixed;
+    flex-flow:column;
     
 }
-.logout{
-    font-size: 17px;
+.contentOne{
+    width: 130px;
+    height: 500px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display:flex;
+    position:absolute;
+    flex-flow:column;
+    justify-content: space-between;
+    background-color: #fff;
+    font-size: 16px;
+    text-align: center;
 }
-.logout:hover{
-    color:red !important;    
+.contentTwo{
+    display:flex;
+    position:absolute;
+    flex-flow:column;
+    width: 130px;
+    height: 160px;
+    color:black !important;
+    background-color: #fff; 
+    text-align: center;
+    bottom: 0;
+}
+
+.logoutBtn{
+    border:transparent;
+    background:transparent;
+}
+.logoutIcon{
+    color: #1479FF ;
+}
+.logoutIcon:hover{
+ 
+    color: red;
     cursor: pointer;
 }
-.username{
-    color:grey !important;
-    text-align: center;
-    font-size: 15px;
-    margin:auto 0px auto 0px;
-    padding: 5px;
+.contentOneBtns {
+    color: #1479FF;
+    cursor: pointer;
+   width:40px;
+   height: 40px;
+   padding: 5px 5px 5px 5px;
 }
+.contentOneBtns:hover {
+text-decoration: none;
+color: #fff;
+}
+
+.iconArea{
+    height: 70px;
+    width: 100%;
+    margin: 0 auto 0 auto;  
+}
+
+.iconBubble{
+    background-color: #f3f8ff;
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    border: #dae9ff solid 1px;
+}
+
+.iconBubble:hover{
+    background-color: #1479FF;
+    color: #fff;
+}
+
+.iconText{
+    font-size:11px;
+    background-color: #fff;
+}
+.active{
+    color:green;
+    background-color: black;
+}
+

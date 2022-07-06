@@ -50,7 +50,7 @@ const Login = (props) => {
 
       API.userLogin(data)
         .then((response) => {
-          let userEmailId = response.data.email;
+          let userEmailId = response.data.firstname;
           console.log(response, " get login username");
           if (response.data.success) {
             dispatch(

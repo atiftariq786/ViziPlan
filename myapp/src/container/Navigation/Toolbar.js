@@ -1,19 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
+//import Navbar from "react-bootstrap/Navbar";
 import API from "../../services/utils/API";
 import { useSelector, useDispatch } from "react-redux";
 //import Nav from "react-bootstrap/Nav";
-import Styles from "./Toolbar.module.css";
+import Styles from "../Navigation/Toolbar.module.css";
 import { authActions } from "../../store/auth-slice";
 import { useHistory } from "react-router-dom";
+//=============================================================
+
+//import Nav from "react-bootstrap/Nav";
+//import Button from "react-bootstrap/esm/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faGithub } from "@fortawesome/free-brands-svg-icons";
+//import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { faBullseye } from "@fortawesome/free-solid-svg-icons";
+import { faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 const Toolbar = (props) => {
   const dispatch = useDispatch();
   let history = useHistory();
-  const loggedInStatus = useSelector(
-    (state) => state.authentication.isLoggedin
-  );
+
+  const [isDashboardHovering, setIsDashboardHovering] = useState(false);
+  const [isVisionBoardHovering, setIsVisionBoardHovering] = useState(false);
+  const [isGoalsHovering, setIsGoalsHovering] = useState(false);
+  const [isInfoHovering, setIsInfoHovering] = useState(false);
+  const [isLogoutHovering, setIsLogoutHovering] = useState(false);
+
+  const dashboardHoverOver = () => {
+    setIsDashboardHovering(true);
+  };
+
+  const dashboardHoverOut = () => {
+    setIsDashboardHovering(false);
+  };
+  const visionBoardHoverOver = () => {
+    setIsVisionBoardHovering(true);
+  };
+
+  const visionBoardHoverOut = () => {
+    setIsVisionBoardHovering(false);
+  };
+  const goalHoverOver = () => {
+    setIsGoalsHovering(true);
+  };
+
+  const goalHoverOut = () => {
+    setIsGoalsHovering(false);
+  };
+  const infoHoverOver = () => {
+    setIsInfoHovering(true);
+  };
+
+  const infoHoverOut = () => {
+    setIsInfoHovering(false);
+  };
+
+  const logoutHoverOver = () => {
+    setIsLogoutHovering(true);
+  };
+
+  const logoutHoverOut = () => {
+    setIsLogoutHovering(false);
+  };
+
+  // const loggedInStatus = useSelector(
+  //   (state) => state.authentication.isLoggedin
+  // );
   const currentUsername = useSelector(
     (state) => state.authentication.currentUser
   );
@@ -33,34 +90,92 @@ const Toolbar = (props) => {
       history.push("/");
     });
   };
-
-  let logOutShow = "";
-  if (loggedInStatus) {
-    logOutShow = (
-      <Navbar.Brand className={Styles.logout} onClick={logoutHandler}>
-        Logout
-      </Navbar.Brand>
-    );
-  }
   return (
-    <Navbar className={Styles.Navbar} expand="lg" bg="dark" variant="dark">
-      <NavLink to="/" className={Styles.appTitle}>
-        <Navbar.Brand className={Styles.appTitle}>ViziPlan</Navbar.Brand>
-      </NavLink>
-      <NavLink to="/visionboard" className={Styles.appContent}>
-        <Navbar.Brand className={Styles.appContent}>Vision Board</Navbar.Brand>
-      </NavLink>
-      <NavLink to="/goals" className={Styles.appContent}>
-        <Navbar.Brand className={Styles.appContent}>Goals</Navbar.Brand>
-      </NavLink>
-      <NavLink to="/dashboard" className={Styles.appContent}>
-        <Navbar.Brand className={Styles.appContent}>Dashboard</Navbar.Brand>
-      </NavLink>
+    <div className={Styles.mainDiv}>
+      <div className={Styles.contentOne}>
+        <div>
+          <p className={Styles.logo}>ViziPlan</p>
+        </div>
 
-      {logOutShow}
-      {<p className={Styles.username}>Signed in: {currentUsername}</p>}
-    </Navbar>
+        <div className={Styles.iconArea}>
+          <div className={Styles.iconBubble}>
+            <NavLink to="/dashboard">
+              <FontAwesomeIcon
+                className={Styles.contentOneBtns}
+                onMouseOver={dashboardHoverOver}
+                onMouseOut={dashboardHoverOut}
+                icon={faChartLine}
+                size="2x"
+              ></FontAwesomeIcon>
+            </NavLink>
+          </div>
+          {isDashboardHovering && <p className={Styles.iconText}>Deshboard</p>}
+        </div>
+        <div className={Styles.iconArea}>
+          <div className={Styles.iconBubble}>
+            <NavLink to="/visionboard">
+              <FontAwesomeIcon
+                className={Styles.contentOneBtns}
+                onMouseOver={visionBoardHoverOver}
+                onMouseOut={visionBoardHoverOut}
+                icon={faPersonChalkboard}
+                size="2x"
+              />
+            </NavLink>
+          </div>
+          {isVisionBoardHovering && (
+            <p className={Styles.iconText}>Vision Board</p>
+          )}
+        </div>
+        <div className={Styles.iconArea}>
+          <div className={Styles.iconBubble}>
+            <NavLink to="/goals">
+              <FontAwesomeIcon
+                className={Styles.contentOneBtns}
+                onMouseOver={goalHoverOver}
+                onMouseOut={goalHoverOut}
+                icon={faBullseye}
+                size="2x"
+              />
+            </NavLink>
+          </div>
+          {isGoalsHovering && <p className={Styles.iconText}>Goals</p>}
+        </div>
+        <div className={Styles.iconArea}>
+          <div className={Styles.iconBubble}>
+            <NavLink to="/about">
+              <FontAwesomeIcon
+                className={Styles.contentOneBtns}
+                onMouseOver={infoHoverOver}
+                onMouseOut={infoHoverOut}
+                icon={faCircleInfo}
+                size="2x"
+              />
+            </NavLink>
+          </div>
+          {isInfoHovering && <p className={Styles.iconText}>Information</p>}
+        </div>
+      </div>
+
+      <div className={Styles.contentTwo}>
+        <div className={Styles.visionBoard}>
+          <FontAwesomeIcon icon={faUser} size="2x" />
+          <p>Hi {currentUsername}!</p>
+        </div>
+        <div className={Styles.visionBoard}>
+          <button className={Styles.logoutBtn} onClick={logoutHandler}>
+            <FontAwesomeIcon
+              className={Styles.logoutIcon}
+              onMouseOver={logoutHoverOver}
+              onMouseOut={logoutHoverOut}
+              icon={faPowerOff}
+              size="2x"
+            />
+          </button>
+          {isLogoutHovering && <p className={Styles.iconText}>Logout</p>}
+        </div>
+      </div>
+    </div>
   );
 };
-
 export default Toolbar;

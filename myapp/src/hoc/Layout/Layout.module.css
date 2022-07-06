@@ -4,8 +4,9 @@
     display: flex;
 }
 .sideNavBar{
-    width:7%; 
+    width:130px; 
 }
 .childrenDiv{
-    width: 93%;
+    width: calc(100% - 130px);;
+    width: -moz-calc(100% - 130px);
 }
