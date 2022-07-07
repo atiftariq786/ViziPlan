@@ -96,6 +96,7 @@ const ImagesList = (props) => {
 
   return (
     <div className={Styles.container}>
+      <h1 className={Styles.imagestitle}>Images Gallery</h1>
       <div className={Styles.gridImages}>
         <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
           +

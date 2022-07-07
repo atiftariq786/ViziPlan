@@ -1,18 +1,30 @@
+.imagestitle{
+    color:#1E3E6B !important;
+    min-width:280px;
+    padding-top: 50px;
+    padding-bottom: 19px;
+    font-family:cursive;
+    background: #eff5fe !important; 
+    margin: 0px;
+}
 .container{
     width:100%;
     height: 100%;
+    min-width: 410px;
     background: grey;
 }
 .gridImages{
+    min-width: 410px;
     width:100%;
-    background: white;
+    background: #eff5fe;
     display:flex;  
     flex-flow: row wrap;
     text-align: left;
+   
 }
 .visionImages{
-    width: 278px; 
-    height:278px;
+    width: 284px; 
+    height:284px;
     margin: 5px 0px 0px 5px;
     border-radius: 5px;
     border: none;      
@@ -23,16 +35,16 @@
    
 }
 .selectedVisionImages{
-    width: 278px; 
-    height:278px;
+    width: 284px; 
+    height:284px;
     margin: 5px 0px 0px 5px;
     border-radius: 5px;
     border: solid orange;
    border-width: 2px;  
 }
 .addImage{
-    width: 255px;
-    height: 255px;   
+    width: 284px;
+    height: 284px;   
     margin: 5px 0px 0px 5px;
     border-radius: 10px;
     background: rgba(128, 128, 128, 0.42);
@@ -42,15 +54,15 @@
    
 }
 .addImageBtn{
-    width:278px;
-    height: 278px;
+    width:284px;
+    height: 284px;
     margin: 5px 0px 0px 5px;
     color:grey;
     font-size:100px;   
-    border-radius: 10px;
+    border-radius: 5px;
     background: rgba(128, 128, 128, 0.42);
     border-style:dashed;
-    border-width: 10px;
+    border-width: 6px;
     border-color:  rgba(94, 93, 93, 0.304);
 }
 .addImageBtn:hover{

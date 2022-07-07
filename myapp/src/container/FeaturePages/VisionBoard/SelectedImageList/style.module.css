@@ -1,15 +1,19 @@
 .container{
     width:100%;
+    min-width: 410px;
     height: 100%;
-    background:rgb(187, 209, 226);
+    background:#1E3E6B;
 }
 .title{
-    color:rgb(68, 68, 68)!important;
-   padding-top: 50px;
-   font-family:cursive;
+    color:#fff!important;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    margin: 0px;
+    font-family:cursive;
 }
 .imageContainer{
     width:100%;
+    min-width: 410px;
     display:flex;  
     flex-flow: row wrap;
 }
@@ -41,14 +45,14 @@
  .textOne{  
     font-weight: 400;
     text-align: center;    
-    color:white !important; 
+    color:grey !important; 
     font-size: 20px;
     margin: 0px;
 }
  .textTwo{  
     font-weight: 400;
     text-align: center;    
-    color:white !important; 
+    color:grey!important; 
     font-size: 30px;
     margin: 0px;
 }
@@ -71,7 +75,7 @@
     opacity: 0.5;
 }
 .continueBtn{
-    background: rgb(17, 114, 204) ;
+    background: #1479ff ;
     color:white !important;
     width: 120px;
     height:38px;    
@@ -82,4 +86,5 @@
 .continueBtn:hover{
     background: white ;
     color:black !important;
+    border: #1479ff solid 1px;
 }

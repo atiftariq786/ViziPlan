@@ -4,7 +4,7 @@
     font-size: 22px;
 }
 .mainDiv{
-    width: 130px;
+    width: 105px;
     height: 100%;
     min-height: 650px;
     background:white;
@@ -14,7 +14,7 @@
     
 }
 .contentOne{
-    width: 130px;
+    width: 105px;
     height: 500px;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -32,7 +32,7 @@
     display:flex;
     position:absolute;
     flex-flow:column;
-    width: 130px;
+    width: 105px;
     height: 160px;
     color:black !important;
     background-color: #fff; 
@@ -89,8 +89,18 @@ color: #fff;
     font-size:11px;
     background-color: #fff;
 }
-.active{
-    color:green;
-    background-color: black;
+.activePage{
+    background-color: #f3f8ff;
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    border: #1479FF solid 1px;
+
+}
+.activePage:hover{
+    background-color: #1479FF;
+    color: #fff;
 }
 

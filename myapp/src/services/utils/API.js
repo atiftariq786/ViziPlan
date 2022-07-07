@@ -26,6 +26,9 @@ const API = {
   userLogout: () => {
     return axios.get(`http://localhost:3001/auth/logout`);
   },
+  isUserLoggedin: () => {
+    return axios.post(`http://localhost:3001/auth/loggedin`);
+  },
 };
 
 export default API;

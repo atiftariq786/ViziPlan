@@ -1,19 +1,11 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-//import Navbar from "react-bootstrap/Navbar";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import API from "../../services/utils/API";
 import { useSelector, useDispatch } from "react-redux";
-//import Nav from "react-bootstrap/Nav";
-import Styles from "../Navigation/Toolbar.module.css";
 import { authActions } from "../../store/auth-slice";
-import { useHistory } from "react-router-dom";
-//=============================================================
 
-//import Nav from "react-bootstrap/Nav";
-//import Button from "react-bootstrap/esm/Button";
+import Styles from "../Navigation/Toolbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faGithub } from "@fortawesome/free-brands-svg-icons";
-//import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 import { faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
@@ -23,7 +15,10 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 const Toolbar = (props) => {
   const dispatch = useDispatch();
-  let history = useHistory();
+  const history = useHistory();
+  const location = useLocation();
+  const { pathname } = location;
+  const splitlocation = pathname.split("/");
 
   const [isDashboardHovering, setIsDashboardHovering] = useState(false);
   const [isVisionBoardHovering, setIsVisionBoardHovering] = useState(false);
@@ -90,6 +85,7 @@ const Toolbar = (props) => {
       history.push("/");
     });
   };
+
   return (
     <div className={Styles.mainDiv}>
       <div className={Styles.contentOne}>
@@ -98,7 +94,13 @@ const Toolbar = (props) => {
         </div>
 
         <div className={Styles.iconArea}>
-          <div className={Styles.iconBubble}>
+          <div
+            className={
+              splitlocation[1] === "dashboard"
+                ? Styles.activePage
+                : Styles.iconBubble
+            }
+          >
             <NavLink to="/dashboard">
               <FontAwesomeIcon
                 className={Styles.contentOneBtns}
@@ -112,7 +114,13 @@ const Toolbar = (props) => {
           {isDashboardHovering && <p className={Styles.iconText}>Deshboard</p>}
         </div>
         <div className={Styles.iconArea}>
-          <div className={Styles.iconBubble}>
+          <div
+            className={
+              splitlocation[1] === "visionboard"
+                ? Styles.activePage
+                : Styles.iconBubble
+            }
+          >
             <NavLink to="/visionboard">
               <FontAwesomeIcon
                 className={Styles.contentOneBtns}
@@ -128,7 +136,13 @@ const Toolbar = (props) => {
           )}
         </div>
         <div className={Styles.iconArea}>
-          <div className={Styles.iconBubble}>
+          <div
+            className={
+              splitlocation[1] === "goals"
+                ? Styles.activePage
+                : Styles.iconBubble
+            }
+          >
             <NavLink to="/goals">
               <FontAwesomeIcon
                 className={Styles.contentOneBtns}
@@ -142,7 +156,13 @@ const Toolbar = (props) => {
           {isGoalsHovering && <p className={Styles.iconText}>Goals</p>}
         </div>
         <div className={Styles.iconArea}>
-          <div className={Styles.iconBubble}>
+          <div
+            className={
+              splitlocation[1] === "about"
+                ? Styles.activePage
+                : Styles.iconBubble
+            }
+          >
             <NavLink to="/about">
               <FontAwesomeIcon
                 className={Styles.contentOneBtns}
