@@ -23,6 +23,14 @@ const authSlice = createSlice({
         state.currentUser = userLoginStatus.loggedInUsername;
       }
     },
+    isLoggedInUser(state, actions) {
+      let response = actions.payload;
+      state.isLoggedin = response.isSignedin;
+
+      if (response.isSignedin) {
+        state.currentUser = response.loggedInUsername;
+      }
+    },
   },
 });
 export const authActions = authSlice.actions;

@@ -27,7 +27,7 @@ const API = {
     return axios.get(`http://localhost:3001/auth/logout`);
   },
   isUserLoggedin: () => {
-    return axios.post(`http://localhost:3001/auth/loggedin`);
+    return axios.post(`http://localhost:3001/auth/isLoggedIn`);
   },
 };
 

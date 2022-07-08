@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./hoc/Layout/Layout";
@@ -11,19 +11,43 @@ import LandingPage from "./components/Pages/Landing/LandingPage";
 import Dashboard from "./container/FeaturePages/Dashboard/Dashboard";
 import Goals from "./container/FeaturePages/Goals/Goals";
 import VisionBoard from "./container/FeaturePages/VisionBoard/VisionBoard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import API from "./services/utils/API";
+import { authActions } from "./store/auth-slice";
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    API.isUserLoggedin().then((response) => {
+      console.log(response, "App.js isloggedin");
+
+      if (response.data.state === "success") {
+        console.log("is success");
+        dispatch(
+          authActions.isLoggedInUser({
+            isSignedin: true,
+            loggedInUsername: response.data.user.firstname,
+          })
+        );
+      }
+    });
+  }, []);
+
   const loggedInStatus = useSelector(
     (state) => state.authentication.isLoggedin
   );
 
+  console.log(loggedInStatus, "loggedInStatus");
   return (
     <Layout>
       <Route exact path="/" component={LandingPage} />
-      <Route path="/login" component={Login} />
+      <Route exact path="/login">
+        {loggedInStatus ? <Redirect to="/visionboard" /> : <Login />}
+      </Route>
+
       <Route path="/signup" component={Signup} />
       <Route path="/about" component={About} />
       <Route path="/appdemo" component={AppDemo} />

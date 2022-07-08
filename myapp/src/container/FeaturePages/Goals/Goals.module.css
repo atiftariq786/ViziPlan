@@ -1,34 +1,130 @@
 .goalsMainDiv{
     width:100%;
     height: 100%;
-    position: fixed;
     text-align: center;
-    display: flex;
-}
-.demoImage{
-    width:65%;
-    height: 100vh;
-}
-.title{
-    margin-top: 35%;
-    margin-left: 40%;
-    position:absolute;
-    top: 0px;
-    left: 0px;
-    font-weight: 400;
+    display: flex;   
     
-    color:white !important; 
+    background: #f3f8ff;
 }
-.backButton{
-    width:80px;
-    font-size: 27px;
-    margin: auto;
-    padding: 2px;
-    justify-content: center;
+.sectionOneTitle{
+    color:#1E3E6B !important;
     text-decoration: none;
-    color:#007bff;
+    margin-top: 30px;
+    
 }
-.backButton:hover{
-    color:blue;
-    text-decoration:underline;
+.sectionOne{
+    width: 40%;
+    height: 100vh;
+    /* background:green !important; */
+    
+}
+.sectionTwo{
+    width: 60%;
+    height: 100vh;
+    color:white;
+    background:#f3f8ff;;
+    
+}
+.sectionOne_subContent{
+   width: 100%;
+   height: 50%;
+    
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.sampleGoalDiv{
+    width: 250px;
+    height: 60px;
+    margin: 20px 5px 5px 30px;
+    
+    background: #fff;
+    text-align: center;
+    ;
+}
+.sectionTwo_subContent{
+    width: 100%;
+    min-height: 300px;
+    height: 30%;
+     
+    display: flex;
+    flex-flow: row;      
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 50px; 
+    
+ }
+ .reports{
+    background:#fff!important;
+    width:500px;
+    height: 650px;
+    margin: auto;
+    border-radius: 30px;
+    color:black;
+    padding-top: 40px;
+}
+ .formText{   
+   color:black;
+   display: flex;
+   justify-content: left;
+}
+.formCheckBtn{   
+    width: 80px;
+    height: 30px;
+    color:black;
+    display: block;
+    justify-content: left;
+    cursor: pointer;
+    padding: 0px;
+    
+    margin-left: 0px;
+ }
+.inputField{
+    width:100%;
+    height: 30px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px; 
+    font-family: "Lato", sans-serif;
+    padding: 0 0 0 12px;
+    background: #f3f3f5;
+    margin: 25px auto 0px auto;
+    text-align: left;
+    border-radius: 4px;
+    border: 1px solid #f3f3f5;
+    box-sizing: border-box;
+    outline: none;
+    resize: horizontal;
+    
+}
+.inputField:focus{
+    background: #FFFFFF;
+}
+.inputFieldTextArea{
+    width:100%;
+    height: 100px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px; 
+    font-family: "Lato", sans-serif;
+    padding: 0 0 0 12px;
+    background: #f3f3f5;
+    margin: 25px auto 0px auto;
+    resize:vertical;
+    
+}
+.continueBtn{
+    background: #1479ff ;
+    color:white !important;
+    width: 120px;
+    height:38px;    
+    border-radius: 4px;
+    font-size: 15px;
+    
+    border: none;
+}
+.continueBtn:hover{
+    background: white ;
+    color:black !important;
+    border: #1479ff solid 1px;
 }
