@@ -29,6 +29,12 @@ const API = {
   isUserLoggedin: () => {
     return axios.post(`http://localhost:3001/auth/isLoggedIn`);
   },
+  userAddGoal: (data) => {
+    return axios.post(`http://localhost:3001/api/goals/addGoal`, data);
+  },
+  savedGoal: () => {
+    return axios.get(`http://localhost:3001/api/goals/saved`);
+  },
 };
 
 export default API;

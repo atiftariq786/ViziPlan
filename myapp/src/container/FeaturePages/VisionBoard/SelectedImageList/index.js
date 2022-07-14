@@ -81,7 +81,7 @@ const SelectedImageList = (props) => {
     );
   }
 
-  console.log(getSelectedImageData, "data coming from old redux");
+  //console.log(getSelectedImageData, "data coming from old redux");
   //console.log(newGetSelectedImageData, "data coming from new redux array");
 
   let newGeneratedImage = getSelectedImageData.map((data) => {

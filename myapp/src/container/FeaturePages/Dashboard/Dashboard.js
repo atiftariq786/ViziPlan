@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "../Dashboard/Dashboard.module.css";
 import Button from "../../../../src/components/Button/Button";
-//import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -50,7 +50,9 @@ const Dashboard = () => {
             Let set some!
           </p>
 
-          <Button className={Styles.continueBtn}>Create Goals</Button>
+          <NavLink to="/addGoal">
+            <Button className={Styles.continueBtn}>Create Goals</Button>
+          </NavLink>
         </div>
       </div>
       {/* <h1 className={Styles.title}>

@@ -19,7 +19,7 @@ const ImagesList = (props) => {
     setarrData(props.webImages);
 
     API.getSelectedImages().then((response) => {
-      console.log(response.data, "Get Saved Selected Images from backend");
+      // console.log(response.data, "Get Saved Selected Images from backend");
       dispatch(selectedImageActions.savedImages(response.data));
     });
   }, [webImages]);
@@ -53,7 +53,7 @@ const ImagesList = (props) => {
   };
 
   const genDuplicateImageHandler = (data) => {
-    console.log(data, "genDuplicateImageHandler");
+    //console.log(data, "genDuplicateImageHandler");
     let newData = {
       id: null,
       imageId: data.id,
@@ -63,7 +63,7 @@ const ImagesList = (props) => {
     const isValidImage = selectedImagesArray.find(
       (image) => image.id === data.id
     );
-    console.log(isValidImage, "isValid");
+    // console.log(isValidImage, "isValid");
     if (isValidImage === undefined) {
       API.saveSelectedImages(newData).then((response) => {
         dispatch(selectedImageActions.selectedImageData(data));

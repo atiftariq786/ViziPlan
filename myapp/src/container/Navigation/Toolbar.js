@@ -69,9 +69,9 @@ const Toolbar = (props) => {
   const currentUsername = useSelector(
     (state) => state.authentication.currentUser
   );
-  console.log(currentUsername, "toolbar usernmae");
+  //console.log(currentUsername, "toolbar usernmae");
   const logoutHandler = () => {
-    console.log("User logout btn clicked");
+    //console.log("User logout btn clicked");
     //---------------------------------------------------------
     //history.push("/home");
     //props.history.push("/home");
@@ -79,8 +79,8 @@ const Toolbar = (props) => {
 
     //------------------------------------------------------------
     API.userLogout().then((response) => {
-      console.log("aPI User logout");
-      console.log(response);
+      //console.log("aPI User logout");
+      //console.log(response);
       dispatch(authActions.userLogout(false));
       history.push("/");
     });

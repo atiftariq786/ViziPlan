@@ -4,7 +4,6 @@ const selectedImageSlice = createSlice({
   name: "selectedImages",
   initialState: {
     selectedImageArray: [],
-    tempArray: [],
     isContinueBtnClicked: false,
   },
   reducers: {

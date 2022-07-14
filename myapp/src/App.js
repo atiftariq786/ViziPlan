@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./hoc/Layout/Layout";
@@ -10,6 +10,7 @@ import FutureDev from "./components/Pages/FutureDev/FutureDev";
 import LandingPage from "./components/Pages/Landing/LandingPage";
 import Dashboard from "./container/FeaturePages/Dashboard/Dashboard";
 import Goals from "./container/FeaturePages/Goals/Goals";
+import AddGoal from "./container/FeaturePages/Goals/AddGoal/AddGoal";
 import VisionBoard from "./container/FeaturePages/VisionBoard/VisionBoard";
 import { useSelector, useDispatch } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -55,6 +56,9 @@ function App() {
       {/*========================== Restricted routes ===============================*/}
       <Route exact path="/visionboard">
         {loggedInStatus ? <VisionBoard /> : <Redirect to="/" />}
+      </Route>
+      <Route exact path="/addGoal">
+        {loggedInStatus ? <AddGoal /> : <Redirect to="/" />}
       </Route>
       <PrivateRoute
         exact
