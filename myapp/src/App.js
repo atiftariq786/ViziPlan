@@ -60,6 +60,9 @@ function App() {
       <Route exact path="/addGoal">
         {loggedInStatus ? <AddGoal /> : <Redirect to="/" />}
       </Route>
+      <Route exact path="/editGoal">
+        {loggedInStatus ? <AddGoal /> : <Redirect to="/" />}
+      </Route>
       <PrivateRoute
         exact
         path="/dashboard"

@@ -5,21 +5,45 @@ import Form from "react-bootstrap/Form";
 import API from "../../../../services/utils/API";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import { goalActions } from "../../../../store/goals-slice";
-import { useSelector } from "react-redux";
-//import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
 
 const AddGoal = (props) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  let isValid = "false";
+
+  console.log(isValid, "validation status");
   const getSelectedImageData = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
-  const [goalHeading, setGoalHeading] = useState("");
-  const [goalDescription, setGoalDescription] = useState("");
-  const [goalUrl, setGoalUrl] = useState("");
-  const [goalPrivacy, setGoalPrivacy] = useState(false);
-  const [goalCategory, setGoalCategory] = useState("");
+  const updateGoal = useSelector((state) => state.goals.goalEdit);
 
-  let isValidGoalForm = true;
+  let heading = "";
+  let description = "";
+  let url = "";
+  let category = "";
+  let privacyStatus = false;
+  let goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
 
+  if (updateGoal) {
+    heading = updateGoal.heading;
+    description = updateGoal.description;
+    url = updateGoal.url;
+    privacyStatus = updateGoal.isPrivate;
+    category = updateGoal.category;
+    goalTitle = <h1 className={Styles.sectionOneTitle}>Edit Goal!</h1>;
+  }
+
+  //==============================================================================
+  const [goalHeading, setGoalHeading] = useState(heading);
+  const [goalDescription, setGoalDescription] = useState(description);
+  const [goalUrl, setGoalUrl] = useState(url);
+  const [goalPrivacy, setGoalPrivacy] = useState(privacyStatus);
+  const [goalCategory, setGoalCategory] = useState(category);
+  //const [isValidGoalForm, setIsValidGoalForm] = useState("true");
+
+  //================================Handler Functions=====================================
   const goalHeadingHandler = (event) => {
     setGoalHeading(event.target.value);
   };
@@ -37,50 +61,78 @@ const AddGoal = (props) => {
     setGoalCategory(goalCat);
   };
   //console.log(goalCategory, "Form selection output");
+  const editGoalHandler = () => {
+    const updateData = {
+      id: updateGoal.id,
+      heading: goalHeading,
+      url: goalUrl,
+      category: goalCategory,
+      description: goalDescription,
+      isPrivate: goalPrivacy,
+    };
+
+    API.editUserGoal(updateData).then((response) => {
+      console.log(response, " Edit goal response");
+
+      cancelBtnHandler();
+      history.push("/goals");
+    });
+  };
+  const cancelBtnHandler = () => {
+    setGoalHeading("");
+    setGoalUrl("");
+    setGoalCategory("");
+    setGoalDescription("");
+    setGoalPrivacy(false);
+    dispatch(goalActions.editGoal(null));
+    goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
+  };
 
   const addGoalHandler = () => {
-    let isValid = true;
-    if (goalHeading === "") {
-      isValid = false;
-    }
-    if (goalUrl === "") {
-      isValid = false;
-    }
-    if (goalCategory === "") {
-      isValid = false;
-    }
-    if (goalDescription === "") {
-      isValid = false;
-    }
-    //goalHeading && goalUrl && goalCategory && goalDescription
-    if (isValid) {
-      const data = {
-        id: null,
-        heading: goalHeading,
-        url: goalUrl,
-        category: goalCategory,
-        description: goalDescription,
-        isPrivate: goalPrivacy,
-      };
+    // //let isValid = true;
+    // if (goalHeading === "") {
+    //   isValid = false;
+    //   //setIsValidGoalForm(false);
+    // }
+    // if (goalUrl === "") {
+    //   isValid = false;
+    //   //setIsValidGoalForm(false);
+    // }
+    // if (goalCategory === "") {
+    //   isValid = false;
+    //   //setIsValidGoalForm(false);
+    // }
+    // if (goalDescription === "") {
+    //   isValid = false;
+    //   //setIsValidGoalForm(false);
+    // }
+    const data = {
+      id: null,
+      heading: goalHeading,
+      url: goalUrl,
+      category: goalCategory,
+      description: goalDescription,
+      isPrivate: goalPrivacy,
+    };
+    if (isValid === "true") {
       API.userAddGoal(data).then((response) => {
-        //console.log(response, "addGoal response");
         console.log(response.data, "goals data");
-        //props.history.push("/goals");
-        // dispatch(goalActions.goalList(response.data));
 
         setGoalPrivacy(false);
         setGoalHeading("");
         setGoalUrl("");
         setGoalDescription("");
         setGoalCategory("");
+        isValid = true;
+        history.push("/goals");
       });
     } else {
       alert("form is not valid");
     }
   };
+  //===============================Condional Styling========================================
+  //Showed visionBoard seleted images on AddGoal page
   let newGeneratedImage = getSelectedImageData.map((data) => {
-    //console.log(data.id, "inside map selected image id");
-    // console.log(data, "inside map selected image data");
     return (
       <div className={Styles.imageWrapper}>
         <img
@@ -98,33 +150,85 @@ const AddGoal = (props) => {
     privacy = "Public";
   }
 
-  //console.log({ goalPrivacy });
-  let goalHeadingValid = /^[A-Z a-z]{3,40}$/.test(goalHeading);
-  let goalUrlValid = goalUrl.length >= 12;
-  let goalDescriptionValid =
-    goalDescription.length >= 6 && goalDescription.length <= 250; // /^[A-Z0-9 /a-z]{4,250}$/.test(goalDescription);
+  //Form Validation
+  let isGoalHeadingValid = /^[A-Z a-z]{3,40}$/.test(goalHeading);
+  let isGoalUrlValid = goalUrl.length >= 12;
+  let isGoalDescription =
+    goalDescription.length >= 6 && goalDescription.length <= 250;
 
-  let goalHeadingStatus = true;
-  let goalUrlStatus = true;
-  let goalDescriptionStatus = true;
+  let goalHeadingValid = false;
+  let goalHeadingInvalid = true;
+  let goalUrlValid = false;
+  let goalUrlInvalid = true;
+  let goalCategoryValid = false;
+  let goalCategoryInvalid = true;
+  let goalDescriptionValid = false;
+  let goalDescriptionInvalid = true;
 
-  if (goalHeading !== "" && !goalHeadingValid) {
-    isValidGoalForm = false;
-    goalHeadingStatus = false;
-  }
-  if (goalUrl !== "" && goalUrlValid) {
-    isValidGoalForm = false;
-    goalUrlStatus = false;
-  }
-  if (goalDescription !== "" && goalDescriptionValid) {
-    isValidGoalForm = false;
-    goalDescriptionStatus = false;
-  }
+  // isValid={goalDescription !== ""}
+  // isInvalid={goalDescriptionStatus}
 
+  if (goalHeading !== "" && isGoalHeadingValid) {
+    isValid = "true";
+    goalHeadingValid = true;
+    goalHeadingInvalid = false;
+  }
+  if (goalHeading === "" || !isGoalHeadingValid) {
+    isValid = "false";
+    goalHeadingValid = false;
+    goalHeadingInvalid = true;
+  }
+  //-----------------------------------------------------------------
+  if (goalUrl !== "" && goalUrl.length >= 12) {
+    isValid = "true";
+    goalUrlValid = true;
+    goalUrlInvalid = false;
+  }
+  if (goalUrl === "" || goalUrl.length <= 12) {
+    isValid = "false";
+    goalUrlValid = false;
+    goalUrlInvalid = true;
+  }
+  //-------------------------------------------------------------------
+  if (goalCategory !== "" && goalCategory.length >= 3) {
+    isValid = "true";
+    goalCategoryValid = true;
+    goalCategoryInvalid = false;
+  }
+  if (goalCategory === "" || goalCategory.length <= 2) {
+    isValid = "false";
+    goalCategoryValid = false;
+    goalCategoryInvalid = true;
+  }
+  //----------------------------------------------------------------------
+  if (goalDescription !== "" && isGoalDescription) {
+    isValid = "true";
+    goalDescriptionValid = true;
+    goalDescriptionInvalid = false;
+  }
+  if (goalDescription === "" || !isGoalDescription) {
+    isValid = "false";
+    goalDescriptionValid = false;
+    goalDescriptionInvalid = true;
+  }
+  //Conditional Create Goal and Update button
+  let goalButton = (
+    <Button className={Styles.continueBtn} onClick={addGoalHandler}>
+      Create Goals
+    </Button>
+  );
+  if (updateGoal) {
+    goalButton = (
+      <Button className={Styles.continueBtn} onClick={editGoalHandler}>
+        Update
+      </Button>
+    );
+  }
+  //------------------------------------------------------------------------------
   return (
     <div className={Styles.goalsMainDiv}>
       <div className={Styles.sectionOne}>
-        <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>
+        {goalTitle}
         <p>
           Use your visionboard
           <br />
@@ -140,8 +244,8 @@ const AddGoal = (props) => {
                 placeholder="Title"
                 value={goalHeading}
                 onChange={goalHeadingHandler}
-                isValid={goalHeading !== ""}
-                isInvalid={goalHeadingStatus}
+                isValid={goalHeadingValid}
+                isInvalid={goalHeadingInvalid}
               />
             </Form.Group>
 
@@ -152,8 +256,8 @@ const AddGoal = (props) => {
                 placeholder="https://example.png"
                 value={goalUrl}
                 onChange={goalUrlHandler}
-                isValid={goalUrl !== ""}
-                isInvalid={goalUrlStatus}
+                isValid={goalUrlValid}
+                isInvalid={goalUrlInvalid}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -163,8 +267,8 @@ const AddGoal = (props) => {
                 as="select"
                 value={goalCategory}
                 onChange={goalCategoryHandler}
-                isValid={goalCategory !== ""}
-                isInvalid={goalCategory === ""}
+                isValid={goalCategoryValid}
+                isInvalid={goalCategoryInvalid}
               >
                 <option value={null}></option>
                 <option>Travel</option>
@@ -178,20 +282,6 @@ const AddGoal = (props) => {
                 <option>DIY</option>
                 <option>other</option>
               </Form.Select>
-
-              {/* <Form.Select>
-                <option>no select</option>
-                <option>Travel</option>
-                <option>Hiking</option>
-                <option>Adventure</option>
-                <option>Running</option>
-                <option>Cooking</option>
-                <option>Driving</option>
-                <option>Studying</option>
-                <option>Learning</option>
-                <option>DIY</option>
-                <option>other</option>
-              </Form.Select> */}
             </Form.Group>
 
             <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -202,8 +292,9 @@ const AddGoal = (props) => {
                 rows="3"
                 value={goalDescription}
                 onChange={goalDescriptionhandler}
-                isValid={goalDescription !== ""}
-                isInvalid={goalDescriptionStatus}
+                isValid={goalDescriptionValid}
+                isInvalid={goalDescriptionInvalid}
+                //=====================================================
               />
             </Form.Group>
 
@@ -222,10 +313,13 @@ const AddGoal = (props) => {
               />
             </Form.Group>
           </Form>
+          <NavLink to={"/goals"}>
+            <Button className={Styles.continueBtn} onClick={cancelBtnHandler}>
+              Cancel
+            </Button>
+          </NavLink>
 
-          <Button className={Styles.continueBtn} onClick={addGoalHandler}>
-            Create Goals
-          </Button>
+          {goalButton}
         </div>
       </div>
       <div className={Styles.sectionTwo}>

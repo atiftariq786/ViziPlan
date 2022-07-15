@@ -1,46 +1,58 @@
 import React, { useState, useEffect } from "react";
 import Styles from "../Goals/Goals.module.css";
 import Button from "../../../components/Button/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-//import { goalActions } from "../../../store/goals-slice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPencil,
+  faPlus,
+  faTrashCan,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
+import { goalActions } from "../../../store/goals-slice";
 import API from "../../../services/utils/API";
 import Accordion from "react-bootstrap/Accordion";
 
 const Goals = () => {
-  //const dispatch = useDispatch();
-
-  //const getAddGoalsData = useSelector((state) => state.goals.savedGoalArray);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const [goalArray, setGoalArray] = useState([]);
   useEffect(() => {
-    API.savedGoal().then((response) => {
-      //console.log(response, "Getting saved goal");
-      setGoalArray(response.data);
-      //dispatch(goalActions.goalList(response.data));
-    });
+    getUpdatedGoals();
   }, []);
-
-  const editbtnHandler = (event) => {
-    alert("edit btn cliked");
+  //================================Handler Functions=====================================
+  const tickBtnHandler = (event) => {
+    alert("tick mark btn cliked");
     event.stopPropagation();
   };
 
-  // console.log(goalArray, "goal save data in goals.js");
+  const getUpdatedGoals = () => {
+    API.savedGoal().then((response) => {
+      setGoalArray(response.data);
+    });
+  };
+  const deleteGoalHandler = (event, data) => {
+    event.stopPropagation();
 
-  // const [goalHeading, setGoalHeading] = useState();
-  // const [goalDescription, setGoalDescription] = useState();
-
-  // const goalHeadingHandler = (event) => {
-  //   setGoalHeading(event.target.value);
-  // };
-  // const goalDescriptionhandler = (event) => {
-  //   setGoalDescription(event.target.value);
-  // };
+    API.deleteGoal(data.id).then((response) => {
+      console.log(response, "Goal deleted successfully....!");
+      getUpdatedGoals();
+    });
+  };
+  const editGoalHandler = (event, data) => {
+    console.log(data, "Edit goal cliked data");
+    event.stopPropagation();
+    dispatch(goalActions.editGoal(data));
+    history.push("/editGoal");
+  };
+  //===============================Condional Styling========================================
+  //defaultActiveKey="0"
   let savedGoalList = goalArray.map((data) => {
     return (
       <div key={data.id} className={Styles.accordionMainDiv}>
-        <Accordion defaultActiveKey="0" className={Styles.accodian}>
+        <Accordion className={Styles.accodian}>
           <Accordion.Item eventKey="0" className={Styles["accordion-item"]}>
             <div className={Styles.accordionBtnDiv_One}>
               <Accordion.Button className={Styles["accordion-button"]}>
@@ -63,28 +75,29 @@ const Goals = () => {
 
                   <div className={Styles.accordionBtnDiv_Two}>
                     <div>
-                      <Button
-                        className={Styles.addGoalEditBtn}
-                        onClick={editbtnHandler}
-                      >
-                        Edit
-                      </Button>
+                      <FontAwesomeIcon
+                        icon={faPencil}
+                        size="2x"
+                        onClick={(event) => editGoalHandler(event, data)}
+                        className={Styles.editIconBtns}
+                      />
                     </div>
                     <div>
-                      <Button
-                        className={Styles.addGoalDelBtn}
-                        // onClick={alert("Edit delete clicked")}
-                      >
-                        X
-                      </Button>
+                      <FontAwesomeIcon
+                        icon={faTrashCan}
+                        size="2x"
+                        className={Styles.deleteIconBtns}
+                        onClick={(event) => deleteGoalHandler(event, data)}
+                      />
                     </div>
+
                     <div>
-                      <Button
-                        className={Styles.addGoalCompBtn}
-                        // onClick={alert("Edit complete clicked")}
-                      >
-                        Complete
-                      </Button>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        size="2x"
+                        className={Styles.tickIconBtns2}
+                        onClick={tickBtnHandler}
+                      />
                     </div>
                   </div>
                 </div>
@@ -104,15 +117,24 @@ const Goals = () => {
   return (
     <div className={Styles.container}>
       <div className={Styles.sectionOne}>
-        <h1 className={Styles.sectionOneTitle}>Goals!</h1>
-        <NavLink to="/addGoal">
-          <Button className={Styles.addGoalBtn}>+</Button>
-        </NavLink>
-        <p>
-          Use your visionboard
-          <br />
-          to guide your goal creation
-        </p>
+        <div className={Styles.titlediv}>
+          <h1 className={Styles.sectionOneTitle}>Goals!</h1>
+          <p>
+            Use your visionboard
+            <br />
+            to guide your goal creation
+          </p>
+        </div>
+
+        <div className={Styles.createGoalBtnDiv}>
+          <NavLink to="/addGoal">
+            <FontAwesomeIcon
+              icon={faPlus}
+              size="2x"
+              className={Styles.createGoalBtn}
+            />
+          </NavLink>
+        </div>
       </div>
 
       <div className={Styles.sectionTwo}>{savedGoalList}</div>

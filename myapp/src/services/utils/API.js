@@ -35,6 +35,15 @@ const API = {
   savedGoal: () => {
     return axios.get(`http://localhost:3001/api/goals/saved`);
   },
+  deleteGoal: (id) => {
+    return axios.delete(`http://localhost:3001/api/goals/${id}`);
+  },
+  editUserGoal: (data) => {
+    return axios.put(
+      `http://localhost:3001/api/goals/updateGoal/${data.id}`,
+      data
+    );
+  },
 };
 
 export default API;

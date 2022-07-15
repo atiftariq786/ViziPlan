@@ -3,22 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const goalSlice = createSlice({
   name: "goals",
   initialState: {
-    savedGoalArray: [],
+    goalEdit: null,
   },
   reducers: {
-    goalList(state, actions) {
-      let saveGoals = actions.payload;
+    editGoal(state, actions) {
+      let updateGoal = actions.payload;
+      state.goalEdit = updateGoal;
 
-      state.savedGoalArray.push({
-        id: saveGoals.id,
-        heading: saveGoals.heading,
-        url: saveGoals.url,
-        category: saveGoals.category,
-        description: saveGoals.description,
-        isPrivate: saveGoals.isPrivate,
-        createdAt: saveGoals.createdAt,
-      });
-      console.log(state.savedGoalArray, "redux goal status");
+      // state.goalArray.push({
+      //   id: updateGoal.id,
+      //   heading: updateGoal.heading,
+      //   url: updateGoal.url,
+      //   category: updateGoal.category,
+      //   description: updateGoal.description,
+      //   isPrivate: updateGoal.isPrivate,
+      //   createdAt: updateGoal.createdAt,
+      // });
+      console.log(updateGoal, "redux editgoal data received");
+      console.log(state.goalEdit, "Goal array save data in redux ");
     },
     // userLogin(state, actions) {
     //   let userLoginStatus = actions.payload;
