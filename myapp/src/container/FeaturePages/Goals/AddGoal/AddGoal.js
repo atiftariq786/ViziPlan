@@ -11,9 +11,7 @@ import { NavLink, useHistory } from "react-router-dom";
 const AddGoal = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  let isValid = "false";
 
-  console.log(isValid, "validation status");
   const getSelectedImageData = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
@@ -41,9 +39,9 @@ const AddGoal = (props) => {
   const [goalUrl, setGoalUrl] = useState(url);
   const [goalPrivacy, setGoalPrivacy] = useState(privacyStatus);
   const [goalCategory, setGoalCategory] = useState(category);
-  //const [isValidGoalForm, setIsValidGoalForm] = useState("true");
+  const [isValidGoalForm, setIsValidGoalForm] = useState(true);
 
-  //================================Handler Functions=====================================
+  //=============================Handler Functions===============================
   const goalHeadingHandler = (event) => {
     setGoalHeading(event.target.value);
   };
@@ -78,6 +76,7 @@ const AddGoal = (props) => {
       history.push("/goals");
     });
   };
+
   const cancelBtnHandler = () => {
     setGoalHeading("");
     setGoalUrl("");
@@ -89,23 +88,7 @@ const AddGoal = (props) => {
   };
 
   const addGoalHandler = () => {
-    // //let isValid = true;
-    // if (goalHeading === "") {
-    //   isValid = false;
-    //   //setIsValidGoalForm(false);
-    // }
-    // if (goalUrl === "") {
-    //   isValid = false;
-    //   //setIsValidGoalForm(false);
-    // }
-    // if (goalCategory === "") {
-    //   isValid = false;
-    //   //setIsValidGoalForm(false);
-    // }
-    // if (goalDescription === "") {
-    //   isValid = false;
-    //   //setIsValidGoalForm(false);
-    // }
+    const isValid = formValidationHandler();
     const data = {
       id: null,
       heading: goalHeading,
@@ -114,7 +97,7 @@ const AddGoal = (props) => {
       description: goalDescription,
       isPrivate: goalPrivacy,
     };
-    if (isValid === "true") {
+    if (isValid) {
       API.userAddGoal(data).then((response) => {
         console.log(response.data, "goals data");
 
@@ -123,7 +106,7 @@ const AddGoal = (props) => {
         setGoalUrl("");
         setGoalDescription("");
         setGoalCategory("");
-        isValid = true;
+        //isValid = true;
         history.push("/goals");
       });
     } else {
@@ -156,61 +139,34 @@ const AddGoal = (props) => {
   let isGoalDescription =
     goalDescription.length >= 6 && goalDescription.length <= 250;
 
-  let goalHeadingValid = false;
-  let goalHeadingInvalid = true;
-  let goalUrlValid = false;
-  let goalUrlInvalid = true;
-  let goalCategoryValid = false;
-  let goalCategoryInvalid = true;
-  let goalDescriptionValid = false;
-  let goalDescriptionInvalid = true;
+  let isGoalCategoryValid = goalCategory !== "" || goalCategory.length >= 2;
 
-  // isValid={goalDescription !== ""}
-  // isInvalid={goalDescriptionStatus}
+  const formValidationHandler = () => {
+    let isValid = true;
 
-  if (goalHeading !== "" && isGoalHeadingValid) {
-    isValid = "true";
-    goalHeadingValid = true;
-    goalHeadingInvalid = false;
-  }
-  if (goalHeading === "" || !isGoalHeadingValid) {
-    isValid = "false";
-    goalHeadingValid = false;
-    goalHeadingInvalid = true;
-  }
-  //-----------------------------------------------------------------
-  if (goalUrl !== "" && goalUrl.length >= 12) {
-    isValid = "true";
-    goalUrlValid = true;
-    goalUrlInvalid = false;
-  }
-  if (goalUrl === "" || goalUrl.length <= 12) {
-    isValid = "false";
-    goalUrlValid = false;
-    goalUrlInvalid = true;
-  }
-  //-------------------------------------------------------------------
-  if (goalCategory !== "" && goalCategory.length >= 3) {
-    isValid = "true";
-    goalCategoryValid = true;
-    goalCategoryInvalid = false;
-  }
-  if (goalCategory === "" || goalCategory.length <= 2) {
-    isValid = "false";
-    goalCategoryValid = false;
-    goalCategoryInvalid = true;
-  }
-  //----------------------------------------------------------------------
-  if (goalDescription !== "" && isGoalDescription) {
-    isValid = "true";
-    goalDescriptionValid = true;
-    goalDescriptionInvalid = false;
-  }
-  if (goalDescription === "" || !isGoalDescription) {
-    isValid = "false";
-    goalDescriptionValid = false;
-    goalDescriptionInvalid = true;
-  }
+    if (!isGoalHeadingValid) {
+      isValid = false;
+      //setIsValidGoalForm(false);
+    }
+
+    if (!isGoalUrlValid) {
+      isValid = false;
+    }
+    //-------------------------------------------------------------------
+
+    if (!isGoalCategoryValid) {
+      // setIsValidGoalForm(false);
+      isValid = false;
+    }
+    //----------------------------------------------------------------------
+
+    if (!isGoalDescription) {
+      isValid = false;
+      //setIsValidGoalForm(false);
+    }
+    return isValid;
+  };
+
   //Conditional Create Goal and Update button
   let goalButton = (
     <Button className={Styles.continueBtn} onClick={addGoalHandler}>
@@ -244,8 +200,8 @@ const AddGoal = (props) => {
                 placeholder="Title"
                 value={goalHeading}
                 onChange={goalHeadingHandler}
-                isValid={goalHeadingValid}
-                isInvalid={goalHeadingInvalid}
+                isValid={isGoalHeadingValid}
+                isInvalid={!isGoalHeadingValid}
               />
             </Form.Group>
 
@@ -256,8 +212,8 @@ const AddGoal = (props) => {
                 placeholder="https://example.png"
                 value={goalUrl}
                 onChange={goalUrlHandler}
-                isValid={goalUrlValid}
-                isInvalid={goalUrlInvalid}
+                isValid={isGoalUrlValid}
+                isInvalid={!isGoalUrlValid}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -267,8 +223,8 @@ const AddGoal = (props) => {
                 as="select"
                 value={goalCategory}
                 onChange={goalCategoryHandler}
-                isValid={goalCategoryValid}
-                isInvalid={goalCategoryInvalid}
+                isValid={isGoalCategoryValid}
+                isInvalid={!isGoalCategoryValid}
               >
                 <option value={null}></option>
                 <option>Travel</option>
@@ -292,8 +248,8 @@ const AddGoal = (props) => {
                 rows="3"
                 value={goalDescription}
                 onChange={goalDescriptionhandler}
-                isValid={goalDescriptionValid}
-                isInvalid={goalDescriptionInvalid}
+                isValid={isGoalDescription}
+                isInvalid={!isGoalDescription}
                 //=====================================================
               />
             </Form.Group>
