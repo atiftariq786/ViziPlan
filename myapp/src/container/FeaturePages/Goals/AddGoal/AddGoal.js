@@ -3,7 +3,7 @@ import Styles from "./AddGoal.module.css";
 import Button from "../../../../components/Button/Button";
 import Form from "react-bootstrap/Form";
 import API from "../../../../services/utils/API";
-import { selectedImageActions } from "../../../../store/selectedImage-slice";
+//import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import { goalActions } from "../../../../store/goals-slice";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
@@ -32,15 +32,12 @@ const AddGoal = (props) => {
     category = updateGoal.category;
     goalTitle = <h1 className={Styles.sectionOneTitle}>Edit Goal!</h1>;
   }
-
   //==============================================================================
   const [goalHeading, setGoalHeading] = useState(heading);
   const [goalDescription, setGoalDescription] = useState(description);
   const [goalUrl, setGoalUrl] = useState(url);
   const [goalPrivacy, setGoalPrivacy] = useState(privacyStatus);
   const [goalCategory, setGoalCategory] = useState(category);
-  const [isValidGoalForm, setIsValidGoalForm] = useState(true);
-
   //=============================Handler Functions===============================
   const goalHeadingHandler = (event) => {
     setGoalHeading(event.target.value);
@@ -58,7 +55,6 @@ const AddGoal = (props) => {
     let goalCat = event.target.value;
     setGoalCategory(goalCat);
   };
-  //console.log(goalCategory, "Form selection output");
   const editGoalHandler = () => {
     const updateData = {
       id: updateGoal.id,
@@ -76,7 +72,6 @@ const AddGoal = (props) => {
       history.push("/goals");
     });
   };
-
   const cancelBtnHandler = () => {
     setGoalHeading("");
     setGoalUrl("");
@@ -86,7 +81,6 @@ const AddGoal = (props) => {
     dispatch(goalActions.editGoal(null));
     goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
   };
-
   const addGoalHandler = () => {
     const isValid = formValidationHandler();
     const data = {
@@ -146,23 +140,18 @@ const AddGoal = (props) => {
 
     if (!isGoalHeadingValid) {
       isValid = false;
-      //setIsValidGoalForm(false);
     }
 
     if (!isGoalUrlValid) {
       isValid = false;
     }
-    //-------------------------------------------------------------------
 
     if (!isGoalCategoryValid) {
-      // setIsValidGoalForm(false);
       isValid = false;
     }
-    //----------------------------------------------------------------------
 
     if (!isGoalDescription) {
       isValid = false;
-      //setIsValidGoalForm(false);
     }
     return isValid;
   };
