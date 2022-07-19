@@ -19,26 +19,45 @@ const Goals = () => {
   const history = useHistory();
 
   const [goalArray, setGoalArray] = useState([]);
+  const [isCompletedGoal, setIsCompletedGoal] = useState(false);
+  const [completedGoalList, setCompletedGoalList] = useState([]);
   useEffect(() => {
     getUpdatedGoals();
+    getCompleteGoalList();
   }, []);
   //================================Handler Functions=====================================
-  const tickBtnHandler = (event) => {
-    alert("tick mark btn cliked");
-    event.stopPropagation();
-  };
-
   const getUpdatedGoals = () => {
-    API.savedGoal().then((response) => {
+    let goalType = "incomplete";
+    API.savedGoal(goalType).then((response) => {
       setGoalArray(response.data);
     });
   };
+  const getCompleteGoalList = () => {
+    let completedGoalType = "completed";
+    API.savedGoal(completedGoalType).then((response) => {
+      console.log(response, "completed goals list from backend");
+      setCompletedGoalList(response.data);
+    });
+  };
+
+  const completeBtnHandler = (event, data) => {
+    event.stopPropagation();
+    console.log(data, "TickBtn goal id");
+
+    API.completeGoal(data).then((response) => {
+      getUpdatedGoals();
+      console.log(response, "complete goal updated");
+      getCompleteGoalList();
+    });
+  };
+
   const deleteGoalHandler = (event, data) => {
     event.stopPropagation();
 
     API.deleteGoal(data.id).then((response) => {
       console.log(response, "Goal deleted successfully....!");
       getUpdatedGoals();
+      getCompleteGoalList();
     });
   };
   const editGoalHandler = (event, data) => {
@@ -46,6 +65,9 @@ const Goals = () => {
     event.stopPropagation();
     dispatch(goalActions.editGoal(data));
     history.push("/editGoal");
+  };
+  const completedGoalHandler = () => {
+    setIsCompletedGoal(!isCompletedGoal);
   };
   //===============================Condional Styling========================================
   //defaultActiveKey="0"
@@ -95,8 +117,8 @@ const Goals = () => {
                       <FontAwesomeIcon
                         icon={faCheck}
                         size="2x"
-                        className={Styles.tickIconBtns2}
-                        onClick={tickBtnHandler}
+                        className={Styles.tickIconBtns}
+                        onClick={(event) => completeBtnHandler(event, data)}
                       />
                     </div>
                   </div>
@@ -114,6 +136,78 @@ const Goals = () => {
       </div>
     );
   });
+
+  let completedGoal = completedGoalList.map((data) => {
+    return (
+      <div key={data.id} className={Styles.accordionMainDiv}>
+        <Accordion className={Styles.accodian}>
+          <Accordion.Item eventKey="0" className={Styles["accordion-item"]}>
+            <div className={Styles.accordionBtnDiv_One}>
+              <Accordion.Button className={Styles["accordion-button"]}>
+                <div className={Styles.accordionContents}>
+                  <div className={Styles.goalImage}>
+                    <img
+                      style={{
+                        width: "150px",
+                        height: "100px",
+                        borderRadius: "20px",
+                      }}
+                      key={data.id}
+                      id={data.id}
+                      src={data.url}
+                      alt={"goalImage"}
+                    ></img>
+                  </div>
+
+                  <div className={Styles.heading}>{data.heading}</div>
+
+                  <div className={Styles.accordionBtnDiv_Two}>
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faTrashCan}
+                        size="2x"
+                        className={Styles.deleteIconBtns}
+                        onClick={(event) => deleteGoalHandler(event, data)}
+                      />
+                    </div>
+
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        size="2x"
+                        className={Styles.tickIconBtns_completed}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Accordion.Button>
+            </div>
+
+            <Accordion.Body>
+              {data.description}
+              <p>---------------------</p>
+              {data.createdAt}
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </div>
+    );
+  });
+
+  let goalsBtn = (
+    <Button className={Styles.completeBtn} onClick={completedGoalHandler}>
+      Completed Goals
+    </Button>
+  );
+  let goalsListBtn = (
+    <Button className={Styles.completeBtn} onClick={completedGoalHandler}>
+      Goals List
+    </Button>
+  );
+  if (isCompletedGoal) {
+    savedGoalList = completedGoal;
+    goalsBtn = goalsListBtn;
+  }
   return (
     <div className={Styles.container}>
       <div className={Styles.sectionOne}>
@@ -127,6 +221,8 @@ const Goals = () => {
         </div>
 
         <div className={Styles.createGoalBtnDiv}>
+          {goalsBtn}
+
           <NavLink to="/addGoal">
             <FontAwesomeIcon
               icon={faPlus}

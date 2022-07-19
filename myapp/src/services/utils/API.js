@@ -32,9 +32,20 @@ const API = {
   userAddGoal: (data) => {
     return axios.post(`http://localhost:3001/api/goals/addGoal`, data);
   },
-  savedGoal: () => {
-    return axios.get(`http://localhost:3001/api/goals/saved`);
+  //=========================================
+  savedGoal: (type) => {
+    return axios.get(`http://localhost:3001/api/goals/${type}`);
   },
+  completeGoal: (data) => {
+    return axios.put(
+      `http://localhost:3001/api/goals/completeGoal/${data.id}`,
+      data
+    );
+  },
+  getActivities: () => {
+    return axios.get(`http://localhost:3001/api/activities`);
+  },
+  //==========================================
   deleteGoal: (id) => {
     return axios.delete(`http://localhost:3001/api/goals/${id}`);
   },

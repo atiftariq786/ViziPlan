@@ -21,7 +21,7 @@ const AddGoal = (props) => {
   let description = "";
   let url = "";
   let category = "";
-  let privacyStatus = false;
+  let privacyStatus = true; //change==============================================
   let goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
 
   if (updateGoal) {
@@ -77,7 +77,7 @@ const AddGoal = (props) => {
     setGoalUrl("");
     setGoalCategory("");
     setGoalDescription("");
-    setGoalPrivacy(false);
+    setGoalPrivacy(true); //change========================================
     dispatch(goalActions.editGoal(null));
     goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
   };
@@ -95,7 +95,7 @@ const AddGoal = (props) => {
       API.userAddGoal(data).then((response) => {
         console.log(response.data, "goals data");
 
-        setGoalPrivacy(false);
+        setGoalPrivacy(true); //======================================
         setGoalHeading("");
         setGoalUrl("");
         setGoalDescription("");
@@ -123,7 +123,7 @@ const AddGoal = (props) => {
     );
   });
   let privacy = "Private";
-  if (goalPrivacy) {
+  if (!goalPrivacy) {
     privacy = "Public";
   }
 
