@@ -2,7 +2,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: green;
 }
 .sideNavBar{
     width:105px; 
@@ -10,8 +9,6 @@
 }
 .childrenDiv{
     width: calc(100% - 105px);;
-    width: -moz-calc(100% - 110px);
     height: 100%;
-    background-color: purple;
    
 }

@@ -2,12 +2,13 @@ import React from "react";
 import Styles from "../Dashboard/Dashboard.module.css";
 //import API from "../../../services/utils/API";
 import Activities from "./Activities/Activities";
-import Inspiration from "./Inspiration/Inspiration";
+//import Inspiration from "./Inspiration/Inspiration";
 import UserName from "./UserName/UserName";
 import CompleteChart from "./Chart/CompleteChart";
 import CategoryChart from "./Chart/CategoryChart";
 import MonthlyChart from "./Chart/MonthlyChart";
 import TotalChart from "./Chart/TotalChart";
+import RecentGoals from "./RecentGoals/RecentGoals";
 
 const Dashboard = () => {
   return (
@@ -22,16 +23,20 @@ const Dashboard = () => {
           <UserName />
         </div>
         <div className={Styles.reports}>
+          <h1 className={Styles.reportTitle}>Goals Analytics</h1>
           <div className={Styles.rowChart}>
             <TotalChart />
             <CompleteChart />
           </div>
           <div className={Styles.rowChart}>
             <CategoryChart />
+
             <MonthlyChart />
           </div>
         </div>
-        <div className={Styles.goalsSection}></div>
+        <div className={Styles.goalsSection}>
+          <RecentGoals />
+        </div>
       </div>
     </div>
   );

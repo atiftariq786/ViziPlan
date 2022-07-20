@@ -1,18 +1,25 @@
 import React, { useCallback, useState } from "react";
-import { PieChart, Pie, Cell, Sector, ResponsiveContainer } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Sector,
+  Label,
+  ResponsiveContainer,
+} from "recharts";
 import Styles from "./charts.module.css";
 
 const CategoryChart = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const data = [
-    { name: "Hiking", value: 400 },
-    { name: "Traveling", value: 300 },
-    { name: "Family", value: 300 },
-    { name: "Group D", value: 200 },
+    { name: "Hiking", value: 40 },
+    { name: "Traveling", value: 20 },
+    { name: "Family", value: 30 },
+    { name: "Group D", value: 10 },
   ];
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-  const renderActiveShape = (props: any) => {
+  const renderActiveShape = (props) => {
     const {
       cx,
       cy,
@@ -22,7 +29,6 @@ const CategoryChart = () => {
       endAngle,
       fill,
       payload,
-
       percent,
     } = props;
 
@@ -51,7 +57,7 @@ const CategoryChart = () => {
           innerRadius={outerRadius + 6}
           outerRadius={outerRadius + 10}
           fill={fill}
-        />
+        ></Sector>
       </g>
     );
   };
@@ -81,8 +87,9 @@ const CategoryChart = () => {
             activeShape={renderActiveShape}
             data={data}
             labelLine={false}
-            innerRadius={60}
-            outerRadius={80}
+            label={false}
+            innerRadius={55}
+            outerRadius={70}
             fill="#8884d8"
             dataKey="value"
             onMouseEnter={onPieEnter}
@@ -94,8 +101,10 @@ const CategoryChart = () => {
               />
             ))}
           </Pie>
+          <Label></Label>
         </PieChart>
       </ResponsiveContainer>
+      <div className={Styles.pieChartLabel}>Goals by Category</div>
     </div>
   );
 };

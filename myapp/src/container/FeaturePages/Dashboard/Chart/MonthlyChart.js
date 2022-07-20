@@ -86,6 +86,7 @@ const MonthlyChart = () => {
           <Bar dataKey="amt" fill="#82ca9d" />
         </BarChart>
       </ResponsiveContainer>
+      <div className={Styles.pieChartLabel}>Goals by Month</div>
     </div>
   );
 };

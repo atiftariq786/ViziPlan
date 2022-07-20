@@ -28,8 +28,16 @@ font-weight: 700;
     border: 3px dashed #CADFFD;
     margin:20px;
     border-radius: 30px;
-    color:black;
-    display:flex;
+    color: #737373;
+    display:block;
     min-width: 250px;
     font-size: 11px
+}
+
+.pieChartLabel{
+    color: #989696;
+    padding-top: 8px;
+    margin: -25px auto 0 auto;
+    font-size: 11px
+    
 }

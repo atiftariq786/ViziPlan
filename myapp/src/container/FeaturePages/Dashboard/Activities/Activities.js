@@ -6,12 +6,13 @@ const Activities = () => {
   const [activitiesArray, setActivitiesArray] = useState([]);
   useEffect(() => {
     API.getActivities().then((response) => {
-      console.log(response, "get all activities");
+      //console.log(response, "get all activities");
       setActivitiesArray(response.data);
     });
   }, []);
-  console.log(activitiesArray, "activities array state data");
+
   let showActivities = activitiesArray.map((data) => {
+    const createdAtDate = new Date(data.createdAt);
     return (
       <div className={Styles.communityActivitiesText}>
         <div className={Styles.activitiesTextOnly}>
@@ -20,6 +21,9 @@ const Activities = () => {
           <span className={Styles.activitiesGoalHeading}>
             {data.goalHeading}
           </span>
+        </div>
+        <div>
+          <p className={Styles.dateTime}>{createdAtDate.toLocaleString()}</p>
         </div>
       </div>
     );
