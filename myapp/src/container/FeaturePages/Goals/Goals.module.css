@@ -1,8 +1,13 @@
 .sectionOneTitle{
     color:#1E3E6B !important;
     text-decoration: none;
-    margin-top: 45px;
-    padding-top: 30px;
+    margin: 45px auto 0px auto;
+    font-size: 30px;
+    font-weight: 700;
+}
+.sectionOneTitleText{
+    padding-top: 0px;
+   
 }
 .container{
     width: 100%;
@@ -23,7 +28,7 @@
 }
 .titlediv{
     width: 100%;
-    min-width:440px;
+    min-width:365px;
 }
 .createGoalBtnDiv{
     display: flex;
@@ -64,18 +69,17 @@
 .sectionTwo{
     width: 100%;
     min-width: 600px;
-    height: 100vh;    
+    height: 100vh;  
     padding-top: 15px;
     padding-left: 200px;
     padding-right: 200px;
-    background: #f3f8ff;
-   
+    background: #f3f8ff; 
+    overflow:auto;
 }
 .accordionMainDiv{
     width: 100%;
     min-width: 600px;
     margin-bottom: 20px;
-    
 }
 .accodian{
     width:100%;
@@ -90,12 +94,10 @@
     min-width: 600px;
     border-radius: 20px !important;
     background-color: #fff;
-
 }
 .accordionBtnDiv_One{
     display:flex;
     padding:0px; 
-    /* background-image: linear-gradient(to right, #549bff, #fff) !important; */
     border-radius: 20px !important;
     background: #fff;
 }
@@ -113,7 +115,6 @@
     outline: none; 
     padding:0px;
     border-radius: 20px !important;
-    
 } 
 .accordion-button:not(.collapsed){
     box-shadow: none;
@@ -121,7 +122,6 @@
     border-radius: 20px !important;
     background-color: transparent !important;
     padding-right:20px;
-    
 } 
 .accordionContents{
     width:96%;
@@ -132,14 +132,9 @@
     border-radius: 20px !important; 
     background-image: linear-gradient(to right, #549bff,#bbd4f7, #fff) !important;
     padding: 8px;
-      
-    /* background-image: linear-gradient(to right, #549bff, #fff) !important; */
-  
 }
 .goalImage{
     padding-left: 0px;
-  
-     
 }
 .heading{
     width:100%;
@@ -151,8 +146,6 @@
     padding-top: 30px;    
     padding-bottom: 10px;
     margin-left: 25px;
-    
-    
 }
 .editIconBtns {
     color: black !important;
@@ -166,7 +159,6 @@
     text-decoration: none;
     color: #1479FF !important;
 }
-
 .deleteIconBtns {
     color: black !important;
     cursor: pointer;
@@ -186,14 +178,6 @@
     height: 36px;
     padding: 5px 5px 5px 5px;
 }
-/* .tickIconBtns2 {
-   
-    color: #2BD01D !important;
-    cursor: pointer;
-    width:60px;
-    height: 36px;
-    padding: 5px 5px 5px 5px;
-} */
 
 .tickIconBtns:hover {
 color: #2BD01D !important;

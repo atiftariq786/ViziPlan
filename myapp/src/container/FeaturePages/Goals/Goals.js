@@ -204,21 +204,35 @@ const Goals = () => {
       Goals List
     </Button>
   );
+  let goalTitleText = (
+    <div className={Styles.titlediv}>
+      <p className={Styles.sectionOneTitle}>Goals!</p>
+      <p className={Styles.sectionOneTitleText}>
+        A goal without a plan is only a dream!
+        <br />
+        Its time to plan........
+      </p>
+    </div>
+  );
+  let completedGoalTitle = (
+    <div className={Styles.titlediv}>
+      <p className={Styles.sectionOneTitle}>Completed Goals!</p>
+      <p className={Styles.sectionOneTitleText}>
+        Congratulations on your well-deserved success!
+        <br />
+        You did it! So proud of you........
+      </p>
+    </div>
+  );
   if (isCompletedGoal) {
     savedGoalList = completedGoal;
     goalsBtn = goalsListBtn;
+    goalTitleText = completedGoalTitle;
   }
   return (
     <div className={Styles.container}>
       <div className={Styles.sectionOne}>
-        <div className={Styles.titlediv}>
-          <h1 className={Styles.sectionOneTitle}>Goals!</h1>
-          <p>
-            Use your visionboard
-            <br />
-            to guide your goal creation
-          </p>
-        </div>
+        {goalTitleText}
 
         <div className={Styles.createGoalBtnDiv}>
           {goalsBtn}

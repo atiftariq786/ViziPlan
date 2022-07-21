@@ -2,13 +2,16 @@
     width: 100%;
     height: 100%;
     display: flex;
+    background: pink;
 }
 .sideNavBar{
     width:105px; 
+    background: blueviolet;
     
 }
 .childrenDiv{
-    width: calc(100% - 105px);;
-    height: 100%;
-   
+    width: calc(100% - 105px);
+    width: -moz-calc(100% - 110px);
+    height: 100%;  
+    background: orange !important; 
 }
