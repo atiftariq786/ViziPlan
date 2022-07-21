@@ -1,7 +1,8 @@
 import React from "react";
 //import Button from "../../../../components/Button/Button";
 import Styles from "./charts.module.css";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   BarChart,
   Bar,
@@ -13,56 +14,59 @@ import {
 } from "recharts";
 
 const MonthlyChart = () => {
-  const data = [
-    {
-      name: "Jan",
-      amt: 2400,
-    },
-    {
-      name: "Feb",
-      amt: 2210,
-    },
-    {
-      name: "Mar",
-      amt: 2290,
-    },
-    {
-      name: "Apr",
-      amt: 2000,
-    },
-    {
-      name: "May",
-      amt: 2181,
-    },
-    {
-      name: "Jun",
-      amt: 2500,
-    },
-    {
-      name: "Jul",
-      amt: 2100,
-    },
-    {
-      name: "Aug",
-      amt: 2100,
-    },
-    {
-      name: "Sept",
-      amt: 2100,
-    },
-    {
-      name: "Oct",
-      amt: 2100,
-    },
-    {
-      name: "Nov",
-      amt: 2100,
-    },
-    {
-      name: "Dec",
-      amt: 2100,
-    },
+  const completedGoals = useSelector(
+    (state) => state.goals.completedGoalsArray
+  );
+  //console.log(completedGoals, "Completed goals monthly chart");
+
+  const d = new Date();
+  d.setFullYear(d.getFullYear());
+  d.setMonth(0);
+  d.setDate(1);
+
+  let filteredGoalsDate = completedGoals.filter(
+    (goal) => new Date(goal.completedAt) >= d
+  );
+  console.log(filteredGoalsDate, "Result filtered array");
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
+  let counter = {};
+  for (let i = 0; i < months.length; i++) {
+    counter[months[i]] = 0;
+  }
+
+  for (let i = 0; i < filteredGoalsDate.length; i++) {
+    let date = new Date(filteredGoalsDate[i].completedAt);
+    let monthNum = date.getMonth();
+    let month = months[monthNum];
+
+    console.log(month, "Result for month");
+    if (counter[month]) {
+      counter[month] += 1;
+    } else {
+      counter[month] = 1;
+    }
+  }
+  console.log(counter, "Result of counter in month chart");
+
+  const data = [];
+
+  Object.entries(counter).forEach(([key, value]) => {
+    data.push({ name: key, amt: value });
+  });
 
   return (
     <div className={Styles.chartBox}>
@@ -82,11 +86,11 @@ const MonthlyChart = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip />
+          <Tooltip formatter={(amt, name) => [amt]} />
           <Bar dataKey="amt" fill="#82ca9d" />
         </BarChart>
       </ResponsiveContainer>
-      <div className={Styles.pieChartLabel}>Goals by Month</div>
+      <div className={Styles.pieChartLabel}>Goals by Month()</div>
     </div>
   );
 };

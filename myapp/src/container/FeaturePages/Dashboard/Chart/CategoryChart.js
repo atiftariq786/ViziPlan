@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   PieChart,
   Pie,
@@ -10,14 +11,43 @@ import {
 import Styles from "./charts.module.css";
 
 const CategoryChart = () => {
+  const totalGoals = useSelector((state) => state.goals.totalGoalsArray);
+  let counter = {};
+
+  for (let i = 0; i < totalGoals.length; i++) {
+    let groupCategory = totalGoals[i].category;
+    if (counter[groupCategory]) {
+      counter[groupCategory] += 1;
+    } else {
+      counter[groupCategory] = 1;
+    }
+  }
+
   const [activeIndex, setActiveIndex] = useState(0);
   const data = [
-    { name: "Hiking", value: 40 },
-    { name: "Traveling", value: 20 },
-    { name: "Family", value: 30 },
-    { name: "Group D", value: 10 },
+    { name: "Adventure", value: counter.Adventure },
+    { name: "Hiking", value: counter.Hiking },
+    { name: "Famliy", value: counter.Family },
+    { name: "Traveling", value: counter.Traveling },
+    { name: "Cooking", value: counter.Cooking },
+    { name: "Driving", value: counter.Driving },
+    { name: "Studying", value: counter.Studying },
+    { name: "Learning", value: counter.Learning },
+    { name: "DIY", value: counter.DIY },
+    { name: "other", value: counter.other },
   ];
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const COLORS = [
+    "#0088FE",
+    "#FFBB28",
+    "#00C49F",
+    "#ff7711",
+    "#55cc66",
+    "#FF8042",
+    "#72b4eb",
+    "#8464a0",
+    "#0a417a",
+    "#14d2ff",
+  ];
 
   const renderActiveShape = (props) => {
     const {
@@ -38,7 +68,7 @@ const CategoryChart = () => {
           {payload.name}
         </text>
         <text x={cx} y={cy + 10} dy={8} textAnchor="middle" fill={fill}>
-          {percent * 100}%
+          {Math.floor(percent * 100)}%
         </text>
         <Sector
           cx={cx}

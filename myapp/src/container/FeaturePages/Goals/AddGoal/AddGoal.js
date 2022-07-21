@@ -216,10 +216,10 @@ const AddGoal = (props) => {
                 isInvalid={!isGoalCategoryValid}
               >
                 <option value={null}></option>
-                <option>Travel</option>
-                <option>Hiking</option>
                 <option>Adventure</option>
-                <option>Running</option>
+                <option>Hiking</option>
+                <option>Famliy</option>
+                <option>Traveling</option>
                 <option>Cooking</option>
                 <option>Driving</option>
                 <option>Studying</option>

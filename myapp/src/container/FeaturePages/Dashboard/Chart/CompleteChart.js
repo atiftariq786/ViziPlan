@@ -83,7 +83,7 @@ const CompleteChart = () => {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      <div className={Styles.pieChartLabel}>Goals by completion</div>
+      <div className={Styles.pieChartLabel}>Total completed goals</div>
     </div>
   );
 };
