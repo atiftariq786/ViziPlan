@@ -19,7 +19,13 @@ const Layout = (props) => {
             <Toolbar />
           </div>
         )}
-        <div className={Styles.childrenDiv}>{props.children}</div>
+        <div
+          className={
+            loggedIn ? Styles.childrenDivWithToolbar : Styles.childrenDiv
+          }
+        >
+          {props.children}
+        </div>
       </main>
     </Fragment>
   );

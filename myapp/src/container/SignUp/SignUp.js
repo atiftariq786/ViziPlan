@@ -426,7 +426,7 @@ const Signup = (props) => {
           </p>
 
           <NavLink to="/" className={Styles.backButton}>
-            back
+            Back
           </NavLink>
         </form>
       </div>

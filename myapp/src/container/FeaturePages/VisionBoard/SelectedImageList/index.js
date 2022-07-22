@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import Button from "../../../../components/Button/Button";
@@ -7,6 +8,7 @@ import Styles from "./style.module.css";
 
 const SelectedImageList = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const switchButton = useSelector(
     (state) => state.selectedImages.isContinueBtnClicked
@@ -34,6 +36,7 @@ const SelectedImageList = (props) => {
   const finishBtnHandler = () => {
     let isClickedBtnDeactive = false;
     dispatch(selectedImageActions.continueSelImagesBtn(isClickedBtnDeactive));
+    history.push("/dashboard");
   };
   //==================================Conditional Logic=====================================================
   let displayImagesText = (

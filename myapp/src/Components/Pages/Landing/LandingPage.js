@@ -15,7 +15,7 @@ const LandingPage = () => {
           src={require("../../../assets/images/landingImage.jpg")}
           alt="ViziPlaning"
         ></img>
-        <h1 className={Styles.logo}>ViziPlaning</h1>
+        <span className={Styles.logo}>ViziPlan</span>
       </div>
       <div className={Styles.introDiv}>
         <div className={Styles.landingNavbar}>
@@ -29,12 +29,12 @@ const LandingPage = () => {
             <Button className={Styles.loginBtn}>login</Button>
           </NavLink>
         </div>
-        <div className={Styles.quotesBtn}>
-          <h1>Your Vision</h1>
-          <h1>Your Goals</h1>
-          <h1>You make it happen</h1>
+        <div className={Styles.welcomeText}>
+          <h1>Your Vision.</h1>
+          <h1>Your Goals.</h1>
+          <h1>You make it happen.</h1>
           <NavLink to="/signup">
-            <Button className={Styles.trynowBtn}>Try now</Button>
+            <Button className={Styles.tryNowBtn}>Try now</Button>
           </NavLink>
         </div>
         <div className={Styles.footerDiv}>
@@ -53,7 +53,7 @@ const LandingPage = () => {
             />
           </a>
 
-          <p>@Copyright 2022 By Atif Tariq</p>
+          <p style={{ marginTop: "10px" }}>@Copyright 2022 By Atif Tariq</p>
         </div>
       </div>
     </div>

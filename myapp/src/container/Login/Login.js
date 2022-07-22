@@ -205,7 +205,7 @@ const Login = (props) => {
   }
 
   return (
-    <div className={Styles.mainDiv}>
+    <div>
       <div className={Styles.loginImage}>
         <img
           style={{ width: "100%", height: "100vh" }}

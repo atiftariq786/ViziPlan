@@ -30,7 +30,6 @@ const Dashboard = () => {
           </div>
           <div className={Styles.rowChart}>
             <CategoryChart />
-
             <MonthlyChart />
           </div>
         </div>

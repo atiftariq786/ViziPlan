@@ -1,22 +1,18 @@
-.mainDiv{
-    width:100%;
-    height:100vh;
-    position: relative;
-    text-align: center;
-    display: block;
-   
-    
-}
 .loginImage{
     width:100%;
-    height: 100vh;
+    padding:0px;
+    margin: 0px;
 }
 .loginFormMainDiv{
     width:35%;
+    max-width: 550px;
     height: 350px;
-    position: relative;
-    margin: auto;
-    top: -71vh;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    top: 35%;
+    left:0;
+    right:0;
     background: rgba(255, 255, 255, 0.89);
     
 }

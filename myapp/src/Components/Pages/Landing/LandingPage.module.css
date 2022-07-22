@@ -1,16 +1,20 @@
 .logo{
-    margin-top: 3%;
-    margin-left: 6%;
+    margin-top: 20px;
+    margin-left: 30px;
     position:absolute;
     top: 0px;
     left: 0px;
     color:white !important; 
+    font-size: 60px;
+    font-weight: 700;
+    font-family: "Times New Roman", Times, serif;
 }
+
 .landingMainDiv{
-    width:90%;
+    width:100%;
     height: 100%;
     position: fixed;
-    text-align: center;
+    
     display: flex;
 }
 .landingImage{
@@ -18,58 +22,88 @@
     height: 100vh;
    
 }
+
 .introDiv{
     width:35%;
     height: 100vh;
     background: white;
 }
 .landingNavbar{
-    margin-top: 2%;
-    width:100%;
-    height: 10vh;
+    top:40px;
+    right: 90px;
+    position: absolute;
     background: transparent;     
 }
+
 .loginBtn{
-    background: rgb(204, 17, 17) !important;
+    background: #cc1111 !important;
     color:white !important;
     width: 75px;
-    height:32px;    
-    border-radius: 4px;
-    
+    height: 34px;    
+    border-radius: 5px;
 }
+
+.loginBtn:hover{
+    animation: pulse 2s infinite;
+}
+
 .transBtn{
-    background: rgba(204, 17, 17, 0) !important;
-    color:black !important;
-    
+    background: transparent !important;
+    color:#737373 !important;
+    font-weight: 600;
     width: 145px;
-    height:4vh;    
-    border-radius: 4px;
-    margin-top:1%;
+    height:35px;    
+    border-radius: 5px;
     border-color: transparent !important;
 }
-.trynowBtn{
-    background: rgb(204, 17, 17) !important;
+
+.tryNowBtn{
+    background: #cc1111 !important;
     color:white !important;
-    width: 115px;
-    height:32px;    
-    border-radius: 4px;
-    margin-top: 5%;
+    width: 165px;
+    height:54px;
+    font-size: 24px !important;
+    font-weight: 600 !important;    
+    border-radius: 5px;
+    margin-top: 50px;
 }
-.quotesBtn{
-    margin-top: 35%;
-    
+
+.tryNowBtn:hover{
+    animation: pulse 2s infinite;
 }
+
+@keyframes pulse {
+    0%,
+    100% {
+      animation-timing-function: ease-in;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+.welcomeText{
+    margin-top: 50%;
+    text-align: center;
+    color: #1b1b1b;
+}
+
+.welcomeText h1{
+    font-size: 50px;
+    font-weight: 500;
+    margin-top:20px;
+}
+
 .footerDiv{
-    margin-top: 25%;
-    width: 100%;
+    width: 35%;
     height: 60px;
-    display: block;
     background: white;    
     font-size: 14px;
     text-align: center;
-    padding-bottom: 5px;
-   
-    
+    display: block;
+    bottom: 50px;
+    margin: auto;
+    position: absolute;
 }
 .github{
     margin-left: 15px;
@@ -77,13 +111,15 @@
 }
 .github:hover{
     color:orange;
+    animation: pulse 1s infinite;
 }
+
 .linkedin{
     color:rgb(28, 26, 26);
-    margin-left: 15px;
-    
+    margin-left: 15px;    
 }
+
 .linkedin:hover{
     color:orange;
-    
+    animation: pulse 1s infinite;
 }
