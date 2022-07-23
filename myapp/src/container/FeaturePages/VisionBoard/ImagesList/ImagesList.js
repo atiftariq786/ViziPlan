@@ -80,7 +80,7 @@ const ImagesList = (props) => {
       customStyle = [Styles.selectedVisionImages];
     }
     return (
-      <div key={data.id}>
+      <div className={Styles.imagesWrapper} key={data.id}>
         <img
           className={customStyle}
           key={data.id}
@@ -96,7 +96,7 @@ const ImagesList = (props) => {
 
   return (
     <div className={Styles.container}>
-      <h1 className={Styles.imagestitle}>Images Gallery</h1>
+      {/* <h1 className={Styles.imagestitle}>Images Gallery</h1> */}
       <div className={Styles.gridImages}>
         <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
           +

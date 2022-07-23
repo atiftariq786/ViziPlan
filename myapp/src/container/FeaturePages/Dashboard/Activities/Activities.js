@@ -31,10 +31,8 @@ const Activities = () => {
     );
   });
   return (
-    <div>
-      <div>
-        <h1 className={Styles.sectionOneTitle}>Community activities!</h1>
-      </div>
+    <div className={Styles.sectionOne}>
+      <h1 className={Styles.sectionOneTitle}>Community Updates</h1>
       <div>{showActivities}</div>
     </div>
   );

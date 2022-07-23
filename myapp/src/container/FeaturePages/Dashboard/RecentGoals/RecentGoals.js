@@ -8,11 +8,11 @@ const RecentGoals = () => {
   useEffect(() => {
     getRecentdGoals();
   }, []);
-  //================================Handler Functions=====================================
+
   const getRecentdGoals = () => {
     let goalType = "incomplete";
+
     API.savedGoal(goalType).then((response) => {
-      //console.log(response, "get all incomplete goal");
       setRecentGoalsArray(response.data);
     });
   };
@@ -20,8 +20,8 @@ const RecentGoals = () => {
   let showRecentGoals = recentGoalsArray.map((data) => {
     const createdAtDate = new Date(data.createdAt);
     return (
-      <div className={Styles.communityActivitiesText}>
-        <div className={Styles.activitiesTextOnly}>
+      <div className={Styles.goal}>
+        <div className={Styles.heading}>
           <span>{data.heading}</span>
         </div>
 
@@ -31,10 +31,11 @@ const RecentGoals = () => {
       </div>
     );
   });
+
   return (
     <div>
       <h1 className={Styles.recentGoalsTitle}>Recent Goals</h1>
-      <div>{showRecentGoals}</div>
+      <div className={Styles.goals}>{showRecentGoals}</div>
     </div>
   );
 };

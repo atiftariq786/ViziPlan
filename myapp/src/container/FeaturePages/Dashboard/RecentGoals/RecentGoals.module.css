@@ -1,36 +1,39 @@
-.communityActivitiesText{
-    
+.goal{
     width: 80%;
     height: 60px;
     margin:auto;
     display: flex;
     font-size: 18px;
-    box-shadow: 0 2px 2px 0 #8d9cb1, 0 6px 20px 0 #CADFFD;
     color: #0A3B6C;
     padding:0px 10px 0px 10px;
     margin-bottom: 10px;
     background-color: #f3f8ff;
-    
 }
-.activitiesTextOnly{
+
+.heading{
    height: 25px;
    margin: auto auto auto 10px;
    text-align: left !important;
 }
-.activitiesName{
-    
+
+.activitiesName{    
     font-weight: 700;
 }
+
 .recentGoalsTitle{
     color:#1E3E6B !important;
     font-size: 30px !important;
-
-  
+    margin: 5px 0 0 0;
 }
+
 .dateTime{
     width:60px;
-font-size: 10px;
-padding:20px 0px 0px 5px;
-color:gray !important;
-margin: auto 20px auto auto;
+    font-size: 10px;
+    padding:20px 0px 0px 5px;
+    color:gray !important;
+    margin: auto 20px auto auto;
+}
+
+.goals{
+    margin: 30px 0 0 0;
 }

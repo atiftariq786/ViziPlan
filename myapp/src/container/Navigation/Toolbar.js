@@ -183,7 +183,7 @@ const Toolbar = (props) => {
       <div className={Styles.contentTwo}>
         <div className={Styles.visionBoard}>
           <FontAwesomeIcon icon={faUser} size="2x" />
-          <p>Hi {currentUsername}!</p>
+          <p>{currentUsername}</p>
         </div>
         <div className={Styles.visionBoard}>
           <button className={Styles.logoutBtn} onClick={logoutHandler}>

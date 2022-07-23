@@ -1,3 +1,4 @@
+
 .container{
     width:100%;
     min-width: 410px;
@@ -9,18 +10,20 @@
     padding-top: 50px;
     padding-bottom: 15px;
     margin: 0px;
-    font-family:cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .imageContainer{
     width:100%;
-    min-width: 410px;
+    min-width: 210px;
+    padding: 0px 70px 0px 60px;
     display:flex;  
     flex-flow: row wrap;
 }
 .imageWrapper{
     width: 284px; 
     height:284px;
-    margin: 5px 0px 0px 5px;
+    margin: 5px auto 0px auto;
     border-radius: 5px;
     position: relative;
     
@@ -40,21 +43,40 @@
  }
  .textDiv{
      width: 100%;
-     padding-top: 30%;
+     padding-top: 24%;
+     font-weight: 500;
+     text-align: center;    
+     color:#DDE8B9 !important; 
+     letter-spacing: 2px;
+     word-spacing: 5px;
+     font-size: 35px;
  }
- .textOne{  
-    font-weight: 400;
-    text-align: center;    
-    color:grey !important; 
-    font-size: 20px;
+ .textPartOne{  
     margin: 0px;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
 }
- .textTwo{  
-    font-weight: 400;
-    text-align: center;    
-    color:grey!important; 
-    font-size: 30px;
-    margin: 0px;
+ .textPartTwo{  
+    margin: 10px;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+.textPartThree{    
+    margin: 10px;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
  .deleteBtn{  
     position: absolute;
@@ -75,16 +97,79 @@
     opacity: 0.5;
 }
 .continueBtn{
-    background: #1479ff ;
-    color:white !important;
-    width: 120px;
-    height:38px;    
-    border-radius: 4px;
-    font-size: 15px;
-    margin-top: 5%;
+    background: #1479ff;
+    color:white;
+    width: 50px;
+    height: 330px;
+    border-radius: 6px 0px 0px 6px;
+    font-size: 25px;
+    position: absolute;
+    top: 32%;
+    right: 0;
+    padding: 0 5px 0 5px;
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    z-index: 1;
+    animation-name: animate ;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 2;
+    letter-spacing: 1px;
 }
 .continueBtn:hover{
     background: white ;
     color:black !important;
     border: #1479ff solid 1px;
+    animation-name: animate ;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.backBtn{
+    background: #1479ff;
+    color:white;
+    width: 50px;
+    height: 330px;
+    border-radius: 0px 6px 6px 0px;
+    font-size: 25px;
+    position: absolute;
+    top: 32%;
+    padding: 0 5px 0 5px;
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    z-index: 1;
+    animation-name: animate ;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    letter-spacing: 1px;
+}
+.backBtn:hover{
+    background: white ;
+    color:black !important;
+    border: #1479ff solid 1px;
+    animation-name: animate ;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+    0% {
+        box-shadow: 0 0 10px -10px #c3c3c3;
+      }
+    50% {
+      box-shadow: 0 0 10px 10px #c3c3c3;
+    }
+    100% {
+        box-shadow: 0 0 0px 00px #c3c3c3;
+  }
+}
+
+@keyframes fadeIn{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

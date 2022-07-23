@@ -75,7 +75,7 @@ const Signup = (props) => {
             dispatch(
               authActions.userLogin({
                 isSignedin: true,
-                loggedInUsername: email,
+                loggedInUsername: firstname,
               })
             );
           }

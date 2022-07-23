@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
@@ -17,9 +17,6 @@ const SelectedImageList = (props) => {
   const getSelectedImageData = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
-  // const newGetSelectedImageData = useSelector(
-  //   (state) => state.selectedImages.tempArray
-  // );
 
   //==================================Handler Functions====================================================
   const deleteIamgeHandler = (data) => {
@@ -38,49 +35,57 @@ const SelectedImageList = (props) => {
     dispatch(selectedImageActions.continueSelImagesBtn(isClickedBtnDeactive));
     history.push("/dashboard");
   };
+  const backBtnHandler = (data) => {
+    dispatch(selectedImageActions.continueSelImagesBtn(data));
+  };
   //==================================Conditional Logic=====================================================
   let displayImagesText = (
     <div className={Styles.textDiv}>
-      <p className={Styles.textOne}>
-        Select images <br /> that match the life
-      </p>
-      <p className={Styles.textTwo}>
-        <br /> you want to live..........! <br />
-      </p>
+      <p className={Styles.textPartOne}>Select images and quotes</p>
+      <p className={Styles.textPartTwo}>that match the life</p>
+      <p className={Styles.textPartThree}>you want to live.</p>
     </div>
   );
-  let displayQoutesText = (
+  let displayQuotesText = (
     <div className={Styles.textDiv}>
-      <p className={Styles.textOne}>
-        Select
-        <br /> the best quotes <br /> that match the life
-      </p>
-      <p className={Styles.textTwo}>
-        <br /> you want to live..........! <br />
-      </p>
+      <p className={Styles.textPartOne}>Select the best quotes</p>
+      <p className={Styles.textPartTwo}>that match the life</p>
+      <p className={Styles.textPartThree}>you want to create.</p>
     </div>
   );
   if (getSelectedImageData.length > 0) {
     displayImagesText = "";
-    displayQoutesText = "";
+    displayQuotesText = "";
   }
   let displayBtn = "";
-  if (!switchButton) {
+  let backBtn = "";
+  if (!switchButton && getSelectedImageData.length > 0) {
     displayBtn = (
-      <Button
+      <div
         className={Styles.continueBtn}
         onClick={() => selectedImagesHandler(true)}
       >
-        Continue{">>"}
-      </Button>
+        Continue to Quotes
+      </div>
     );
   }
   if (switchButton) {
-    displayImagesText = displayQoutesText;
+    displayImagesText = displayQuotesText;
     displayBtn = (
-      <Button className={Styles.continueBtn} onClick={finishBtnHandler}>
+      <div className={Styles.continueBtn} onClick={finishBtnHandler}>
         Finish
-      </Button>
+      </div>
+    );
+  }
+
+  if (switchButton && getSelectedImageData.length > 0) {
+    backBtn = (
+      <div
+        className={Styles.backBtn}
+        onClick={() => selectedImagesHandler(false)}
+      >
+        Back to Images
+      </div>
     );
   }
 
@@ -116,7 +121,8 @@ const SelectedImageList = (props) => {
         {displayImagesText}
       </div>
 
-      <div>{displayBtn}</div>
+      {displayBtn}
+      {backBtn}
     </div>
   );
 };

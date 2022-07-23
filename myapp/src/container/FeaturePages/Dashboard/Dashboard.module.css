@@ -50,10 +50,10 @@
 }
 .reportTitle{
     color:#1E3E6B !important;
-    font-size: 30px !important;
-
-  
+    font-size: 30px !important; 
+    margin-top: 5px;
 }
+
 .rowChart{
     width: 100%;
     display: flex;

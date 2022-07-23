@@ -4,7 +4,9 @@
     padding: 6px 10px;
     width:100%;
     box-sizing: border-box; 
+    padding:10px 10px 20px 10px;
 }
+
 .InputElement:focus{
     background-color:#FFFFFF;
 }
@@ -12,14 +14,10 @@
 .modalButton{
     margin:0px 10px 5px 10px;
     background: rgba(49, 49, 49, 0.519);
+    border: none;
 }
-.invalidInput{
-    border: 1px solid #C41337;
-    
-}
-.validInput{
-    border: 1px solid #00873F;
-}
+
+
 .spinnerDiv{
     margin-top: 5px;
     align-items: left;
