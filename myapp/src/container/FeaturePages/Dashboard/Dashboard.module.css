@@ -73,3 +73,18 @@
     overflow:auto;
 
 }
+.continueBtn{
+    background: #1479ff ;
+    color:white !important;
+    width: 140px;
+    height:38px;    
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 5%;
+    border: none;
+}
+.continueBtn:hover{
+    background: white ;
+    color:black !important;
+    border: #1479ff solid 1px;
+}

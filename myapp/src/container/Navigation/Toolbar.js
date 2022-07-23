@@ -63,13 +63,11 @@ const Toolbar = (props) => {
     setIsLogoutHovering(false);
   };
 
-  // const loggedInStatus = useSelector(
-  //   (state) => state.authentication.isLoggedin
-  // );
   const currentUsername = useSelector(
     (state) => state.authentication.currentUser
   );
-  //console.log(currentUsername, "toolbar usernmae");
+  const totalGoals = useSelector((state) => state.goals.totalGoalsArray);
+
   const logoutHandler = () => {
     //console.log("User logout btn clicked");
     //---------------------------------------------------------
@@ -85,6 +83,11 @@ const Toolbar = (props) => {
       history.push("/");
     });
   };
+
+  let goalsValid = "/goals";
+  if (totalGoals.length === 0) {
+    goalsValid = "/addGoal";
+  }
 
   return (
     <div className={Styles.mainDiv}>
@@ -143,7 +146,7 @@ const Toolbar = (props) => {
                 : Styles.iconBubble
             }
           >
-            <NavLink to="/goals">
+            <NavLink to={goalsValid}>
               <FontAwesomeIcon
                 className={Styles.contentOneBtns}
                 onMouseOver={goalHoverOver}

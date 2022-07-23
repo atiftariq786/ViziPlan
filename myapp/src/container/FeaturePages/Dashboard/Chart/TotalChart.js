@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from "react";
-//import Button from "../../../../components/Button/Button";
+import React from "react";
 import Styles from "./charts.module.css";
-import API from "../../../../services/utils/API";
-import { useDispatch, useSelector } from "react-redux";
-import { goalActions } from "../../../../store/goals-slice";
+import { useSelector } from "react-redux";
 
 const TotalChart = (props) => {
-  const dispatch = useDispatch();
-  const [totalGoals, setTotalGoals] = useState([]);
+  const totalGoals = useSelector((state) => state.goals.totalGoalsArray);
 
-  useEffect(() => {
-    getAllGoals();
-  }, []);
-
-  const getAllGoals = () => {
-    let goalType = "allGoals";
-    API.savedGoal(goalType).then((result) => {
-      //console.log(result, "Total Goal Calculation");
-      dispatch(goalActions.totalGoals(result.data));
-      setTotalGoals(result.data);
-    });
-  };
   return (
     <div
       className={Styles.chartBox}

@@ -1,16 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { goalActions } from "../../../store/goals-slice";
+import API from "../../../services/utils/API";
 import Styles from "../Dashboard/Dashboard.module.css";
-//import API from "../../../services/utils/API";
 import Activities from "./Activities/Activities";
-//import Inspiration from "./Inspiration/Inspiration";
 import UserName from "./UserName/UserName";
 import CompleteChart from "./Chart/CompleteChart";
 import CategoryChart from "./Chart/CategoryChart";
 import MonthlyChart from "./Chart/MonthlyChart";
 import TotalChart from "./Chart/TotalChart";
 import RecentGoals from "./RecentGoals/RecentGoals";
+import Button from "../../../components/Button/Button";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const [totalGoals, setTotalGoals] = useState([]);
+
+  useEffect(() => {
+    getAllGoals();
+  }, []);
+
+  const getAllGoals = () => {
+    let goalType = "allGoals";
+    API.savedGoal(goalType).then((result) => {
+      dispatch(goalActions.totalGoals(result.data));
+      setTotalGoals(result.data);
+    });
+  };
+  let goalsAnalytics = (
+    <div>
+      <h1 className={Styles.reportTitle}>Goals Analytics</h1>
+      <div className={Styles.rowChart}>
+        <TotalChart />
+        <CompleteChart />
+      </div>
+      <div className={Styles.rowChart}>
+        <CategoryChart />
+        <MonthlyChart />
+      </div>
+    </div>
+  );
+  let recentGoals = (
+    <div className={Styles.goalsSection}>
+      <RecentGoals />
+    </div>
+  );
+  if (totalGoals.length === 0) {
+    goalsAnalytics = (
+      <div>
+        <h1>Reports</h1>
+        <p>
+          You have no goals yet! <br />
+          Let set some!
+        </p>
+        <NavLink to="/addGoal">
+          <Button className={Styles.continueBtn}>Create Goals</Button>
+        </NavLink>
+      </div>
+    );
+    recentGoals = "";
+  }
+
   return (
     <div className={Styles.dashboardMainDiv}>
       <div className={Styles.sectionOne}>
@@ -22,20 +73,8 @@ const Dashboard = () => {
         <div className={Styles.sectionTwo_subContent}>
           <UserName />
         </div>
-        <div className={Styles.reports}>
-          <h1 className={Styles.reportTitle}>Goals Analytics</h1>
-          <div className={Styles.rowChart}>
-            <TotalChart />
-            <CompleteChart />
-          </div>
-          <div className={Styles.rowChart}>
-            <CategoryChart />
-            <MonthlyChart />
-          </div>
-        </div>
-        <div className={Styles.goalsSection}>
-          <RecentGoals />
-        </div>
+        <div className={Styles.reports}>{goalsAnalytics}</div>
+        <div>{recentGoals}</div>
       </div>
     </div>
   );
