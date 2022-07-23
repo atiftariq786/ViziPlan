@@ -17,7 +17,9 @@ const Activities = () => {
       <div className={Styles.communityActivitiesText}>
         <div className={Styles.activitiesTextOnly}>
           <span className={Styles.activitiesName}>{data.firstname} </span>{" "}
-          {data.action} a new goal{" "}
+          {data.action === "created"
+            ? `${data.action} a new goal `
+            : `${data.action} `}
           <span className={Styles.activitiesGoalHeading}>
             {data.goalHeading}
           </span>

@@ -9,6 +9,7 @@ import UserName from "./UserName/UserName";
 import CompleteChart from "./Chart/CompleteChart";
 import CategoryChart from "./Chart/CategoryChart";
 import MonthlyChart from "./Chart/MonthlyChart";
+import AllMonthlyChart from "./Chart/AllMonthlyChart";
 import TotalChart from "./Chart/TotalChart";
 import RecentGoals from "./RecentGoals/RecentGoals";
 import Button from "../../../components/Button/Button";
@@ -34,6 +35,9 @@ const Dashboard = () => {
       <div className={Styles.rowChart}>
         <TotalChart />
         <CompleteChart />
+      </div>
+      <div className={Styles.rowChart}>
+        <AllMonthlyChart />
       </div>
       <div className={Styles.rowChart}>
         <CategoryChart />

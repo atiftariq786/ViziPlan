@@ -221,11 +221,11 @@ const AddGoal = (props) => {
                 <option>Famliy</option>
                 <option>Traveling</option>
                 <option>Cooking</option>
-                <option>Driving</option>
-                <option>Studying</option>
+                <option>Self-Improvement</option>
+                <option>Health</option>
                 <option>Learning</option>
                 <option>DIY</option>
-                <option>other</option>
+                <option>Other</option>
               </Form.Select>
             </Form.Group>
 

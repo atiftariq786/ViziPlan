@@ -55,6 +55,9 @@ const API = {
       data
     );
   },
+  allGoalsCreatedAnalytics: () => {
+    return axios.get(`http://localhost:3001/api/analytics/allGoalsCreated`);
+  },
 };
 
 export default API;

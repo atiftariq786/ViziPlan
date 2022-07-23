@@ -30,11 +30,11 @@ const CategoryChart = () => {
     { name: "Famliy", value: counter.Family },
     { name: "Traveling", value: counter.Traveling },
     { name: "Cooking", value: counter.Cooking },
-    { name: "Driving", value: counter.Driving },
-    { name: "Studying", value: counter.Studying },
+    { name: "Self-Improvement", value: counter.SelfImprovement },
+    { name: "Health", value: counter.Health },
     { name: "Learning", value: counter.Learning },
     { name: "DIY", value: counter.DIY },
-    { name: "other", value: counter.other },
+    { name: "Other", value: counter.other },
   ];
   const COLORS = [
     "#0088FE",
