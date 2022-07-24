@@ -27,17 +27,17 @@ const SelectedImageList = (props) => {
       dispatch(selectedImageActions.removeImage(data.id));
     });
   };
+
   const selectedImagesHandler = (data) => {
     dispatch(selectedImageActions.continueSelImagesBtn(data));
   };
+
   const finishBtnHandler = () => {
     let isClickedBtnDeactive = false;
     dispatch(selectedImageActions.continueSelImagesBtn(isClickedBtnDeactive));
     history.push("/dashboard");
   };
-  const backBtnHandler = (data) => {
-    dispatch(selectedImageActions.continueSelImagesBtn(data));
-  };
+
   //==================================Conditional Logic=====================================================
   let displayImagesText = (
     <div className={Styles.textDiv}>
@@ -103,6 +103,10 @@ const SelectedImageList = (props) => {
           id={data.id}
           src={data.url}
           alt={data.alt}
+          onError={(e) => {
+            e.currentTarget.src = require("../../../../assets/images/notFound.jpg");
+            e.target.onError = null;
+          }}
         ></img>
         <button
           className={Styles.deleteBtn}

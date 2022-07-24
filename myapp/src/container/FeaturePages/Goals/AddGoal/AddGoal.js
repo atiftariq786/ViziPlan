@@ -22,7 +22,7 @@ const AddGoal = (props) => {
   let url = "";
   let category = "";
   let privacyStatus = true; //change==============================================
-  let goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
+  let goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals</h1>;
 
   if (updateGoal) {
     heading = updateGoal.heading;
@@ -30,7 +30,7 @@ const AddGoal = (props) => {
     url = updateGoal.url;
     privacyStatus = updateGoal.isPrivate;
     category = updateGoal.category;
-    goalTitle = <h1 className={Styles.sectionOneTitle}>Edit Goal!</h1>;
+    goalTitle = <h1 className={Styles.sectionOneTitle}>Edit Goal</h1>;
   }
   //==============================================================================
   const [goalHeading, setGoalHeading] = useState(heading);
@@ -128,7 +128,7 @@ const AddGoal = (props) => {
   }
 
   //Form Validation
-  let isGoalHeadingValid = /^[A-Z a-z]{3,40}$/.test(goalHeading);
+  let isGoalHeadingValid = /^[A-Z a-z]{3,50}$/.test(goalHeading);
   let isGoalUrlValid = goalUrl.length >= 12;
   let isGoalDescription =
     goalDescription.length >= 6 && goalDescription.length <= 250;
@@ -174,12 +174,6 @@ const AddGoal = (props) => {
     <div className={Styles.goalsMainDiv}>
       <div className={Styles.sectionOne}>
         {goalTitle}
-        <p>
-          Use your visionboard
-          <br />
-          to guide your goal creation
-        </p>
-
         <div className={Styles.sectionOne_subContent}>
           <Form>
             <Form.Group controlId="exampleForm.ControlInput1">
@@ -269,8 +263,9 @@ const AddGoal = (props) => {
       </div>
       <div className={Styles.sectionTwo}>
         <div className={Styles.sectionTwo_subContent}>
-          <h1>Visionboard</h1>
-          <p>Your amazing quotes with amazing images!</p>
+          <p>
+            Use your <b>vision board</b> to guide your goal creation.
+          </p>
           <div className={Styles.reports}>{newGeneratedImage}</div>
         </div>
       </div>

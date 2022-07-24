@@ -80,7 +80,7 @@ const ImagesList = (props) => {
       customStyle = [Styles.selectedVisionImages];
     }
     return (
-      <div className={Styles.imagesWrapper} key={data.id}>
+      <div className={Styles.imagesWrapper}>
         <img
           className={customStyle}
           key={data.id}
@@ -88,6 +88,9 @@ const ImagesList = (props) => {
           src={data.url}
           alt={data.alt}
           onClick={() => genDuplicateImageHandler(data)}
+          onError={(event) => {
+            event.currentTarget.src = require("../../../../assets/images/notFound.jpg");
+          }}
         ></img>
       </div>
     );

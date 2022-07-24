@@ -69,9 +69,18 @@ const Goals = () => {
   const completedGoalHandler = () => {
     setIsCompletedGoal(!isCompletedGoal);
   };
+
+  const fixDate = (date) => {
+    const dateObj = new Date(date);
+
+    return dateObj.toLocaleString();
+  };
   //===============================Condional Styling========================================
   //defaultActiveKey="0"
-  let savedGoalList = goalArray.map((data) => {
+
+  const goalsToShow = isCompletedGoal ? completedGoalList : goalArray;
+
+  let goalsList = goalsToShow.map((data) => {
     return (
       <div key={data.id} className={Styles.accordionMainDiv}>
         <Accordion className={Styles.accodian}>
@@ -90,20 +99,25 @@ const Goals = () => {
                       id={data.id}
                       src={data.url}
                       alt={"goalImage"}
+                      onError={(e) => {
+                        e.currentTarget.src = require("../../../assets/images/goals.png");
+                      }}
                     ></img>
                   </div>
 
                   <div className={Styles.heading}>{data.heading}</div>
 
                   <div className={Styles.accordionBtnDiv_Two}>
-                    <div>
-                      <FontAwesomeIcon
-                        icon={faPencil}
-                        size="2x"
-                        onClick={(event) => editGoalHandler(event, data)}
-                        className={Styles.editIconBtns}
-                      />
-                    </div>
+                    {!isCompletedGoal && (
+                      <div>
+                        <FontAwesomeIcon
+                          icon={faPencil}
+                          size="2x"
+                          onClick={(event) => editGoalHandler(event, data)}
+                          className={Styles.editIconBtns}
+                        />
+                      </div>
+                    )}
                     <div>
                       <FontAwesomeIcon
                         icon={faTrashCan}
@@ -117,7 +131,11 @@ const Goals = () => {
                       <FontAwesomeIcon
                         icon={faCheck}
                         size="2x"
-                        className={Styles.tickIconBtns}
+                        className={
+                          isCompletedGoal
+                            ? Styles.tickIconBtns_completed
+                            : Styles.tickIconBtns
+                        }
                         onClick={(event) => completeBtnHandler(event, data)}
                       />
                     </div>
@@ -128,65 +146,17 @@ const Goals = () => {
 
             <Accordion.Body>
               {data.description}
-              <p>---------------------</p>
-              {data.createdAt}
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-      </div>
-    );
-  });
-
-  let completedGoal = completedGoalList.map((data) => {
-    return (
-      <div key={data.id} className={Styles.accordionMainDiv}>
-        <Accordion className={Styles.accodian}>
-          <Accordion.Item eventKey="0" className={Styles["accordion-item"]}>
-            <div className={Styles.accordionBtnDiv_One}>
-              <Accordion.Button className={Styles["accordion-button"]}>
-                <div className={Styles.accordionContents}>
-                  <div className={Styles.goalImage}>
-                    <img
-                      style={{
-                        width: "150px",
-                        height: "100px",
-                        borderRadius: "20px",
-                      }}
-                      key={data.id}
-                      id={data.id}
-                      src={data.url}
-                      alt={"goalImage"}
-                    ></img>
-                  </div>
-
-                  <div className={Styles.heading}>{data.heading}</div>
-
-                  <div className={Styles.accordionBtnDiv_Two}>
-                    <div>
-                      <FontAwesomeIcon
-                        icon={faTrashCan}
-                        size="2x"
-                        className={Styles.deleteIconBtns}
-                        onClick={(event) => deleteGoalHandler(event, data)}
-                      />
-                    </div>
-
-                    <div>
-                      <FontAwesomeIcon
-                        icon={faCheck}
-                        size="2x"
-                        className={Styles.tickIconBtns_completed}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </Accordion.Button>
-            </div>
-
-            <Accordion.Body>
-              {data.description}
-              <p>---------------------</p>
-              {data.createdAt}
+              <div className={Styles.createdAtDate}>
+                <b>Created At:</b> {fixDate(data.createdAt)}
+              </div>
+              <div className={Styles.completedAtDate}>
+                <b>Completed At:</b>{" "}
+                {data.completedAt ? fixDate(data.completedAt) : "Uncompleted"}
+              </div>
+              <div className={Styles.privacy}>
+                <b>Is Private:</b>{" "}
+                {data.isPrivate ? "Goal is private" : "Goal is public"}
+              </div>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
@@ -206,26 +176,23 @@ const Goals = () => {
   );
   let goalTitleText = (
     <div className={Styles.titlediv}>
-      <p className={Styles.sectionOneTitle}>Goals!</p>
+      <p className={Styles.sectionOneTitle}>Goals</p>
       <p className={Styles.sectionOneTitleText}>
         A goal without a plan is only a dream!
-        <br />
-        Its time to plan........
       </p>
     </div>
   );
   let completedGoalTitle = (
     <div className={Styles.titlediv}>
-      <p className={Styles.sectionOneTitle}>Completed Goals!</p>
-      <p className={Styles.sectionOneTitleText}>
-        Congratulations on your well-deserved success!
-        <br />
-        You did it! So proud of you........
-      </p>
+      <p className={Styles.sectionOneTitle}>Completed Goals</p>
+      {completedGoalList.length && (
+        <p className={Styles.sectionOneTitleText}>
+          Congratulations on your well-deserved success!
+        </p>
+      )}
     </div>
   );
   if (isCompletedGoal) {
-    savedGoalList = completedGoal;
     goalsBtn = goalsListBtn;
     goalTitleText = completedGoalTitle;
   }
@@ -247,7 +214,7 @@ const Goals = () => {
         </div>
       </div>
 
-      <div className={Styles.sectionTwo}>{savedGoalList}</div>
+      <div className={Styles.sectionTwo}>{goalsList}</div>
     </div>
   );
 };

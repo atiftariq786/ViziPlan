@@ -29,6 +29,7 @@ const Dashboard = () => {
       setTotalGoals(result.data);
     });
   };
+
   let goalsAnalytics = (
     <div>
       <h1 className={Styles.reportTitle}>Goals Analytics</h1>

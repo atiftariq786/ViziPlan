@@ -3,17 +3,16 @@
 }
 
 .totalChartNumber{
- 
-font-size: 55px;
-color: #14d2ff;
-font-weight: 700;
+    font-size: 65px;
+    color: #14d2ff;
+    font-weight: 900;
     margin: 0;
     padding:0;
 }
 
 .goalsCreated{
     color: #c9c9c9;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 25px;
     margin: 0;
     padding:0;

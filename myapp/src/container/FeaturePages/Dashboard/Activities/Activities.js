@@ -21,7 +21,7 @@ const Activities = () => {
             ? `${data.action} a new goal `
             : `${data.action} `}
           <span className={Styles.activitiesGoalHeading}>
-            {data.goalHeading}
+            {data.goalHeading.substring(0, 40)}
           </span>
         </div>
         <div>

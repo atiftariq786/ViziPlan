@@ -2,18 +2,21 @@
     color:#1E3E6B !important;
     text-decoration: none;
     margin: 45px auto 0px auto;
-    font-size: 30px;
+    font-size: 35px;
+    letter-spacing: 1px;
     font-weight: 700;
 }
 .sectionOneTitleText{
     padding-top: 0px;
-   
+   margin: 10px 0 0 0;
 }
 .container{
     width: 100%;
     height: 100%;
+    padding-bottom: 60px;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column; 
+    background-color: #f3f8ff;  
 }
 .sectionOne{
     width: 100%;
@@ -69,13 +72,13 @@
 .sectionTwo{
     width: 100%;
     min-width: 600px;
-    height: 100vh;  
+    height: 100%;  
     padding-top: 15px;
     padding-left: 200px;
     padding-right: 200px;
     background: #f3f8ff; 
-    overflow:auto;
 }
+
 .accordionMainDiv{
     width: 100%;
     min-width: 600px;
@@ -188,4 +191,16 @@ color: #2BD01D !important;
     width:60px;
     height: 36px;
     padding: 5px 5px 5px 5px;
+}
+
+.createdAtDate{
+    margin: 30px 0 0 0;
+}
+
+.completedAtDate{
+    margin: 5px 0 0 0;
+}
+
+.privacy{
+    margin: 5px 0 0 0;
 }

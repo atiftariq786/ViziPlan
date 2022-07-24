@@ -13,7 +13,7 @@ const RecentGoals = () => {
     let goalType = "incomplete";
 
     API.savedGoal(goalType).then((response) => {
-      setRecentGoalsArray(response.data);
+      setRecentGoalsArray(response.data.slice(0, 10));
     });
   };
 
@@ -22,7 +22,7 @@ const RecentGoals = () => {
     return (
       <div className={Styles.goal}>
         <div className={Styles.heading}>
-          <span>{data.heading}</span>
+          <span>{data.heading.substring(0, 90)}</span>
         </div>
 
         <div className={Styles.dateTime}>
