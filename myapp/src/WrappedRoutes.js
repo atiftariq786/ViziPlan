@@ -38,8 +38,6 @@ function WrappedRoutes() {
       });
     }
   }, []);
-
-  console.log(loggedInStatus, "loggedInStatus");
   return (
     <Fragment>
       <Layout>

@@ -15,7 +15,7 @@ const AddGoalWarning = (props) => {
         <Modal.Title id="contained-modal-title-vcenter">Warning!</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Please write all valid input fields!</p>
+        <p>Please provide all valid input!</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="danger" onClick={props.hideModal}>

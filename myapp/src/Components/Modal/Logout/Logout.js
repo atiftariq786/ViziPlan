@@ -13,15 +13,15 @@ const LogoutWarning = (props) => {
       show={props.showModal}
     >
       <Modal.Header onClick={props.hideModal} closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Log out</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Logout</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Are you sure you want to log out?</p>
+        <p>Are you sure you want to logout?</p>
       </Modal.Body>
       <Modal.Footer>
         <NavLink to="/">
           <Button onClick={props.logout} variant="danger">
-            Log out
+            Logout
           </Button>
         </NavLink>
         <Button onClick={props.hideModal}>Cancel</Button>

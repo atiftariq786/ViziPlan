@@ -29,11 +29,11 @@ function App() {
   useEffect(() => {
     API.isUserLoggedin()
       .then((response) => {
-        console.log(response, "App.js isloggedin");
+        // console.log(response, "App.js isloggedin");
         setQueryStatus(true);
 
         if (response.data.state === "success") {
-          console.log("is success");
+          //console.log("is success");
           dispatch(
             authActions.isLoggedInUser({
               isSignedin: true,
