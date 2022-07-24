@@ -7,6 +7,7 @@ import API from "../../../../services/utils/API";
 import { goalActions } from "../../../../store/goals-slice";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
+import AddGoalWarning from "../../../../components/Modal/AddGoal/AddGoalWarning";
 
 const AddGoal = (props) => {
   const history = useHistory();
@@ -38,6 +39,7 @@ const AddGoal = (props) => {
   const [goalUrl, setGoalUrl] = useState(url);
   const [goalPrivacy, setGoalPrivacy] = useState(privacyStatus);
   const [goalCategory, setGoalCategory] = useState(category);
+  const [showAddGoalWarning, setShowAddGoalWarning] = useState(false);
   //=============================Handler Functions===============================
   const goalHeadingHandler = (event) => {
     setGoalHeading(event.target.value);
@@ -104,14 +106,17 @@ const AddGoal = (props) => {
         history.push("/goals");
       });
     } else {
-      alert("form is not valid");
+      setShowAddGoalWarning(true);
     }
+  };
+  const addGoalWarningHandler = () => {
+    setShowAddGoalWarning(!showAddGoalWarning);
   };
   //===============================Condional Styling========================================
   //Showed visionBoard seleted images on AddGoal page
   let newGeneratedImage = getSelectedImageData.map((data) => {
     return (
-      <div className={Styles.imageWrapper}>
+      <div className={Styles.imageWrapper} key={data.id}>
         <img
           className={Styles.visionImages}
           key={data.id}
@@ -174,6 +179,10 @@ const AddGoal = (props) => {
     <div className={Styles.goalsMainDiv}>
       <div className={Styles.sectionOne}>
         {goalTitle}
+        <AddGoalWarning
+          showModal={showAddGoalWarning}
+          hideModal={addGoalWarningHandler}
+        />
         <div className={Styles.sectionOne_subContent}>
           <Form>
             <Form.Group controlId="exampleForm.ControlInput1">

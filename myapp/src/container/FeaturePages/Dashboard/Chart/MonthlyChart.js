@@ -28,7 +28,7 @@ const MonthlyChart = () => {
   let filteredGoalsDateForCreatedAt = allGoals.filter(
     (goal) => new Date(goal.createdAt) >= d
   );
-  console.log(filteredGoalsDateForCompletedAt, "Result filtered array");
+  //console.log(filteredGoalsDateForCompletedAt, "Result filtered array");
 
   const months = [
     "Jan",
@@ -54,7 +54,7 @@ const MonthlyChart = () => {
     let monthNum = date.getMonth();
     let month = months[monthNum];
 
-    console.log(month, "Result for month");
+    //console.log(month, "Result for month");
     if (counter[month]) {
       counter[month].completed += 1;
     } else {
@@ -67,14 +67,14 @@ const MonthlyChart = () => {
     let monthNum = date.getMonth();
     let month = months[monthNum];
 
-    console.log(month, "Result for month");
+    //console.log(month, "Result for month");
     if (counter[month]) {
       counter[month].created += 1;
     } else {
       counter[month].created = 1;
     }
   }
-  console.log(counter, "Result of counter in month chart");
+  //console.log(counter, "Result of counter in month chart");
 
   const data = [];
 

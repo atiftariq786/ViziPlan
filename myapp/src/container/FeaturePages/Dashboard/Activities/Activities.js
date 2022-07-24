@@ -15,7 +15,7 @@ const Activities = () => {
     const createdAtDate = new Date(data.createdAt);
     return (
       <div className={Styles.communityActivitiesText}>
-        <div className={Styles.activitiesTextOnly}>
+        <div className={Styles.activitiesTextOnly} key={data.id}>
           <span className={Styles.activitiesName}>{data.firstname} </span>{" "}
           {data.action === "created"
             ? `${data.action} a new goal `

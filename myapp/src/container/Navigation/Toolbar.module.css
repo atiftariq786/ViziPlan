@@ -52,6 +52,10 @@
     color: red;
     cursor: pointer;
 }
+.toolbarUserName{
+    font-size: 14px !important;
+    
+}
 .contentOneBtns {
     color: #1479FF;
     cursor: pointer;

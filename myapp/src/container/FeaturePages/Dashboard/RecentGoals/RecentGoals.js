@@ -20,7 +20,7 @@ const RecentGoals = () => {
   let showRecentGoals = recentGoalsArray.map((data) => {
     const createdAtDate = new Date(data.createdAt);
     return (
-      <div className={Styles.goal}>
+      <div className={Styles.goal} key={data.id}>
         <div className={Styles.heading}>
           <span>{data.heading.substring(0, 90)}</span>
         </div>

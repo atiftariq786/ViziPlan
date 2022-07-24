@@ -96,7 +96,7 @@ const SelectedImageList = (props) => {
     //console.log(data.id, "inside map selected image id");
     // console.log(data, "inside map selected image data");
     return (
-      <div className={Styles.imageWrapper}>
+      <div className={Styles.imageWrapper} key={data.id}>
         <img
           className={Styles.visionImages}
           key={data.id}

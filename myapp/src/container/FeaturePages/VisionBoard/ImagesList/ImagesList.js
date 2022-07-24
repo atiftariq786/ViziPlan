@@ -80,17 +80,17 @@ const ImagesList = (props) => {
       customStyle = [Styles.selectedVisionImages];
     }
     return (
-      <div className={Styles.imagesWrapper}>
+      <div className={Styles.imagesWrapper} key={data.id}>
         <img
           className={customStyle}
           key={data.id}
           id={data.id}
           src={data.url}
           alt={data.alt}
-          onClick={() => genDuplicateImageHandler(data)}
           onError={(event) => {
             event.currentTarget.src = require("../../../../assets/images/notFound.jpg");
           }}
+          onClick={() => genDuplicateImageHandler(data)}
         ></img>
       </div>
     );
@@ -99,7 +99,6 @@ const ImagesList = (props) => {
 
   return (
     <div className={Styles.container}>
-      {/* <h1 className={Styles.imagestitle}>Images Gallery</h1> */}
       <div className={Styles.gridImages}>
         <button className={Styles.addImageBtn} onClick={addImageModalHandler}>
           +

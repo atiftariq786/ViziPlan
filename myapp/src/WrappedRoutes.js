@@ -22,21 +22,22 @@ import "./App.css";
 
 function WrappedRoutes() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    API.savedGoal("allGoals").then((result) => {
-      dispatch(goalActions.totalGoals(result.data));
-    });
-
-    API.getSelectedImages().then((response) => {
-      // console.log(response.data, "Get Saved Selected Images from backend");
-      dispatch(selectedImageActions.savedImages(response.data));
-    });
-  }, []);
-
   const loggedInStatus = useSelector(
     (state) => state.authentication.isLoggedin
   );
+
+  useEffect(() => {
+    if (loggedInStatus) {
+      API.savedGoal("allGoals").then((result) => {
+        dispatch(goalActions.totalGoals(result.data));
+      });
+
+      API.getSelectedImages().then((response) => {
+        // console.log(response.data, "Get Saved Selected Images from backend");
+        dispatch(selectedImageActions.savedImages(response.data));
+      });
+    }
+  }, []);
 
   console.log(loggedInStatus, "loggedInStatus");
   return (

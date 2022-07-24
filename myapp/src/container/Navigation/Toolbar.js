@@ -3,7 +3,7 @@ import { NavLink, useLocation, useHistory } from "react-router-dom";
 import API from "../../services/utils/API";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../store/auth-slice";
-
+import LogoutWarning from "../../components/Modal/Logout/Logout";
 import Styles from "../Navigation/Toolbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +19,7 @@ const Toolbar = (props) => {
   const location = useLocation();
   const { pathname } = location;
   const splitlocation = pathname.split("/");
+  const [showLogoutWarning, setShowLogoutWarning] = useState(false);
 
   const [isDashboardHovering, setIsDashboardHovering] = useState(false);
   const [isVisionBoardHovering, setIsVisionBoardHovering] = useState(false);
@@ -62,6 +63,9 @@ const Toolbar = (props) => {
   const logoutHoverOut = () => {
     setIsLogoutHovering(false);
   };
+  const showLogoutModalHandler = () => {
+    setShowLogoutWarning(!showLogoutWarning);
+  };
 
   const currentUsername = useSelector(
     (state) => state.authentication.currentUser
@@ -69,16 +73,7 @@ const Toolbar = (props) => {
   const totalGoals = useSelector((state) => state.goals.totalGoalsArray);
 
   const logoutHandler = () => {
-    //console.log("User logout btn clicked");
-    //---------------------------------------------------------
-    //history.push("/home");
-    //props.history.push("/home");
-    //dispatch(authActions.userLogout("false"));
-
-    //------------------------------------------------------------
     API.userLogout().then((response) => {
-      //console.log("aPI User logout");
-      //console.log(response);
       dispatch(authActions.userLogout(false));
       history.push("/");
     });
@@ -91,6 +86,7 @@ const Toolbar = (props) => {
 
   return (
     <div className={Styles.mainDiv}>
+      {showLogoutWarning}
       <div className={Styles.contentOne}>
         <div>
           <p className={Styles.logo}>ViziPlan</p>
@@ -183,10 +179,10 @@ const Toolbar = (props) => {
       <div className={Styles.contentTwo}>
         <div className={Styles.visionBoard}>
           <FontAwesomeIcon icon={faUser} size="2x" />
-          <p>{currentUsername}</p>
+          <p className={Styles.toolbarUserName}>{currentUsername}</p>
         </div>
         <div className={Styles.visionBoard}>
-          <button className={Styles.logoutBtn} onClick={logoutHandler}>
+          <button className={Styles.logoutBtn} onClick={showLogoutModalHandler}>
             <FontAwesomeIcon
               className={Styles.logoutIcon}
               onMouseOver={logoutHoverOver}
@@ -198,6 +194,11 @@ const Toolbar = (props) => {
           {isLogoutHovering && <p className={Styles.iconText}>Logout</p>}
         </div>
       </div>
+      <LogoutWarning
+        logout={logoutHandler}
+        showModal={showLogoutWarning}
+        hideModal={showLogoutModalHandler}
+      />
     </div>
   );
 };
