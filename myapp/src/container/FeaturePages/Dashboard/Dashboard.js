@@ -13,6 +13,8 @@ import AllMonthlyChart from "./Chart/AllMonthlyChart";
 import TotalChart from "./Chart/TotalChart";
 import RecentGoals from "./RecentGoals/RecentGoals";
 import Button from "../../../components/Button/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -32,7 +34,20 @@ const Dashboard = () => {
 
   let goalsAnalytics = (
     <div>
-      <h1 className={Styles.reportTitle}>Goals Analytics</h1>
+      <div className={Styles.titleDiv}>
+        <h1 className={Styles.reportTitle}>Goals Analytics</h1>
+
+        <div className={Styles.createGoalBtnDiv}>
+          <NavLink to="/addGoal">
+            <FontAwesomeIcon
+              icon={faPlus}
+              size="2x"
+              className={Styles.createGoalBtn}
+            />
+          </NavLink>
+        </div>
+      </div>
+
       <div className={Styles.rowChart}>
         <TotalChart />
         <CompleteChart />

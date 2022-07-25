@@ -25,7 +25,8 @@
 .recentGoalsTitle{
     color:#1E3E6B !important;
     font-size: 30px !important;
-    margin: 10px 0 10px 0;
+    text-align: left;
+    margin: 10px 0 10px 20px;
 }
 
 .dateTime{
