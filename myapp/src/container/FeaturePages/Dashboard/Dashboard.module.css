@@ -9,9 +9,7 @@
     width: 30%;
     height: 100%;
     display:flex;
-    flex-direction: column;  
-   
-    
+    flex-direction: column;     
 }
 .sectionOne_subContent{
     width: 100%;
@@ -26,10 +24,8 @@
     height: 100%;
     color:white;
     background:#f3f8ff;
-    padding:20px;
-   
+    padding:20px; 
 }
-
 .sectionTwo_subContent{
     width: 100%;
     display: flex;
@@ -53,8 +49,6 @@
     width: 100%;
     display: flex;  
     justify-content: space-between; 
-
-    
 }
 .reportTitle{
    width: 600px;
@@ -62,14 +56,12 @@
     font-size: 30px !important; 
     text-align: left;
     margin-left: 20px;
-    margin-top: 5px;
-    
+    margin-top: 5px 
 }
 .createGoalBtnDiv{
    color:black;
    margin: 10px 40px 0 0;
 }
-
 .createGoalBtn{
     background: #14d2ff ;
     color:white !important;
@@ -83,12 +75,10 @@
     animation-fill-mode: forwards;
     animation-iteration-count: 2;
 }
-
 .rowChart{
     width: 100%;
     display: flex;
 }
-
 .goalsSection{
     margin-top: 40px;
     background:#fff!important;
@@ -101,7 +91,6 @@
     padding-top: 10px;
     box-shadow: 0 4px 4px 0 #CADFFD, 0 6px 20px 0 #CADFFD;
     overflow:auto;
-
 }
 .continueBtn{
     background: #1479ff ;
@@ -118,8 +107,6 @@
     color:black !important;
     border: #1479ff solid 1px;
 }
-
-
 @keyframes animate {
     0% {
         box-shadow: 0 0 10px -10px #1479ff;

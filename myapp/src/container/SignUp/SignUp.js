@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth-slice";
+import API from "../../services/utils/API";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import API from "../../services/utils/API";
 import Spinner from "../../components/UI/Spinner/Spinner";
-
 import Styles from "./Signup.module.css";
 import Button from "react-bootstrap/Button";
-import { useDispatch } from "react-redux";
-import { authActions } from "../../store/auth-slice";
 
 const Signup = (props) => {
   const dispatch = useDispatch();
@@ -22,8 +21,8 @@ const Signup = (props) => {
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const [isValidSignUpForm, setIsValidSignUpForm] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
   //============================================Handler Functions===============================================
+
   const firstNameHandler = (event) => {
     setFirstName(event.target.value);
   };
@@ -39,7 +38,6 @@ const Signup = (props) => {
   const confirmPasswordHandler = (event) => {
     setConfirmPassword(event.target.value);
   };
-
   const signUpHandler = () => {
     if (firstname === "") {
       setIsValidSignUpForm(false);
@@ -424,7 +422,6 @@ const Signup = (props) => {
               </NavLink>
             }
           </p>
-
           <NavLink to="/" className={Styles.backButton}>
             Back
           </NavLink>

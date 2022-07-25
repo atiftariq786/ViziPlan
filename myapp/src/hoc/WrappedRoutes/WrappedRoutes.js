@@ -1,31 +1,27 @@
 import React, { Fragment, useEffect } from "react";
-import { Route, Redirect, Switch, withRouter } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { goalActions } from "./store/goals-slice";
-import Layout from "./hoc/Layout/Layout";
-import Login from "./container/Login/Login";
-import Signup from "./container/Signup/Signup";
-import About from "./components/Pages/About/About";
-import AppDemo from "./components/Pages/Demo/Demo";
-import FutureDev from "./components/Pages/FutureDev/FutureDev";
-import LandingPage from "./components/Pages/Landing/LandingPage";
-import Dashboard from "./container/FeaturePages/Dashboard/Dashboard";
-import Goals from "./container/FeaturePages/Goals/Goals";
-import AddGoal from "./container/FeaturePages/Goals/AddGoal/AddGoal";
-import VisionBoard from "./container/FeaturePages/VisionBoard/VisionBoard";
+import { goalActions } from "../../store/goals-slice";
+import Layout from "../Layout/Layout";
+import Login from "../../container/Login/Login";
+import Signup from "../../container/Signup/Signup";
+import About from "../../components/Pages/About/About";
+import AppDemo from "../../components/Pages/Demo/Demo";
+import LandingPage from "../../components/Pages/Landing/LandingPage";
+import Dashboard from "../../container/FeaturePages/Dashboard/Dashboard";
+import Goals from "../../container/FeaturePages/Goals/Goals";
+import AddGoal from "../../container/FeaturePages/Goals/AddGoal/AddGoal";
+import VisionBoard from "../../container/FeaturePages/VisionBoard/VisionBoard";
 import { useSelector, useDispatch } from "react-redux";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import API from "./services/utils/API";
-import { selectedImageActions } from "./store/selectedImage-slice";
-import { authActions } from "./store/auth-slice";
-import "./App.css";
+import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
+import API from "../../services/utils/API";
+import { selectedImageActions } from "../../store/selectedImage-slice";
 
 function WrappedRoutes() {
   const dispatch = useDispatch();
   const loggedInStatus = useSelector(
     (state) => state.authentication.isLoggedin
   );
-
   useEffect(() => {
     if (loggedInStatus) {
       API.savedGoal("allGoals").then((result) => {
@@ -49,7 +45,6 @@ function WrappedRoutes() {
           <Route path="/signup" component={Signup} />
           <Route path="/about" component={About} />
           <Route path="/appdemo" component={AppDemo} />
-          <Route path="/future-dev" component={FutureDev} />
           {/*========================== Restricted routes ===============================*/}
           <Route exact path="/visionboard">
             {loggedInStatus ? <VisionBoard /> : <Redirect to="/" />}

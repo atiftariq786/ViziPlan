@@ -1,7 +1,5 @@
 import React from "react";
-//import Button from "../../../../components/Button/Button";
 import Styles from "./charts.module.css";
-//import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   BarChart,
@@ -15,7 +13,6 @@ import {
 
 const MonthlyChart = () => {
   const allGoals = useSelector((state) => state.goals.totalGoalsArray);
-  //console.log(completedGoals, "Completed goals monthly chart");
 
   const d = new Date();
   d.setFullYear(d.getFullYear());
@@ -28,8 +25,6 @@ const MonthlyChart = () => {
   let filteredGoalsDateForCreatedAt = allGoals.filter(
     (goal) => new Date(goal.createdAt) >= d
   );
-  //console.log(filteredGoalsDateForCompletedAt, "Result filtered array");
-
   const months = [
     "Jan",
     "Feb",
@@ -54,7 +49,6 @@ const MonthlyChart = () => {
     let monthNum = date.getMonth();
     let month = months[monthNum];
 
-    //console.log(month, "Result for month");
     if (counter[month]) {
       counter[month].completed += 1;
     } else {
@@ -67,17 +61,13 @@ const MonthlyChart = () => {
     let monthNum = date.getMonth();
     let month = months[monthNum];
 
-    //console.log(month, "Result for month");
     if (counter[month]) {
       counter[month].created += 1;
     } else {
       counter[month].created = 1;
     }
   }
-  //console.log(counter, "Result of counter in month chart");
-
   const data = [];
-
   Object.entries(counter).forEach(([key, value]) => {
     data.push({
       name: key,

@@ -40,9 +40,7 @@ const about = (props) => {
           developer position, if you know of any please ping me! Please click
           around and provide me feedback at atiftariq786[@]gmail[.]com
         </p>
-        <NavLink to="/" className={Styles.backButton}>
-          back
-        </NavLink>
+
         <div className={Styles.gitLinkedin}>
           <a href="https://github.com/atiftariq786">
             <FontAwesomeIcon
@@ -60,13 +58,7 @@ const about = (props) => {
           </a>
         </div>
       </div>
-      <div className={Styles.aboutImage}>
-        <img
-          style={{ width: "100%", height: "100vh" }}
-          src={require("../../../assets/images/about.jpg")}
-          alt="About Page"
-        ></img>
-      </div>
+      <div className={Styles.aboutImage}></div>
     </div>
   );
 };

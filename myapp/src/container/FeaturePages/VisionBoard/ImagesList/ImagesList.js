@@ -7,27 +7,25 @@ import API from "../../../../services/utils/API";
 
 const ImagesList = (props) => {
   const dispatch = useDispatch();
-  let selectedImagesArray = useSelector(
+  const selectedImagesArray = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
 
   const webImages = props.webImages;
-
   const [arrData, setarrData] = useState(webImages);
+  const [showModal, setShowModal] = useState(false);
+  const [imageUrl, setImageUrl] = useState(
+    "https://wallpaperaccess.com/full/1096653.jpg"
+  );
 
   useEffect(() => {
     setarrData(props.webImages);
 
     API.getSelectedImages().then((response) => {
-      // console.log(response.data, "Get Saved Selected Images from backend");
       dispatch(selectedImageActions.savedImages(response.data));
     });
   }, [webImages]);
-
-  const [showModal, setShowModal] = useState(false);
-  const [imageUrl, setImageUrl] = useState(
-    "https://wallpaperaccess.com/full/1096653.jpg"
-  );
+  //==============================Handler Functions==============================================
 
   const inputUrlEventHandler = (event) => {
     event.preventDefault();
@@ -53,7 +51,6 @@ const ImagesList = (props) => {
   };
 
   const genDuplicateImageHandler = (data) => {
-    //console.log(data, "genDuplicateImageHandler");
     let newData = {
       id: null,
       imageId: data.id,
@@ -63,14 +60,14 @@ const ImagesList = (props) => {
     const isValidImage = selectedImagesArray.find(
       (image) => image.id === data.id
     );
-    // console.log(isValidImage, "isValid");
     if (isValidImage === undefined) {
       API.saveSelectedImages(newData).then((response) => {
         dispatch(selectedImageActions.selectedImageData(data));
       });
     }
   };
-  //============================================================================
+  //==============================Conditional Styling==============================================
+
   let customStyle = [Styles.visionImages];
   let generatedImage = arrData.map((data) => {
     let foundImage = selectedImagesArray.find((image) => image.id === data.id);
@@ -95,8 +92,6 @@ const ImagesList = (props) => {
       </div>
     );
   });
-  //====================================================================================
-
   return (
     <div className={Styles.container}>
       <div className={Styles.gridImages}>

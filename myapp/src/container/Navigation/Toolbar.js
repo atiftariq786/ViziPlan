@@ -19,39 +19,37 @@ const Toolbar = (props) => {
   const location = useLocation();
   const { pathname } = location;
   const splitlocation = pathname.split("/");
-  const [showLogoutWarning, setShowLogoutWarning] = useState(false);
 
+  const [showLogoutWarning, setShowLogoutWarning] = useState(false);
   const [isDashboardHovering, setIsDashboardHovering] = useState(false);
   const [isVisionBoardHovering, setIsVisionBoardHovering] = useState(false);
   const [isGoalsHovering, setIsGoalsHovering] = useState(false);
   const [isInfoHovering, setIsInfoHovering] = useState(false);
   const [isLogoutHovering, setIsLogoutHovering] = useState(false);
 
+  const totalGoals = useSelector((state) => state.goals.totalGoalsArray);
+  //============================================Handler Functions===============================================
   const dashboardHoverOver = () => {
     setIsDashboardHovering(true);
   };
-
   const dashboardHoverOut = () => {
     setIsDashboardHovering(false);
   };
   const visionBoardHoverOver = () => {
     setIsVisionBoardHovering(true);
   };
-
   const visionBoardHoverOut = () => {
     setIsVisionBoardHovering(false);
   };
   const goalHoverOver = () => {
     setIsGoalsHovering(true);
   };
-
   const goalHoverOut = () => {
     setIsGoalsHovering(false);
   };
   const infoHoverOver = () => {
     setIsInfoHovering(true);
   };
-
   const infoHoverOut = () => {
     setIsInfoHovering(false);
   };
@@ -59,7 +57,6 @@ const Toolbar = (props) => {
   const logoutHoverOver = () => {
     setIsLogoutHovering(true);
   };
-
   const logoutHoverOut = () => {
     setIsLogoutHovering(false);
   };
@@ -70,8 +67,6 @@ const Toolbar = (props) => {
   const currentUsername = useSelector(
     (state) => state.authentication.currentUser
   );
-  const totalGoals = useSelector((state) => state.goals.totalGoalsArray);
-
   const logoutHandler = () => {
     API.userLogout().then((response) => {
       dispatch(authActions.userLogout(false));

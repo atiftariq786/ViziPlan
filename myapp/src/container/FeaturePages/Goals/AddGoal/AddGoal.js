@@ -3,7 +3,6 @@ import Styles from "./AddGoal.module.css";
 import Button from "../../../../components/Button/Button";
 import Form from "react-bootstrap/Form";
 import API from "../../../../services/utils/API";
-//import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import { goalActions } from "../../../../store/goals-slice";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
@@ -22,7 +21,7 @@ const AddGoal = (props) => {
   let description = "";
   let url = "";
   let category = "";
-  let privacyStatus = true; //change==============================================
+  let privacyStatus = true;
   let goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals</h1>;
 
   if (updateGoal) {
@@ -33,7 +32,7 @@ const AddGoal = (props) => {
     category = updateGoal.category;
     goalTitle = <h1 className={Styles.sectionOneTitle}>Edit Goal</h1>;
   }
-  //==============================================================================
+
   const [goalHeading, setGoalHeading] = useState(heading);
   const [goalDescription, setGoalDescription] = useState(description);
   const [goalUrl, setGoalUrl] = useState(url);
@@ -79,7 +78,7 @@ const AddGoal = (props) => {
     setGoalUrl("");
     setGoalCategory("");
     setGoalDescription("");
-    setGoalPrivacy(true); //change========================================
+    setGoalPrivacy(true);
     dispatch(goalActions.editGoal(null));
     goalTitle = <h1 className={Styles.sectionOneTitle}>Add Goals!</h1>;
   };
@@ -97,7 +96,7 @@ const AddGoal = (props) => {
       API.userAddGoal(data).then((response) => {
         console.log(response.data, "goals data");
 
-        setGoalPrivacy(true); //======================================
+        setGoalPrivacy(true);
         setGoalHeading("");
         setGoalUrl("");
         setGoalDescription("");
@@ -242,7 +241,6 @@ const AddGoal = (props) => {
                 onChange={goalDescriptionhandler}
                 isValid={isGoalDescription}
                 isInvalid={!isGoalDescription}
-                //=====================================================
               />
             </Form.Group>
 
@@ -253,8 +251,6 @@ const AddGoal = (props) => {
                 type="switch"
                 id="custom-switch"
                 label={privacy}
-                //disabled={true}
-                //isInvalid={true}
                 defaultValue={goalPrivacy}
                 checked={goalPrivacy}
                 onClick={goalPrivacyHandler}
@@ -266,7 +262,6 @@ const AddGoal = (props) => {
               Cancel
             </Button>
           </NavLink>
-
           {goalButton}
         </div>
       </div>

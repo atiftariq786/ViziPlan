@@ -2,8 +2,6 @@
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
-
-
 .imagestitle{
     color:#1E3E6B !important;
     min-width:280px;
@@ -33,7 +31,6 @@
 .imagesWrapper{
     margin: 0 auto 0 auto;
 }
-
 .visionImages{
     width: 284px; 
     height:284px;
@@ -47,12 +44,9 @@
     animation-delay: 500ms;
     animation-fill-mode: forwards;
 }
-
 .visionImages:hover{  
    cursor: pointer;
    transform: scale(1.02);   
-   
-   
 }
 .selectedVisionImages{
     width: 284px; 
@@ -70,7 +64,6 @@
     border-style:dashed;
     border-width: 10px;
     border-color:  rgba(94, 93, 93, 0.304);
-   
 }
 .addImageBtn{
     width:284px;
@@ -90,4 +83,3 @@
     border-color:rgb(231, 230, 230);
     cursor: pointer;
 }
-

@@ -9,8 +9,6 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import LoginError from "../../components/Modal/LoginError/LoginError";
 import Spinner from "../../components/UI/Spinner/Spinner";
-
-//import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Styles from "./Login.module.css";
 
 const Login = (props) => {
@@ -21,7 +19,6 @@ const Login = (props) => {
   const [loginError, setLoginError] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
   //============================================Handler Functions===============================================
 
   const userEmailHandler = (event) => {
@@ -78,6 +75,7 @@ const Login = (props) => {
     }
   };
   //============================================Conditional Style===============================================
+
   let emailErr = "";
   let passwordErr = "";
 

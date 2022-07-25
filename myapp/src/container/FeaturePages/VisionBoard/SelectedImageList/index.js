@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
-import Button from "../../../../components/Button/Button";
 import API from "../../../../services/utils/API";
 import Styles from "./style.module.css";
 
@@ -17,8 +16,8 @@ const SelectedImageList = (props) => {
   const getSelectedImageData = useSelector(
     (state) => state.selectedImages.selectedImageArray
   );
-
   //==================================Handler Functions====================================================
+
   const deleteIamgeHandler = (data) => {
     console.log(data.id, " Clicked Image ID");
 
@@ -27,18 +26,16 @@ const SelectedImageList = (props) => {
       dispatch(selectedImageActions.removeImage(data.id));
     });
   };
-
   const selectedImagesHandler = (data) => {
     dispatch(selectedImageActions.continueSelImagesBtn(data));
   };
-
   const finishBtnHandler = () => {
     let isClickedBtnDeactive = false;
     dispatch(selectedImageActions.continueSelImagesBtn(isClickedBtnDeactive));
     history.push("/dashboard");
   };
-
   //==================================Conditional Logic=====================================================
+
   let displayImagesText = (
     <div className={Styles.textDiv}>
       <p className={Styles.textPartOne}>Select images and quotes</p>
@@ -88,13 +85,7 @@ const SelectedImageList = (props) => {
       </div>
     );
   }
-
-  //console.log(getSelectedImageData, "data coming from old redux");
-  //console.log(newGetSelectedImageData, "data coming from new redux array");
-
   let newGeneratedImage = getSelectedImageData.map((data) => {
-    //console.log(data.id, "inside map selected image id");
-    // console.log(data, "inside map selected image data");
     return (
       <div className={Styles.imageWrapper} key={data.id}>
         <img
@@ -124,7 +115,6 @@ const SelectedImageList = (props) => {
         {newGeneratedImage}
         {displayImagesText}
       </div>
-
       {displayBtn}
       {backBtn}
     </div>

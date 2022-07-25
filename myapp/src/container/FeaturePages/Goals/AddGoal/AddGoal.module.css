@@ -3,20 +3,16 @@
     height: 100%;
     text-align: center;
     display: flex;   
-    
     background: #f3f8ff;
 }
 .sectionOneTitle{
     color:#1E3E6B !important;
     text-decoration: none;
-    margin-top: 30px;
-    
+    margin-top: 30px; 
 }
 .sectionOne{
     width: 40%;
     height: 100vh;
-    /* background:green !important; */
-    
 }
 .sectionTwo{
     width: 60%;
@@ -26,9 +22,8 @@
     padding: 40px 40px 40px 40px;
 }
 .sectionOne_subContent{
-   width: 100%;
-   height: 50%;
-    
+    width: 100%;
+    height: 50%;
     padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
@@ -37,10 +32,8 @@
     width: 250px;
     height: 60px;
     margin: 20px 5px 5px 30px;
-    
     background: #fff;
     text-align: center;
-    ;
 }
 .sectionTwo_subContent{
     width: 100%;    
@@ -55,13 +48,11 @@
     padding: 40px 40px 40px 40px;
     overflow:auto;
  }
-
  .reports{
     width:95%;
     color:black;
     display:flex;  
     flex-flow: row wrap;
-
 }
  .formText{   
    color:black;
@@ -76,7 +67,6 @@
     justify-content: left;
     cursor: pointer;
     padding: 0px;
-    
     margin-left: 30px;
  }
 .inputField{
@@ -95,7 +85,6 @@
     box-sizing: border-box;
     outline: none;
     resize: horizontal;
-    
 }
 .inputField:focus{
     background: #FFFFFF;
@@ -111,7 +100,6 @@
     background: #f3f3f5;
     margin: 25px auto 0px auto;
     resize:vertical;
-    
 }
 .continueBtn{
     background: #1479ff ;
@@ -120,8 +108,7 @@
     height:38px;    
     border-radius: 4px;
     font-size: 15px;
-    margin-left: 10px;
-    
+    margin-left: 10px; 
     border: none;
 }
 .continueBtn:hover{
@@ -135,7 +122,6 @@
     margin: 5px 0px 0px 5px;
     border-radius: 5px;
     position: relative;
-    
 }
 .visionImages{
     width: 284px; 

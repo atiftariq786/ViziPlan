@@ -9,14 +9,12 @@
     text-align: center;
     margin: 5px 0 5px 0;
 }
-
 .sectionOne{
     margin: 8px 0 0 0;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
 }
-
  .communityActivitiesText{
      background-color: #F7FBFF;
      width: 100%;
@@ -27,7 +25,6 @@
      box-shadow: 0 4px 4px 0 #CADFFD, 0 2px 2px 0 #CADFFD;
      color: #0A3B6C;
      padding:0px 10px 0px 10px;
-     
  }
  .activitiesTextOnly{
     height: 25px;

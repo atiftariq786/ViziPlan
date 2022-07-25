@@ -9,23 +9,19 @@
     box-shadow: 0 4px 4px 0 #CADFFD, 0 6px 20px 0 #CADFFD;
 }
 .userName{
-    /* color:#14D2FF !important; */
     color:black;
     font-size: 35px;
     font-weight: 800;
 }
-
 .welcomeText{
     color: #7b7b7b;
     margin: 10px 0 0 10px;
     font-size: 18px;
 }
-
 .leftSide{
     margin: 10px 0 0 20px;
     text-align: left;
 }
-
 .image{
     margin: -100px 0 0 0;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Styles from "../Goals/Goals.module.css";
 import Button from "../../../components/Button/Button";
 import { NavLink, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencil,
@@ -39,7 +39,6 @@ const Goals = () => {
       setCompletedGoalList(response.data);
     });
   };
-
   const completeBtnHandler = (event, data) => {
     event.stopPropagation();
     console.log(data, "TickBtn goal id");
@@ -50,7 +49,6 @@ const Goals = () => {
       getCompleteGoalList();
     });
   };
-
   const deleteGoalHandler = (event, data) => {
     event.stopPropagation();
 
@@ -69,17 +67,14 @@ const Goals = () => {
   const completedGoalHandler = () => {
     setIsCompletedGoal(!isCompletedGoal);
   };
-
   const fixDate = (date) => {
     const dateObj = new Date(date);
 
     return dateObj.toLocaleString();
   };
   //===============================Condional Styling========================================
-  //defaultActiveKey="0"
 
   const goalsToShow = isCompletedGoal ? completedGoalList : goalArray;
-
   let goalsList = goalsToShow.map((data) => {
     return (
       <div key={data.id} className={Styles.accordionMainDiv}>
@@ -104,7 +99,6 @@ const Goals = () => {
                       }}
                     ></img>
                   </div>
-
                   <div className={Styles.heading}>{data.heading}</div>
 
                   <div className={Styles.accordionBtnDiv_Two}>
@@ -200,7 +194,6 @@ const Goals = () => {
     <div className={Styles.container}>
       <div className={Styles.sectionOne}>
         {goalTitleText}
-
         <div className={Styles.createGoalBtnDiv}>
           {goalsBtn}
 

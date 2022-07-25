@@ -15,16 +15,10 @@ const goalSlice = createSlice({
     totalGoals(state, actions) {
       let goals = actions.payload;
       state.totalGoalsArray = goals;
-
-      //console.log(state.totalGoalsArray, "Total Goals array in redux ");
-      //console.log(goals, "Total Goals in redux ");
     },
     completedGoals(state, actions) {
       let completedGoal = actions.payload;
       state.completedGoalsArray = completedGoal;
-
-      // console.log(state.completedGoalsArray, "Completed Goals array in redux ");
-      //console.log(completedGoal, "Completed Goals in redux ");
     },
   },
 });

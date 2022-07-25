@@ -14,14 +14,12 @@
     left:0;
     right:0;
     background: rgba(255, 255, 255, 0.89);
-    
 }
 .loginTitle{
     color:black;
     padding-top:35px;
     margin-bottom: 10px;
     font-size: 24px;
-    
 }
 .formDiv{
     width:80%;

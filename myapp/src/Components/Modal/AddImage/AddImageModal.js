@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Styles from "./AddImage.module.css";
 
 const AddImageModal = (props) => {
-  //console.log(props.showAddImageModal, "Child Model File Result");
   return (
     <Modal
       size="lg"
