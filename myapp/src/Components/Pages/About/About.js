@@ -58,7 +58,13 @@ const about = (props) => {
           </a>
         </div>
       </div>
-      <div className={Styles.aboutImage}></div>
+      <div className={Styles.aboutImage}>
+        <img
+          style={{ width: "85%", height: "100vh" }}
+          src={require("../../../assets/images/ViziPlan_FullStructureDiagram.png")}
+          alt="ViziPlaning"
+        ></img>
+      </div>
     </div>
   );
 };
