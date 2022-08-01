@@ -67,7 +67,7 @@ function WrappedRoutes() {
             component={Goals}
           />
           <Route exact path="/">
-            {!loggedInStatus ? <Redirect to="/" /> : <Dashboard />}
+            {!loggedInStatus ? <LandingPage /> : <Redirect to="/dashboard" />}
           </Route>
         </Switch>
       </Layout>
