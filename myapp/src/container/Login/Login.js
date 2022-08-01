@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import API from "../../services/utils/API";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/auth-slice";
@@ -241,14 +241,14 @@ const Login = (props) => {
           <p className={Styles.signupText}>
             Don't have an account?{" "}
             {
-              <Link to="/signUp/" className={Styles.signupButton}>
+              <NavLink to="/signUp/" className={Styles.signupButton}>
                 Sign Up
-              </Link>
+              </NavLink>
             }
           </p>
-          <Link to="/" className={Styles.backButton}>
+          <NavLink to="/" className={Styles.backButton}>
             back
-          </Link>
+          </NavLink>
         </form>
       </div>
     </div>

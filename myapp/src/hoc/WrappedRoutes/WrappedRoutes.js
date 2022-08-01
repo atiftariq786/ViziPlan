@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, HashRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { goalActions } from "../../store/goals-slice";
 import Layout from "../Layout/Layout";
@@ -34,7 +34,7 @@ function WrappedRoutes() {
     }
   }, []);
   return (
-    <Fragment>
+    <HashRouter basename = "/">
       <Layout>
         <Switch>
           <Route exact path="/login">
@@ -44,8 +44,11 @@ function WrappedRoutes() {
             {loggedInStatus ? <Redirect to="/dashboard" /> : <Signup />}
           </Route>
           <Route path="/about" component={About} />
-          <Route path="/" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
           {/*========================== Restricted routes ===============================*/}
+          {/* <Route exact path="/">
+            {!loggedInStatus ? <LandingPage /> : <Redirect to="/dashboard"/>}
+          </Route> */}
           <Route exact path="/visionboard">
             {loggedInStatus ? <VisionBoard /> : <Redirect to="/" />}
           </Route>
@@ -67,11 +70,11 @@ function WrappedRoutes() {
             loggedInStatus={loggedInStatus}
             component={Goals}
           />
-          {/* <Route exact path="/">
-            {!loggedInStatus ? <LandingPage /> : <Redirect to="/dashboard" />}
-          </Route> */}
+         
         </Switch>
       </Layout>
+    </HashRouter>
+      
     </Fragment>
   );
 }
