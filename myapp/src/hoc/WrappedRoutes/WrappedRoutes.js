@@ -44,6 +44,7 @@ function WrappedRoutes() {
             {loggedInStatus ? <Redirect to="/dashboard" /> : <Signup />}
           </Route>
           <Route path="/about" component={About} />
+          <Route path="/" component={LandingPage} />
           {/*========================== Restricted routes ===============================*/}
           <Route exact path="/visionboard">
             {loggedInStatus ? <VisionBoard /> : <Redirect to="/" />}
@@ -66,9 +67,9 @@ function WrappedRoutes() {
             loggedInStatus={loggedInStatus}
             component={Goals}
           />
-          <Route exact path="/">
+          {/* <Route exact path="/">
             {!loggedInStatus ? <LandingPage /> : <Redirect to="/dashboard" />}
-          </Route>
+          </Route> */}
         </Switch>
       </Layout>
     </Fragment>
