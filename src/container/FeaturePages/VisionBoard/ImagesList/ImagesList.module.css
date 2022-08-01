@@ -1,0 +1,85 @@
+@keyframes fadeIn{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.imagestitle{
+    color:#1E3E6B !important;
+    min-width:280px;
+    padding-top: 50px;
+    padding-bottom: 19px;
+    font-family:cursive;
+    background: #eff5fe !important; 
+    margin: 0px;
+}
+.container{
+    width:100%;
+    height: 100%;
+    min-width: 410px;
+    background: #eff5fe;
+}
+.gridImages{
+    min-width: 410px;
+    width:100%;
+    background: #eff5fe;
+    display:flex;  
+    flex-flow: row wrap;
+    text-align: left;
+   padding: 20px 0 0 20px;
+   margin: 0 auto 0 auto;
+}
+
+.imagesWrapper{
+    margin: 0 auto 0 auto;
+}
+.visionImages{
+    width: 284px; 
+    height:284px;
+    margin: 5px 0px 0px 5px;
+    border-radius: 5px;
+    border: none;      
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+}
+.visionImages:hover{  
+   cursor: pointer;
+   transform: scale(1.02);   
+}
+.selectedVisionImages{
+    width: 284px; 
+    height:284px;
+    margin: 5px 0px 0px 5px;
+    border-radius: 5px;
+    border: solid 8px #33A1FD;
+}
+.addImage{
+    width: 284px;
+    height: 284px;   
+    margin: 5px 0px 0px 5px;
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.42);
+    border-style:dashed;
+    border-width: 10px;
+    border-color:  rgba(94, 93, 93, 0.304);
+}
+.addImageBtn{
+    width:284px;
+    height: 284px;
+    margin: 5px auto 0px auto;
+    color:grey;
+    font-size:100px;   
+    border-radius: 5px;
+    background: rgba(128, 128, 128, 0.42);
+    border-style:dashed;
+    border-width: 6px;
+    border-color:  rgba(94, 93, 93, 0.304);
+}
+.addImageBtn:hover{
+    font-size:150px;
+    color: rgb(231, 230, 230);
+    border-color:rgb(231, 230, 230);
+    cursor: pointer;
+}

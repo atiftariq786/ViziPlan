@@ -1,0 +1,50 @@
+.sectionOneTitle{
+    color:#1E3E6B !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    height: 40px;
+    border-bottom: #dfdfdf solid 1px;
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+.sectionOne{
+    margin: 8px 0 0 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+ .communityActivitiesText{
+     background-color: #F7FBFF;
+     width: 100%;
+     height: 60px;
+     margin-bottom: 15px;
+     display: flex;
+     font-size: 14px;
+     box-shadow: 0 4px 4px 0 #CADFFD, 0 2px 2px 0 #CADFFD;
+     color: #0A3B6C;
+     padding:0px 10px 0px 10px;
+ }
+ .activitiesTextOnly{
+    height: 25px;
+    width: calc(100% - 70px);
+    margin: auto;
+    text-align: left;
+ }
+ .activitiesName{
+     
+     font-weight: 700;
+ }
+ .activitiesGoalHeading{
+    color:#0077FF;
+    font-weight: 900;
+ }
+ .dateTime{
+     width:70px;
+font-size: 10px;
+padding:20px 0px 0px 5px;
+color:gray !important;
+ }
+
+

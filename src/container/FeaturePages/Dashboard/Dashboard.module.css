@@ -1,0 +1,120 @@
+.dashboardMainDiv{
+    width:100%;
+    height: 100%;
+    text-align: center;
+    display: flex;   
+    background: #f3f8ff;
+}
+.sectionOne{
+    width: 30%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;     
+}
+.sectionOne_subContent{
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    margin-top: 55px;
+    overflow:auto;
+    
+ }
+.sectionTwo{
+    width: 70%;
+    height: 100%;
+    color:white;
+    background:#f3f8ff;
+    padding:20px; 
+}
+.sectionTwo_subContent{
+    width: 100%;
+    display: flex;
+    flex-flow: row;      
+    justify-content: center;
+    margin: 0px 0 40px 0;
+    padding-top: 50px; 
+ }
+.reports{
+    background:#fff!important;
+    width:100%;
+    min-width:600px;
+    height: 800px;
+    display: block;
+    border-radius: 30px;
+    color:#1E3E6B !important;
+    padding-top: 10px;
+    box-shadow: 0 4px 4px 0 #CADFFD, 0 6px 20px 0 #CADFFD;
+}
+.titleDiv{
+    width: 100%;
+    display: flex;  
+    justify-content: space-between; 
+}
+.reportTitle{
+   width: 600px;
+    color:#1E3E6B !important;
+    font-size: 30px !important; 
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 5px 
+}
+.createGoalBtnDiv{
+   color:black;
+   margin: 10px 40px 0 0;
+}
+.createGoalBtn{
+    background: #14d2ff ;
+    color:white !important;
+    width: 55px;
+    height:16px;    
+    border-radius: 8px !important;
+    padding: 10px;
+    animation-name: animate ;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 2;
+}
+.rowChart{
+    width: 100%;
+    display: flex;
+}
+.goalsSection{
+    margin-top: 40px;
+    background:#fff!important;
+    width:100%;
+    min-width:600px;
+    height: 550px;
+    display: block;
+    border-radius: 30px;
+    color:black !important;
+    padding-top: 10px;
+    box-shadow: 0 4px 4px 0 #CADFFD, 0 6px 20px 0 #CADFFD;
+    overflow:auto;
+}
+.continueBtn{
+    background: #1479ff ;
+    color:white !important;
+    width: 140px;
+    height:38px;    
+    border-radius: 4px;
+    font-size: 15px;
+    margin-top: 5%;
+    border: none;
+}
+.continueBtn:hover{
+    background: white ;
+    color:black !important;
+    border: #1479ff solid 1px;
+}
+@keyframes animate {
+    0% {
+        box-shadow: 0 0 10px -10px #1479ff;
+      }
+    50% {
+      box-shadow: 0 0 10px 10px #1479ff;
+    }
+    100% {
+        box-shadow: 0 0 0px 00px #1479ff;
+  }
+}

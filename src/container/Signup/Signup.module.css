@@ -1,0 +1,118 @@
+.mainDiv{
+    width:100%;
+    position: relative;
+    text-align: center;
+    display: flex;
+}
+.signUpImage{
+    width:65%;
+    height: 100vh;
+    
+}
+.signUpForm{
+    width:35%;
+    height: 100vh;
+    background: white;
+}
+
+.signupTitle{
+    color:#252525;
+    margin-top: 100px;
+    padding-top:20px;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.formDiv{
+    width:80%;
+    height: 30vh;
+    margin: 50px auto 0 auto;
+}
+.inputDiv{
+    width:100%;
+    height: 38px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px; 
+    font-family: "Lato", sans-serif;
+    padding: 0 0 0 12px;
+    background: #f3f3f5;
+    margin: 30px auto 0px auto;
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid #f3f3f5;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.inputDiv:focus{
+    background: #FFFFFF;
+    
+}
+.signupButton{
+    margin:70px 0px 10px 0px;
+    width: 200px;
+    font-size: 22px;
+    justify-content: center;
+    text-align: center;
+}
+
+.signinText{
+    margin:20px 0 0 0;
+    text-align: center;
+}
+
+.signinButton{
+    width:80px;
+    font-size: 16px;
+    margin:auto;
+    padding: 2px;
+    
+}
+.signinButton:hover{
+    color:blue;    
+}
+.backButton{
+    width:80px;
+    font-size: 17px;
+    margin: 10px auto 0 auto;
+    padding: 2px;
+    justify-content: center;
+}
+
+.backButton:hover{
+    color:blue;
+}
+
+.invalidInput{
+    border: 1px solid #C41337;
+}
+.validInput{
+    border: 1px solid #00873F;
+}
+
+.usernameEror{
+    color: #C41337;
+    text-align: left;
+    font-size: 11px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.checkCircle{
+    float: right;
+    margin-right: 13px;
+    margin-top:-23px;
+    position: relative;
+    color:#00873F;
+    font-size: 14px;    
+}
+
+.exTrianle{
+    float: right;
+    margin-right: 13px;
+    margin-top: -22px;
+    position: relative;
+    color:#C41337;
+    font-size: 13px;
+}

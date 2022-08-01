@@ -1,0 +1,37 @@
+.goal{
+    width: 80%;
+    height: 60px;
+    margin:auto;
+    display: flex;
+    font-size: 18px;
+    color: #0A3B6C;
+    padding:0px 10px 0px 10px;
+    margin-bottom: 10px;
+    background-color: #f3f8ff;
+    border-radius: 4px;
+    border: #7CB4B8 dashed 1px;
+}
+.heading{
+   height: 25px;
+   margin: auto auto auto 10px;
+   text-align: left !important;
+}
+.activitiesName{    
+    font-weight: 700;
+}
+.recentGoalsTitle{
+    color:#1E3E6B !important;
+    font-size: 30px !important;
+    text-align: left;
+    margin: 10px 0 10px 20px;
+}
+.dateTime{
+    width:70px;
+    font-size: 10px;
+    padding:20px 0px 0px 5px;
+    color:gray !important;
+    margin: auto 20px auto auto;
+}
+.goals{
+    margin: 30px 0 0 0;
+}
