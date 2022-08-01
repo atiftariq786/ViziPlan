@@ -19,11 +19,8 @@ const LandingPage = () => {
       </div>
       <div className={Styles.introDiv}>
         <div className={Styles.landingNavbar}>
-          <NavLink to="/appdemo/">
-            <Button className={Styles.transBtn}>Watch Demo</Button>
-          </NavLink>
           <NavLink to="/about/">
-            <Button className={Styles.transBtn}>FAQ</Button>
+            <Button className={Styles.transBtn}>Learn More</Button>
           </NavLink>
           <NavLink to="/login/">
             <Button className={Styles.loginBtn}>login</Button>

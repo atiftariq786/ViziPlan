@@ -3,44 +3,59 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { useSelector } from "react-redux";
 import Styles from "./About.module.css";
 
-const about = (props) => {
+const About = (props) => {
+  const loggedInStatus = useSelector(
+    (state) => state.authentication.isLoggedin
+  );
+
+  let backBtn = "";
+  if (!loggedInStatus) {
+    backBtn = (
+      <NavLink to="/" className={Styles.backButton}>
+        back
+      </NavLink>
+    );
+  }
   return (
     <div className={Styles.aboutMainDiv}>
       <div className={Styles.descriptionDiv}>
         <h2 style={{ textAlign: "center" }}>About</h2>
         <h5>The App</h5>
         <p>
-          Time to Plan is a bucket list planning app designed to enable users to
-          plan goals according to the story they want to live. I believe that
-          creating a bucket list should be personal and align with the story you
-          want to live. It’s easy to say you want to go skydiving and add it to
-          your bucket list but does skydiving align with who you want to be in
-          the next 5, 10, 30 years? By determining the story you want to live
-          first, you can prioritize your goals to enjoy your life to the
-          fullest! This app is in its initial phase. I got the idea when I was
-          browsing planning apps for me and my wife. While browsing I didn’t
-          find exactly what I wanted out of the apps so I decided to make one.
-          This also seemed like an excellent opportunity to improve my
-          development skills! Time to Plan gives me a great playground to learn
-          and explore React and Node.js. Since starting this app I have gained
-          more in depth knowledge and experience on JavaScript, React
-          Components, backend-frontend communication, Express middlewares, and
-          Passport.js authentication. I am hoping that I continue to learn more
-          as I work to improve this project.
+          This app is basically a fullStack project with a great UI in which
+          users can create life goals with help of amazing vision board images
+          and also share goals with other users. Users can also save, edit and
+          delete goals. Users have permission to add new pictures in the vision
+          board which help to create more focused goals. The purpose of this
+          project is to improve learning skills and to show my abilities to
+          recruiter industries. How I designed this project and which
+          technologies I used in this project. It can be understood with the
+          help of a full architecture block diagram.
         </p>
-        <h5>Me</h5>
+        <h5>Feature</h5>
         <p>
-          I initially started out as an Industrial Automation engineer,
-          designing interfaces for users interacting with machinery systems.
-          Although I love working with hardware and tinkering with my hands, I
-          found Software Engineering to be my calling because it enables me to
-          develop apps as I like. I am currently looking for a front-end
-          developer position, if you know of any please ping me! Please click
-          around and provide me feedback at atiftariq786[@]gmail[.]com
+          I applied user authentication using passport.js Form validation
+          applied for login, signup and add goals. Users can see the frontend
+          and backend structure of the app in the architecture diagram. Users
+          can watch the app demo video in the “watch demo” and “information”
+          option. Custom navigation bar built with a stylish UI to match
+          application design. In visionboard users can see more than 50 random
+          images and more than 30 quotes images also have permission to add new
+          custom images and quotes. In community updates users can see the other
+          users goals. In add goals users can add information through the input
+          field and be able to select categories from the drop down list and
+          also have the option to set goals to public and private with toggle
+          switch. In goals analytics feature users can see total goals,
+          completed and incompleted goals information in bar chart, goals
+          category by percentage in pie chart and goals information by month for
+          the current year in vertical bar chart. In the saved goals feature,
+          users can update, delete and complete the goals. In the saved
+          completed goals list users can only delete the goals.
         </p>
-
+        {backBtn}
         <div className={Styles.gitLinkedin}>
           <a href="https://github.com/atiftariq786">
             <FontAwesomeIcon
@@ -68,4 +83,4 @@ const about = (props) => {
     </div>
   );
 };
-export default about;
+export default About;

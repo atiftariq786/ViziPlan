@@ -6,7 +6,6 @@ import Layout from "../Layout/Layout";
 import Login from "../../container/Login/Login";
 import Signup from "../../container/Signup/Signup";
 import About from "../../components/Pages/About/About";
-import AppDemo from "../../components/Pages/Demo/Demo";
 import LandingPage from "../../components/Pages/Landing/LandingPage";
 import Dashboard from "../../container/FeaturePages/Dashboard/Dashboard";
 import Goals from "../../container/FeaturePages/Goals/Goals";
@@ -41,10 +40,10 @@ function WrappedRoutes() {
           <Route exact path="/login">
             {loggedInStatus ? <Redirect to="/visionboard" /> : <Login />}
           </Route>
-
-          <Route path="/signup" component={Signup} />
+          <Route path="/signup">
+            {loggedInStatus ? <Redirect to="/dashboard" /> : <Signup />}
+          </Route>
           <Route path="/about" component={About} />
-          <Route path="/appdemo" component={AppDemo} />
           {/*========================== Restricted routes ===============================*/}
           <Route exact path="/visionboard">
             {loggedInStatus ? <VisionBoard /> : <Redirect to="/" />}
@@ -67,7 +66,9 @@ function WrappedRoutes() {
             loggedInStatus={loggedInStatus}
             component={Goals}
           />
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/">
+            {loggedInStatus ? <Redirect to="/dashboard" /> : <LandingPage />}
+          </Route>
         </Switch>
       </Layout>
     </Fragment>
