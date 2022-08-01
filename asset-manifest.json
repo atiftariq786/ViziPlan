@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ViziPlan/static/css/main.37a95282.css",
-    "main.js": "/ViziPlan/static/js/main.bcd80297.js",
+    "main.js": "/ViziPlan/static/js/main.bece8b42.js",
     "static/js/787.d3befce1.chunk.js": "/ViziPlan/static/js/787.d3befce1.chunk.js",
     "static/media/viziPlan.gif": "/ViziPlan/static/media/viziPlan.a21918baac68aacc7328.gif",
     "static/media/loginPage.jpg": "/ViziPlan/static/media/loginPage.41bb83df03c2fb521860.jpg",
@@ -13,11 +13,11 @@
     "static/media/notFound.jpg": "/ViziPlan/static/media/notFound.a5f8bbce62a855ece2e1.jpg",
     "index.html": "/ViziPlan/index.html",
     "main.37a95282.css.map": "/ViziPlan/static/css/main.37a95282.css.map",
-    "main.bcd80297.js.map": "/ViziPlan/static/js/main.bcd80297.js.map",
+    "main.bece8b42.js.map": "/ViziPlan/static/js/main.bece8b42.js.map",
     "787.d3befce1.chunk.js.map": "/ViziPlan/static/js/787.d3befce1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.37a95282.css",
-    "static/js/main.bcd80297.js"
+    "static/js/main.bece8b42.js"
   ]
 }
