@@ -35,6 +35,14 @@ const About = (props) => {
           technologies I used in this project. It can be understood with the
           help of a full architecture block diagram.
         </p>
+        <div>
+          <img
+            style={{ width: "500px", height: "400px" }}
+            src={require("../../../assets/images/viziPlan.gif")}
+            alt="ViziPlaning"
+          ></img>
+        </div>
+
         <h5>Feature</h5>
         <p>
           I applied user authentication using passport.js Form validation
