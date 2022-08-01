@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ViziPlan/static/css/main.37a95282.css",
+    "main.js": "/ViziPlan/static/js/main.d11b7558.js",
+    "static/js/787.d3befce1.chunk.js": "/ViziPlan/static/js/787.d3befce1.chunk.js",
+    "static/media/viziPlan.gif": "/ViziPlan/static/media/viziPlan.a21918baac68aacc7328.gif",
+    "static/media/loginPage.jpg": "/ViziPlan/static/media/loginPage.41bb83df03c2fb521860.jpg",
+    "static/media/landingImage.jpg": "/ViziPlan/static/media/landingImage.29f1ed6e2200ae5ec680.jpg",
+    "static/media/signUp-Page.jpg": "/ViziPlan/static/media/signUp-Page.56bec075cd0cff06e60f.jpg",
+    "static/media/ViziPlan_FullStructureDiagram.png": "/ViziPlan/static/media/ViziPlan_FullStructureDiagram.177711ee545fd2b9b985.png",
+    "static/media/panda.png": "/ViziPlan/static/media/panda.9fcd59e3611fb0f6550e.png",
+    "static/media/goals.png": "/ViziPlan/static/media/goals.6c0d15ec02858be71be4.png",
+    "static/media/notFound.jpg": "/ViziPlan/static/media/notFound.a5f8bbce62a855ece2e1.jpg",
+    "index.html": "/ViziPlan/index.html",
+    "main.37a95282.css.map": "/ViziPlan/static/css/main.37a95282.css.map",
+    "main.d11b7558.js.map": "/ViziPlan/static/js/main.d11b7558.js.map",
+    "787.d3befce1.chunk.js.map": "/ViziPlan/static/js/787.d3befce1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.37a95282.css",
+    "static/js/main.d11b7558.js"
+  ]
+}
