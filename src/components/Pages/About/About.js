@@ -36,11 +36,12 @@ const About = (props) => {
           help of a full architecture block diagram.
         </p>
         <div>
-          <img
-            style={{ width: "500px", height: "400px" }}
-            src={require("../../../assets/images/viziPlan.gif")}
-            alt="ViziPlaning"
-          ></img>
+          <iframe
+            title="ViziPlan Analytics"
+            width="420"
+            height="315"
+            src={"https://recordit.co/hlyA55kXTL"}
+          ></iframe>
         </div>
 
         <h5>Feature</h5>
