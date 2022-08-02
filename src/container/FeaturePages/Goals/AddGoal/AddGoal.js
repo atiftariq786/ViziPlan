@@ -132,10 +132,10 @@ const AddGoal = (props) => {
   }
 
   //Form Validation
-  let isGoalHeadingValid = /^[A-Z a-z]{3,50}$/.test(goalHeading);
+  let isGoalHeadingValid = /^[A-Z0-9a-z_-]{3,50}$/.test(goalHeading);
   let isGoalUrlValid = goalUrl.length >= 12;
   let isGoalDescription =
-    goalDescription.length >= 6 && goalDescription.length <= 250;
+    goalDescription.length >= 6 && goalDescription.length <= 650;
 
   let isGoalCategoryValid = goalCategory !== "" || goalCategory.length >= 2;
 

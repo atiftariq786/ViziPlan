@@ -179,7 +179,7 @@ const Goals = () => {
   let completedGoalTitle = (
     <div className={Styles.titlediv}>
       <p className={Styles.sectionOneTitle}>Completed Goals</p>
-      {completedGoalList.length && (
+      {completedGoalList.length !== 0 && (
         <p className={Styles.sectionOneTitleText}>
           Congratulations on your well-deserved success!
         </p>
@@ -206,7 +206,6 @@ const Goals = () => {
           </NavLink>
         </div>
       </div>
-
       <div className={Styles.sectionTwo}>{goalsList}</div>
     </div>
   );
