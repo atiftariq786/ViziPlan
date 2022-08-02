@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Route, Redirect, Switch, HashRouter } from "react-router-dom";
+import React, { useEffect, Fragment } from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { goalActions } from "../../store/goals-slice";
 import Layout from "../Layout/Layout";
@@ -34,7 +34,7 @@ function WrappedRoutes() {
     }
   }, []);
   return (
-    <HashRouter basename="/">
+    <Fragment>
       <Layout>
         <Switch>
           <Route exact path="/login">
@@ -71,7 +71,7 @@ function WrappedRoutes() {
           />
         </Switch>
       </Layout>
-    </HashRouter>
+    </Fragment>
   );
 }
 export default WrappedRoutes;
