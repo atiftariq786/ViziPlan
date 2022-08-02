@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import API from "../../services/utils/API";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/auth-slice";
@@ -13,6 +13,7 @@ import Styles from "./Login.module.css";
 
 const Login = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [userEmail, seteUserEmail] = useState("lulu@gmail.com");
   const [password, setPassword] = useState("password1");
   const [isValidLoginForm, setIsValidLoginForm] = useState(true);
@@ -56,7 +57,7 @@ const Login = (props) => {
                 loggedInUsername: userEmailId,
               })
             );
-            props.history.push("/visionboard");
+            history.push("/visionboard");
             setIsLoading(false);
           }
         })

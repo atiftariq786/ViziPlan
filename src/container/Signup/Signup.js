@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../store/auth-slice";
 import API from "../../services/utils/API";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,7 @@ import Button from "react-bootstrap/Button";
 
 const Signup = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -68,7 +69,7 @@ const Signup = (props) => {
           console.log(response, "SignUp response");
 
           if (response.data.success) {
-            props.history.push("/visionboard");
+            history.push("/visionboard");
             setIsLoading(false);
             dispatch(
               authActions.userLogin({
