@@ -14,8 +14,8 @@ import Styles from "./Login.module.css";
 const Login = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [userEmail, seteUserEmail] = useState("lulu@gmail.com");
-  const [password, setPassword] = useState("password1");
+  const [userEmail, seteUserEmail] = useState();
+  const [password, setPassword] = useState();
   const [isValidLoginForm, setIsValidLoginForm] = useState(true);
   const [loginError, setLoginError] = useState(false);
   const [modalShow, setModalShow] = useState(false);
