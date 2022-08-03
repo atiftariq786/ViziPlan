@@ -48,14 +48,12 @@ const About = (props) => {
             <h2 className={Styles.featureTitle}>Technical Architecture</h2>
             <ul className={Styles.listDesign}>
               <li>
-                In community updates users can see the other users goals.
+                In architecture diagram user can see the frontend and backend
+                technologies and how they work together.
                 {/* <button onClick={hideModalHandler}>View Diagram</button> */}
               </li>
 
-              <li>
-                Custom navigation bar built with a stylish UI to match
-                application design.
-              </li>
+              <li>In the frontend technolgies</li>
               <li>
                 In goals analytics feature users can see total goals, completed
                 and incompleted goals information in bar chart, goals category

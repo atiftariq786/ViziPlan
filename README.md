@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# ViziPlan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app is basically a fullStack project with a great UI in which users can create life goals with help of amazing vision board images and also share goals with other users. Users can also save, edit and delete goals. Users have permission to add new pictures in the vision board which help to create more focused goals. The purpose of this project is to improve learning skills and to show my abilities to recruiter industries. How I designed this project and which technologies I used in this project. It can be understood with the help of a full architecture block diagram.
 
-## Available Scripts
+## :robot:Technologies Used
 
-In the project directory, you can run:
+- **HTML5** and **CSS3** for page content and styling.
+- **React Bootstrap** as a CSS framework for styles and components.
+- **React.js** as a JavaScript library for making the main structure of the app's UI.
+- **Redux** is an open-source JavaScript library for managing and centralizing application state.
+- **Chart.js** is a free, open-source JavaScript library for data visualization.
+- **JavaScript** for the app's logic.
+- **Node.JS** for the app's server environment.
+- **Express.js** is a backend web application framework for Node.js.
+- **Sequelize ORM** Sequelize is a promise-based ORM for Node.js.
+- **Mysql** is an open-source RDMS.
+- **NPM** for installation of the packages required by the app.
+- **Heroku** website hosting plateform.
 
-### `npm start`
+## :tv:App Demo Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+\*\* Demo Link
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[App Demo]()
 
-### `npm test`
+## :camera:App Images
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+\*\* Landing Page
 
-### `npm run build`
+![alt text]( "Landing Page")
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+\*\* Dashboard
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![alt text] "Dashboard")
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :hammer_and_wrench: Deployment Instructions
 
-### `npm run eject`
+    Deployed version of the app can be found [here](https://github.com/atiftariq786/Bulletproof-Memory). To run this app on your machine, follow these instructions. Further options for running the app yourself can also be found in the ReadMe under the my-app section.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    1. Clone this repository down to your machine.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    2. You will need to have [Node.js](https://nodejs.org/en/) installed in order to continue.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    3. Enter `npm install` in your command line after navigating into the root directory, which will install the dependencies listed in the package.json.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    4. Enter `node server.js`, which will initiate the server on http://localhost:3000.
 
-## Learn More
+    5. Navigate to http://localhost:3000 in your browser, or ctrl-click the link that will be logged to your console. Enjoy!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## :gem: Author
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Atif Tariq  
+ :link:[Github](https://github.com/atiftariq786)
+:link:[Linkedin](https://www.linkedin.com/in/atif-tariq-5b00b089/)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+NOTE: Please **fork** me on github and **endorse** my skills on linkedin.
