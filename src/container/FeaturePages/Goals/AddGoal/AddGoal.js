@@ -235,7 +235,7 @@ const AddGoal = (props) => {
               <Form.Label className={Styles.formText}>Description</Form.Label>
               <Form.Control
                 as="textarea"
-                placeholder="Write goal description (min 250)"
+                placeholder="Write goal description (min 650)"
                 rows="3"
                 value={goalDescription}
                 onChange={goalDescriptionhandler}
