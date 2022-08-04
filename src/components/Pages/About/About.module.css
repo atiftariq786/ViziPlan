@@ -182,7 +182,7 @@
 }
 
 /*------------------------------------------------------------------*/
-@media screen and (max-width: 1700px) {
+/* @media screen and (max-width: 1700px) {
     .featureBox{
         display: block;
         height: 700px;
@@ -214,7 +214,7 @@
         right: 0;
         width: 100%;
     }
-}
+} */
 /*------------------------------------------------------------------*/
 .footerContent{
     margin-top: 30px !important;
