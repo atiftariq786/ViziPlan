@@ -3,11 +3,9 @@
     height: 100%;
     text-align: left;
     display: flex;  
-    /* background: #f3f8ff !important; */
     background: #f3f8ff !important;
-    padding: 140px;
+    padding: 100px 140px 140px 140px;
     flex-direction: column;
- 
 }
 .summaryDiv{
     width:100%;
@@ -39,7 +37,6 @@
     color:#1E3E6B;
     z-index:3!important;
     margin-top: 40px;
-    
 }
 /*=============================================================*/
 .MainFeatureDiv{
@@ -56,7 +53,6 @@
     margin: 0;
     font-family: sans-serif;
     font-size: 20px;
-  
   }
   .listDesign li{
     padding: 0 0 20px 50px;
@@ -75,13 +71,13 @@
     height: 18px;
     width: 18px;
     text-align: center;
-    line-height: 24px;
+    line-height: 26px;
     background: #1479ff;
   }
   .listDesign  li:before {
     position: absolute;
     left: 9px;
-    top: 0;
+    top: 10px;
     content: "";
     height: 100%;
     width: 0;
@@ -101,7 +97,6 @@
     margin-top: 30px;
     /* background: #fff; */
 }
-
 .boxRightSide{
     right: 0px;
     position: absolute;
@@ -109,7 +104,6 @@
     height: 100%;
     /* background-color: rgb(172, 169, 169) !important; */
 }
-
 .boxLeftSide{
     left: 0px;
     position: absolute;
@@ -117,7 +111,6 @@
     height: 100%;
     /* background-color: rgb(161, 159, 159) !important; */
 }
-
 .textBoxRightSide{
     width: 50%;
     height: 100%;
@@ -127,7 +120,6 @@
     padding-left: 30px;
     /* background: green; */
 }
-
 .textBoxLeftSide{
     width: 50%;
     height: 100%;
@@ -135,7 +127,6 @@
     position: absolute;
     /* background: pink; */
 }  
-
 .boxBg{
     width: 650px;
     height: 550px;
@@ -147,7 +138,6 @@
     z-index:1 !important; 
     margin-left: 20px;
 }
-
 .boxImg{
     height: 100%;
     padding: 20px;
@@ -158,7 +148,6 @@
     margin-top: 30px;
     margin-left: 20px;
 }
-
 .diagramImage{
     width: 600px !important;
     height: 450px !important;
@@ -169,11 +158,10 @@
 .diagramImage:hover{
     width: 620px !important;
     height: 470px !important;
-    border: 5px solid  #1479ff;
+    border: 3px solid  #1479ff;
     border-radius: 10px;
     cursor: pointer;
-    z-index: 3;
-    
+    z-index: 3; 
 }
 .imageStyle{
     width: 600px !important;
@@ -235,7 +223,7 @@
 }
 .gitLinkedin{
     width: 100%;
-    font-size: 18px;
+    font-size: 14px;
     margin:10px auto auto auto;
     justify-content: center;
     display: flex;
@@ -253,4 +241,20 @@
 }
 .linkedin:hover{
     color:orange;
+}
+.webDiv{
+    width: 100%;
+    height: 30px;
+    margin: auto;
+   
+    text-align: center !important;
+}
+.websiteLink{
+    font-size: 16px;
+    margin:10px auto auto auto;
+    text-align: center;
+    color: black;
+}
+.websiteLink:hover{
+    color: blue !important;
 }

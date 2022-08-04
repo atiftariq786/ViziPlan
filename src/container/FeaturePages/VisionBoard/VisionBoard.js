@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Styles from "../VisionBoard/VisionBoard.module.css";
 import ImagesList from "./ImagesList/ImagesList";
-import SelectedImageList from "./SelectedImageList";
+import SelectedImagesList from "../VisionBoard/SelectedImagesList/SelectedImagesList";
 import { useSelector } from "react-redux";
 import API from "../../../services/utils/API";
 
@@ -28,7 +28,7 @@ const VisionBoard = () => {
       </div>
 
       <div className={Styles.selectedImagesList}>
-        <SelectedImageList />
+        <SelectedImagesList />
       </div>
     </div>
   );

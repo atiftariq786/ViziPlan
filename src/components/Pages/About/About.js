@@ -50,15 +50,12 @@ const About = (props) => {
               <li>
                 In architecture diagram user can see the frontend and backend
                 technologies and how they work together.
-                {/* <button onClick={hideModalHandler}>View Diagram</button> */}
               </li>
-
               <li>
                 In the frontend technolgies I used react.js for making main
                 structure of app UI and redux.js for managing and centralizing
                 application state.
               </li>
-
               <li>
                 Chart.js is used for visualizing data for the three charts shown
                 in the dashboard.
@@ -87,9 +84,13 @@ const About = (props) => {
             <h2 className={Styles.featureTitle}>Create Your Visionboard</h2>
             <ul className={Styles.listDesign}>
               <li>
-                In visionboard users can see more than 50 random images and more
-                than 30 quotes images also have permission to add new custom
-                images and quotes.
+                In visionboard users can see more than <b>50 random images</b>{" "}
+                and more than <b>30 quotes images</b> also have permission to
+                add new custom images and quotes.
+              </li>
+              <li>
+                Select your favourite images and quotes images to create more
+                focused goals
               </li>
             </ul>
           </div>
@@ -109,7 +110,24 @@ const About = (props) => {
           <div className={Styles.textBoxLeftSide}>
             <h2 className={Styles.featureTitle}>Create Your Goals</h2>
             <ul className={Styles.listDesign}>
-              <li></li>
+              <li>Using your visionboard you can get more goals ideas.</li>
+              <li>
+                In create goals user can add heading, custom image address(url),
+                select goal category from <b>drop down list</b>, add goal
+                description.
+              </li>
+              <li>
+                User can share goals with other users using <b>private</b> and
+                <b> public</b> toggle switch option.
+              </li>
+              <li>
+                In the saved <b>goals list</b> users can update, delete and
+                complete the goals.
+              </li>
+              <li>
+                In the saved <b>completed goals list</b> users can only delete
+                the goals.
+              </li>
             </ul>
           </div>
 
@@ -129,7 +147,29 @@ const About = (props) => {
           <div className={Styles.textBoxRightSide}>
             <h2 className={Styles.featureTitle}>Dashboard</h2>
             <ul className={Styles.listDesign}>
-              <li></li>
+              <li>
+                <b>Custom navigation bar</b> built with a stylish UI to match
+                application design.
+              </li>
+              <li>
+                In <b>community updates</b> users can see the other users goals.
+              </li>
+              <li>
+                In <b>goals analytics</b> feature users can see total goals,
+                <b>completed</b>
+                and <b>incompleted</b> goals information in <b>bar chart</b>,
+                goals category by percentage in <b>pie chart</b> and goals
+                information by month for the current year in
+                <b>vertical bar chart.</b>
+              </li>
+              <li>
+                User can see <b>all user</b> completed and created goals by
+                month in Verticle bar chart
+              </li>
+              <li>
+                Create more goals and check your <b>recent goals history</b>{" "}
+                with date time.
+              </li>
             </ul>
           </div>
 
@@ -150,7 +190,12 @@ const About = (props) => {
         <div className={Styles.textBoxLeftSide}>
           <h2 className={Styles.featureTitle}>Secure Account</h2>
           <ul className={Styles.listDesign}>
-            <li></li>
+            <li>Form validation applied for login, signup and add goals.</li>
+            <li>Custom form built with a stylish input fields.</li>
+            <li>
+              Invalid input field shows error to guide user for valide input
+              requirements
+            </li>
           </ul>
         </div>
 
@@ -185,6 +230,11 @@ const About = (props) => {
             />
           </a>
         </div>
+      </div>
+      <div className={Styles.webDiv}>
+        <a className={Styles.websiteLink} href="https://atiftariq.net/">
+          www.atiftariq.net
+        </a>
       </div>
     </div>
   );

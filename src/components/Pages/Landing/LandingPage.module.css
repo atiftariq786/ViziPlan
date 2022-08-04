@@ -87,39 +87,42 @@
     text-align: center;
     color: #1b1b1b;
 }
-
 .welcomeText h1{
     font-size: 50px;
     font-weight: 500;
     margin-top:20px;
 }
-
 .footerDiv{
-    width: 35%;
+    width: 34%;
     height: 60px;
     background: white;    
     font-size: 14px;
     text-align: center;
     display: block;
-    bottom: 50px;
+    bottom: 60px;
     margin: auto;
     position: absolute;
 }
 .github{
-    margin-left: 15px;
+    margin-left: 0px;
     color:rgb(28, 26, 26);
 }
 .github:hover{
     color:orange;
     animation: pulse 1s infinite;
 }
-
 .linkedin{
     color:rgb(28, 26, 26);
-    margin-left: 15px;    
+    margin-left: 10px;    
 }
-
 .linkedin:hover{
     color:orange;
     animation: pulse 1s infinite;
+}
+.website{
+    font-size: 16px;
+    color: black;
+}
+.website:hover{
+    color: blue !important;
 }

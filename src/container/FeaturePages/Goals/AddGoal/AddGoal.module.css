@@ -46,14 +46,21 @@
     background:#fff;
     border-radius: 30px;
     padding: 40px 40px 40px 40px;
-    overflow:auto;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
  }
+ .sectionTwo_subContent::-webkit-scrollbar{
+    display: none;
+}
  .reports{
     width:95%;
     color:black;
     display:flex;  
     flex-flow: row wrap;
+   
 }
+
  .formText{   
    color:black;
    display: flex;

@@ -3,9 +3,9 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedImageActions } from "../../../../store/selectedImage-slice";
 import API from "../../../../services/utils/API";
-import Styles from "./style.module.css";
+import Styles from "./SelectedImagesList.module.css";
 
-const SelectedImageList = (props) => {
+const SelectedImagesList = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -120,4 +120,4 @@ const SelectedImageList = (props) => {
     </div>
   );
 };
-export default SelectedImageList;
+export default SelectedImagesList;

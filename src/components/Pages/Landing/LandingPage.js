@@ -49,8 +49,13 @@ const LandingPage = () => {
               size="2x"
             />
           </a>
+          <div>
+            <a className={Styles.website} href="https://atiftariq.net/">
+              www.atiftariq.net
+            </a>
+          </div>
 
-          <p style={{ marginTop: "10px" }}>@Copyright 2022 By Atif Tariq</p>
+          <p style={{ marginTop: "5px" }}>@Copyright 2022 By Atif Tariq</p>
         </div>
       </div>
     </div>
