@@ -3,7 +3,7 @@ axios.defaults.withCredentials = true;
 
 let herokuURL = "https://vizi-plan-server.herokuapp.com/";
 let localHost = "http://localhost:3001/";
-let hostURL = herokuURL;
+let hostURL = localHost; //herokuURL;
 
 const API = {
   getVisionBoardImages: (type) => {
@@ -54,7 +54,7 @@ const API = {
     return axios.put(`${hostURL}api/goals/updateGoal/${data.id}`, data);
   },
   allGoalsCreatedAnalytics: () => {
-    return axios.get(`${hostURL}api/goals/usersGoalsData`);
+    return axios.get(`${hostURL}api/usersGoalsData`);
   },
 };
 
