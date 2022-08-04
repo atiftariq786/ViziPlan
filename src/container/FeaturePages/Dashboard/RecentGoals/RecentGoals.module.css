@@ -24,6 +24,8 @@
     font-size: 30px !important;
     text-align: left;
     margin: 10px 0 10px 20px;
+   
+    
 }
 .dateTime{
     width:70px;
@@ -34,4 +36,5 @@
 }
 .goals{
     margin: 30px 0 0 0;
+    
 }

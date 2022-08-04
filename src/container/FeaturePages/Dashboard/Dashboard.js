@@ -94,6 +94,7 @@ const Dashboard = () => {
           <UserName />
         </div>
         <div className={Styles.reports}>{goalsAnalytics}</div>
+
         <div>{recentGoals}</div>
       </div>
     </div>

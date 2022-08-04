@@ -16,7 +16,7 @@
     height: 80%;
     padding: 10px;
     margin-top: 55px;
-    overflow:auto;
+    /* overflow:auto; */
     
  }
 .sectionTwo{
@@ -80,17 +80,23 @@
     display: flex;
 }
 .goalsSection{
-    margin-top: 40px;
-    background:#fff!important;
     width:100%;
     min-width:600px;
     height: 550px;
+    margin-top: 40px;
+    background:#fff!important;
     display: block;
     border-radius: 30px;
     color:black !important;
     padding-top: 10px;
     box-shadow: 0 4px 4px 0 #CADFFD, 0 6px 20px 0 #CADFFD;
-    overflow:auto;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+.goalsSection::-webkit-scrollbar{
+    display: none;
 }
 .continueBtn{
     background: #1479ff ;
