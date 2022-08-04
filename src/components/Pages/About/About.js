@@ -54,12 +54,7 @@ const About = (props) => {
               </li>
 
               <li>In the frontend technolgies</li>
-              <li>
-                In goals analytics feature users can see total goals, completed
-                and incompleted goals information in bar chart, goals category
-                by percentage in pie chart and goals information by month for
-                the current year in vertical bar chart.
-              </li>
+
               <li>
                 In visionboard users can see more than 50 random images and more
                 than 30 quotes images also have permission to add new custom

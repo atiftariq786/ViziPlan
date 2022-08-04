@@ -4,7 +4,7 @@
     text-align: left;
     display: flex;  
     /* background: #f3f8ff !important; */
-    background: #fff !important;
+    background: #f3f8ff !important;
     padding: 140px;
     flex-direction: column;
  
@@ -23,7 +23,7 @@
     text-align: center !important;
 }
 .summaryTitle{
-    font-size: 26px;
+    font-size: 24px;
     font-family: sans-serif ;
     font-weight: 600 !important;
     color:#1E3E6B;
@@ -33,7 +33,7 @@
     font-size: 20px;
 }
 .featureTitle{
-    font-size: 26px;
+    font-size: 24px;
     font-family: sans-serif ;
     font-weight: 600 !important;
     color:#1E3E6B;
@@ -49,7 +49,7 @@
 }
 .listDesign {
     min-width: 450px;
-    max-width: 950px;
+    max-width: 650px;
     margin: 0 auto;
     list-style-type: none;
     counter-reset: steps;
@@ -98,7 +98,7 @@
     width: 100%;
     height: 550px;
     margin-top: 30px;
-    /* background: rgb(179, 179, 179); */
+    /* background: #fff; */
 }
 
 .boxRightSide{
@@ -143,7 +143,7 @@
     transform: skewx(-18deg);
     position: absolute !important;
     z-index:1 !important; 
-    margin-left: 165px;
+    margin-left: 20px;
 }
 
 .boxImg{
@@ -154,18 +154,18 @@
     transform: skewx(0deg) !important;
     position: absolute !important;
     margin-top: 30px;
-    margin-left: 160px;
+    margin-left: 20px;
 }
 
 .diagramImage{
-    width: 700px !important;
+    width: 600px !important;
     height: 450px !important;
     border: 1px solid #1479ff;
     border-radius: 10px;
     z-index: 3;
 }
 .diagramImage:hover{
-    width: 720px !important;
+    width: 620px !important;
     height: 470px !important;
     border: 5px solid  #1479ff;
     border-radius: 10px;
@@ -174,7 +174,7 @@
     
 }
 .imageStyle{
-    width: 700px !important;
+    width: 600px !important;
     height: 450px !important;
     border: 1px solid gray;
     border-radius: 10px;
@@ -221,7 +221,7 @@
 }
 .backButton{
     width:15%;
-    font-size: 30px;
+    font-size: 22px;
     margin:20px auto auto auto;
     justify-content: center;
     display: flex;
@@ -234,7 +234,7 @@
 }
 .gitLinkedin{
     width: 100%;
-    font-size: 25px;
+    font-size: 18px;
     margin:10px auto auto auto;
     justify-content: center;
     display: flex;
