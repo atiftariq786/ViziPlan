@@ -54,7 +54,7 @@ const API = {
     return axios.put(`${hostURL}api/goals/updateGoal/${data.id}`, data);
   },
   allGoalsCreatedAnalytics: () => {
-    return axios.get(`${hostURL}api/goals/allGoalsCreated`);
+    return axios.get(`${hostURL}api/goals/usersGoalsData`);
   },
 };
 
