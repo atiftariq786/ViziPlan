@@ -3,7 +3,7 @@ axios.defaults.withCredentials = true;
 
 let herokuURL = "https://vizi-plan-server.herokuapp.com/";
 let localHost = "http://localhost:3001/";
-let hostURL = localHost; //herokuURL;
+let hostURL = herokuURL;
 
 const API = {
   getVisionBoardImages: (type) => {
