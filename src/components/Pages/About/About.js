@@ -53,12 +53,19 @@ const About = (props) => {
                 {/* <button onClick={hideModalHandler}>View Diagram</button> */}
               </li>
 
-              <li>In the frontend technolgies</li>
+              <li>
+                In the frontend technolgies I used react.js for making main
+                structure of app UI and redux.js for managing and centralizing
+                application state.
+              </li>
 
               <li>
-                In visionboard users can see more than 50 random images and more
-                than 30 quotes images also have permission to add new custom
-                images and quotes.
+                Chart.js is used for visualizing data for the three charts shown
+                in the dashboard.
+              </li>
+              <li>
+                Passport.js is used for user authentication and Mysql is used to
+                store user and app data.
               </li>
             </ul>
           </div>
@@ -79,18 +86,6 @@ const About = (props) => {
           <div className={Styles.textBoxRightSide}>
             <h2 className={Styles.featureTitle}>Create Your Visionboard</h2>
             <ul className={Styles.listDesign}>
-              <li>In community updates users can see the other users goals.</li>
-
-              <li>
-                Custom navigation bar built with a stylish UI to match
-                application design.
-              </li>
-              <li>
-                In goals analytics feature users can see total goals, completed
-                and incompleted goals information in bar chart, goals category
-                by percentage in pie chart and goals information by month for
-                the current year in vertical bar chart.
-              </li>
               <li>
                 In visionboard users can see more than 50 random images and more
                 than 30 quotes images also have permission to add new custom
@@ -109,7 +104,68 @@ const About = (props) => {
             </div>
           </div>
         </div>
+
+        <div className={Styles.featureBox}>
+          <div className={Styles.textBoxLeftSide}>
+            <h2 className={Styles.featureTitle}>Create Your Goals</h2>
+            <ul className={Styles.listDesign}>
+              <li></li>
+            </ul>
+          </div>
+
+          <div className={Styles.boxRightSide}>
+            <div className={Styles.boxBg}></div>
+            <div className={Styles.boxImg}>
+              <img
+                className={Styles.imageStyle}
+                src={require("../../../assets/images/addGoalsGif.gif")}
+                alt="ViziPlaning"
+              ></img>
+            </div>
+          </div>
+        </div>
+
+        <div className={Styles.featureBox}>
+          <div className={Styles.textBoxRightSide}>
+            <h2 className={Styles.featureTitle}>Dashboard</h2>
+            <ul className={Styles.listDesign}>
+              <li></li>
+            </ul>
+          </div>
+
+          <div className={Styles.boxLeftSide}>
+            <div className={Styles.boxBg}></div>
+            <div className={Styles.boxImg}>
+              <img
+                className={Styles.imageStyle}
+                src={require("../../../assets/images/dashboard.gif")}
+                alt="ViziPlaning"
+              ></img>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div className={Styles.featureBox}>
+        <div className={Styles.textBoxLeftSide}>
+          <h2 className={Styles.featureTitle}>Secure Account</h2>
+          <ul className={Styles.listDesign}>
+            <li></li>
+          </ul>
+        </div>
+
+        <div className={Styles.boxRightSide}>
+          <div className={Styles.boxBg}></div>
+          <div className={Styles.boxImg}>
+            <img
+              className={Styles.imageStyle}
+              src={require("../../../assets/images/loginSignup.gif")}
+              alt="ViziPlaning"
+            ></img>
+          </div>
+        </div>
+      </div>
+
       <div className={Styles.footerContent}>
         <TechDiagram showModal={showDiagram} hideModal={hideModalHandler} />
         {backBtn}
