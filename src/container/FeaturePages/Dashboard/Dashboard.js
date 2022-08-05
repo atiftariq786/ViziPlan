@@ -53,11 +53,11 @@ const Dashboard = () => {
         <CompleteChart />
       </div>
       <div className={Styles.rowChart}>
-        <AllMonthlyChart />
-      </div>
-      <div className={Styles.rowChart}>
         <CategoryChart />
         <MonthlyChart />
+      </div>
+      <div className={Styles.rowChart}>
+        <AllMonthlyChart />
       </div>
     </div>
   );
