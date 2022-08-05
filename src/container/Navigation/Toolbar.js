@@ -105,7 +105,7 @@ const Toolbar = (props) => {
               ></FontAwesomeIcon>
             </NavLink>
           </div>
-          {isDashboardHovering && <p className={Styles.iconText}>Deshboard</p>}
+          {isDashboardHovering && <p className={Styles.iconText}>Dashboard</p>}
         </div>
         <div className={Styles.iconArea}>
           <div

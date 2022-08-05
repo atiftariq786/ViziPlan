@@ -57,7 +57,7 @@ const Login = (props) => {
                 loggedInUsername: userEmailId,
               })
             );
-            history.push("/visionboard");
+            history.push("/dashboard");
             setIsLoading(false);
           }
         })

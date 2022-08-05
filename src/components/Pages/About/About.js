@@ -31,15 +31,18 @@ const About = (props) => {
         <h2 className={Styles.title}>About</h2>
         <h2 className={Styles.summaryTitle}>Summary</h2>
         <p className={Styles.summaryText}>
-          This app is basically a fullStack project with a great UI in which
-          users can create life goals with help of amazing vision board images
-          and also share goals with other users. Users can also save, edit and
-          delete goals. Users have permission to add new pictures in the vision
-          board which help to create more focused goals. The purpose of this
-          project is to improve learning skills and to show my abilities to
-          recruiter industries. How I designed this project and which
-          technologies I used in this project. It can be understood with the
-          help of a full architecture block diagram.
+          This <b>app is a Fullstack project</b> with a great UI through which
+          users can create an amazing vision board for their life, create life
+          goals, and also share goals with other users. Users can build their
+          vision board as like by adding new pictures to their vision board that
+          help to create more focused goals. In their dashboard users can assess
+          the progress they are making on completing their goals and view public
+          goals shared by other users.
+          <br />
+          <p></p>This project is for learning purposes and also to{" "}
+          <b>showcase my abilities to recruiters.</b> How I designed this
+          project and the technologies used in the architecture diagram shown
+          below.
         </p>
       </div>
       <div className={Styles.MainFeatureDiv}>
@@ -48,21 +51,27 @@ const About = (props) => {
             <h2 className={Styles.featureTitle}>Technical Architecture</h2>
             <ul className={Styles.listDesign}>
               <li>
-                In architecture diagram user can see the frontend and backend
-                technologies and how they work together.
+                The <b>architecture diagram</b> demonstrates the components used
+                to build the <b>Frontend</b> and <b>Backend</b> and how both
+                systems interact.
               </li>
               <li>
-                In the frontend technolgies I used react.js for making main
-                structure of app UI and redux.js for managing and centralizing
-                application state.
+                For the Frontend, <b>React</b> is used for creating main app UI
+                along with React-Bootstrap. <b>Redux</b> is used for managing
+                and centralizing application state.
               </li>
               <li>
-                Chart.js is used for visualizing data for the three charts shown
-                in the dashboard.
+                The Backend is built using
+                <b>
+                  {" "}
+                  Node.js, Express, Sequelize, Passport.js, MySQL, and SQL.
+                </b>
+                <b> Passport.js</b> is used for user authentication and MySQL is
+                used to store user and app data.
               </li>
               <li>
-                Passport.js is used for user authentication and Mysql is used to
-                store user and app data.
+                <b>Chart.js</b> is used for visualizing data for the three
+                charts shown in the dashboard.
               </li>
             </ul>
           </div>
@@ -81,16 +90,16 @@ const About = (props) => {
 
         <div className={Styles.featureBox}>
           <div className={Styles.textBoxRightSide}>
-            <h2 className={Styles.featureTitle}>Create Your Visionboard</h2>
+            <h2 className={Styles.featureTitle}>Create Your Vision board</h2>
             <ul className={Styles.listDesign}>
               <li>
-                In visionboard users can see more than <b>50 random images</b>{" "}
-                and more than <b>30 quotes images</b> also have permission to
-                add new custom images and quotes.
+                To create their vision board users are initially provided with{" "}
+                <b>50 high quality images</b> and more than <b>30 quotes.</b>{" "}
+                They can also add their own images and quotes.
               </li>
               <li>
-                Select your favourite images and quotes images to create more
-                focused goals
+                Users select their favorite images and quotes to create more
+                focused goals and a more focused life.
               </li>
             </ul>
           </div>
@@ -110,23 +119,22 @@ const About = (props) => {
           <div className={Styles.textBoxLeftSide}>
             <h2 className={Styles.featureTitle}>Create Your Goals</h2>
             <ul className={Styles.listDesign}>
-              <li>Using your visionboard you can get more goals ideas.</li>
+              <li>Using the vision board users can develop more goal ideas.</li>
               <li>
-                In create goals user can add heading, custom image address(url),
-                select goal category from <b>drop down list</b>, add goal
-                description.
+                Users can create goals with a heading, custom image
+                address(url), goal category, and add a goal description.
               </li>
               <li>
-                User can share goals with other users using <b>private</b> and
-                <b> public</b> toggle switch option.
+                User can share goals with other users using the <b>private</b>{" "}
+                and
+                <b> public</b> toggle.
               </li>
               <li>
-                In the saved <b>goals list</b> users can update, delete and
-                complete the goals.
+                Users can <b>update, delete</b> and <b>complete</b> existing
+                goals.
               </li>
               <li>
-                In the saved <b>completed goals list</b> users can only delete
-                the goals.
+                Users can <b>view</b> and <b>delete</b> completed goals.
               </li>
             </ul>
           </div>
@@ -148,27 +156,22 @@ const About = (props) => {
             <h2 className={Styles.featureTitle}>Dashboard</h2>
             <ul className={Styles.listDesign}>
               <li>
-                <b>Custom navigation bar</b> built with a stylish UI to match
-                application design.
+                This app includes a <b>custom navigation bar</b> built with a
+                stylish design to match the application needs.
               </li>
               <li>
-                In <b>community updates</b> users can see the other users goals.
+                <b>Community Updates</b> shows users goals shared by other
+                users.
               </li>
               <li>
-                In <b>goals analytics</b> feature users can see total goals,
-                <b>completed</b>
-                and <b>incompleted</b> goals information in <b>bar chart</b>,
-                goals category by percentage in <b>pie chart</b> and goals
-                information by month for the current year in
-                <b>vertical bar chart.</b>
+                Users are provided with <b>goals analytics</b> so they can see
+                total goals, compare completed and incomplete goals, view goals
+                by category, and see a goals breakdown by month for themselves
+                and all users.
               </li>
               <li>
-                User can see <b>all user</b> completed and created goals by
-                month in Verticle bar chart
-              </li>
-              <li>
-                Create more goals and check your <b>recent goals history</b>{" "}
-                with date time.
+                Through the dashboard users can create more goals and check
+                their <b>recent goals</b> history.
               </li>
             </ul>
           </div>
@@ -190,11 +193,14 @@ const About = (props) => {
         <div className={Styles.textBoxLeftSide}>
           <h2 className={Styles.featureTitle}>Secure Account</h2>
           <ul className={Styles.listDesign}>
-            <li>Form validation applied for login, signup and add goals.</li>
-            <li>Custom form built with a stylish input fields.</li>
+            <li>Users create a secure account with a username and password.</li>
             <li>
-              Invalid input field shows error to guide user for valide input
-              requirements
+              The login and signup forms are <b>custom built</b> with stylish
+              input fields.
+            </li>
+            <li>
+              <b>Form validation</b> is applied for login, signup and add goals
+              to prevent bad user input and guide the user.
             </li>
           </ul>
         </div>

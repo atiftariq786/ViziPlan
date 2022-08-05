@@ -38,10 +38,10 @@ function WrappedRoutes() {
       <Layout>
         <Switch>
           <Route exact path="/login">
-            {loggedInStatus ? <Redirect to="/visionboard" /> : <Login />}
+            {loggedInStatus ? <Redirect to="/dashboard" /> : <Login />}
           </Route>
           <Route path="/signup">
-            {loggedInStatus ? <Redirect to="/dashboard" /> : <Signup />}
+            {loggedInStatus ? <Redirect to="/visionboard" /> : <Signup />}
           </Route>
           <Route path="/about" component={About} />
           {/*========================== Restricted routes ===============================*/}
