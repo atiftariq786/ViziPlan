@@ -27,11 +27,11 @@ This app is basically a fullStack project with a great UI in which users can cre
 
 \*\* Landing Page
 
-![alt text]( "Landing Page")
+![alt text](https://github.com/atiftariq786/ViziPlan/blob/main/src/assets/images/rd.png?raw=true "Landing Page")
 
 \*\* Dashboard
 
-![alt text] "Dashboard")
+![alt text](https://github.com/atiftariq786/ViziPlan/blob/main/src/assets/images/rd2.png?raw=true" Dashboard")
 
 ## :hammer_and_wrench: Deployment Instructions
 
