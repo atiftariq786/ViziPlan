@@ -8,7 +8,7 @@ This app is basically a fullStack project with a great UI in which users can cre
 - **React Bootstrap** as a CSS framework for styles and components.
 - **React.js** as a JavaScript library for making the main structure of the app's UI.
 - **Redux** is an open-source JavaScript library for managing and centralizing application state.
-- **Chart.js** is a free, open-source JavaScript library for data visualization.
+- **Recharts** is a free, open-source JavaScript library for data visualization.
 - **JavaScript** for the app's logic.
 - **Node.JS** for the app's server environment.
 - **Express.js** is a backend web application framework for Node.js.
