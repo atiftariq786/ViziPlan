@@ -70,7 +70,7 @@ const About = (props) => {
                 used to store user and app data.
               </li>
               <li>
-                <b>Chart.js</b> is used for visualizing data for the three
+                <b>Recharts</b> is used for visualizing data for the three
                 charts shown in the dashboard.
               </li>
             </ul>
