@@ -1,9 +1,8 @@
 import axios from 'axios'
 axios.defaults.withCredentials = true
 
-let herokuURL = 'https://viziplan-server.onrender.com/'
 let localHost = 'http://localhost:3001/'
-let hostURL = herokuURL
+let hostURL = 'https://viziplan-server.onrender.com/'
 
 const API = {
   getVisionBoardImages: (type) => {

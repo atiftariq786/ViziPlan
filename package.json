@@ -1,6 +1,6 @@
 {
   "name": "myapp",
-  "homepage": "https://vizi-plan-fe.herokuapp.com/",
+  "homepage": "https://viziplan-fe.web.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

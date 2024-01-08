@@ -15,7 +15,7 @@ This app is basically a fullStack project with a great UI in which users can cre
 - **Sequelize ORM** Sequelize is a promise-based ORM for Node.js.
 - **Mysql** is an open-source RDMS.
 - **NPM** for installation of the packages required by the app.
-- **Heroku** website hosting plateform.
+- **Firebase** website hosting plateform.
 
 ## :tv:App Demo Link
 
@@ -49,7 +49,7 @@ This app is basically a fullStack project with a great UI in which users can cre
 
 ## :gem: Author
 
-Atif Tariq  
+Atif Tariq
  :link:[Github](https://github.com/atiftariq786)
 :link:[Linkedin](https://www.linkedin.com/in/atif-tariq-5b00b089/)
 
